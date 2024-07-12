@@ -37,6 +37,16 @@ public class SubjectOverviewController extends HttpServlet {
 
         String service = request.getParameter("service");
 
+        if (service != null && service.equals("changeMark")) {
+
+            DAOSubject dao = new DAOSubject();
+            if (dao.toggleMarked(Integer.parseInt(request.getParameter("subjectId")), !(boolean) session.getAttribute("marked"))) {
+                if ((boolean) session.getAttribute("marked")) session.setAttribute("notification", "Subject unmarked succesfully");
+                else session.setAttribute("notification", "Subject marked succesfully");
+            }
+
+        }
+
         DAOUser daoUser = new DAOUser();
         DAOSubject daoSubject = new DAOSubject();
 
@@ -77,9 +87,11 @@ public class SubjectOverviewController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("subjectId"));
         Subject displaySubject = daoSubject.getSubjectById(id);
 
+        session.setAttribute("marked", daoSubject.checkIdMarked(id));
+
         if (userRole == 2) {
             request.setAttribute("role", "admin");
-        } else if (userRole == 2) {
+        } else if (userRole == 4) {
             request.setAttribute("role", "owner");
         }
         request.setAttribute("subjectId", id);
@@ -159,7 +171,7 @@ public class SubjectOverviewController extends HttpServlet {
             }
             System.out.println("Ye" + new Subject(0, subjectTitle, subjectTagline, subjectBrief, subjectDescription, thumbnailUrl, subjectCategory) + expertEmail);
             if (owner == null || owner.getRoleId() == 4) {
-                if (daoSubject.updateSubjectOverview(new Subject(subjectId, subjectTitle, subjectTagline, subjectBrief, subjectDescription, thumbnailUrl, subjectCategory, featured, subjectStatus, (owner == null)? -1: owner.getUserId())) == 1) {
+                if (daoSubject.updateSubjectOverview(new Subject(subjectId, subjectTitle, subjectTagline, subjectBrief, subjectDescription, thumbnailUrl, subjectCategory, featured, subjectStatus, (owner == null) ? -1 : owner.getUserId())) == 1) {
                     session.setAttribute("notification", "<p>Subject created succefully!</p>");
                     session.setAttribute("notification", "Subject updated succefully!");
                     System.out.println("Updated succsessfully");

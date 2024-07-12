@@ -29,6 +29,32 @@
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
                 gap: 10px;
             }
+
+            .featured-subject {
+                & .card {
+                    width: 300px;
+                    min-width: 300px !important;
+                    margin: 10px 10px;
+                    transition-duration: 0.5s;
+
+                    & img {
+                        height: 200px;
+                        object-fit: cover;
+                    }
+                }
+
+                & .card:hover {
+                    transform: scale(1.05);
+                }
+
+                margin: 30px 0;
+                padding: 30px;
+                background-color: #F4F2EE;
+                border-radius: 10px;
+            }
+            .featured-subject-btn-filler {
+                height: 38px;
+            }
         </style>
     </head>
     <body>
@@ -37,6 +63,24 @@
             <%@include file="/admin/common/admin-sidebar.jsp" %>
             <main class="admin-main">
                 <div class="container">
+                    <c:if test="${not empty markedSubjects}">
+                        <div class="featured-subject">
+                            <h2>Marked for publication</h2>
+
+                            <div class="d-flex flex-row flex-nowrap overflow-auto">
+                                <c:forEach var="subject" items="${markedSubjects}">
+                                    <div class="card">
+                                        <img class="card-img-top" src="public/thumbnails/${subject.getThumbnail()}" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${subject.getSubjectName()}</h5>
+                                            <div class="featured-subject-btn-filler"></div>
+                                            <a href="/QuizPractice/admin/subjectdetail/overview?subjectId=${subject.getSubjectId()}" class="btn btn-primary position-absolute" style="bottom: 16px">View</a>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </c:if>
                     <div class="row mt-4">
                         <h2 class="col">
                             <i class="bi bi-list-ul"></i>
@@ -76,7 +120,7 @@
                                     <img src="public/thumbnails/${subject.getThumbnail()}" alt="Subject Image">
                                     <h2 class="mt-2">${subject.getSubjectName()}</h2>
                                     <div class="text-end">
-                                        <a href="admin/subjectdetail/pricepackage?subjectId=${subject.getSubjectId()}" class="btn">
+                                        <a href="admin/subjectdetail/overview?subjectId=${subject.getSubjectId()}" class="btn">
                                             Go to course <i class="bi bi-arrow-right-circle ms-1"></i>
                                         </a>
                                     </div>

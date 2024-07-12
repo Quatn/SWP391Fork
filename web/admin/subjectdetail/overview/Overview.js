@@ -117,9 +117,11 @@ let validBrief = true;
 const briefDefault = "A short paragraph (<300 characters) that describes this subject.";
 const briefWarningTxt = "Please don't exceed 300 characters for brief info!";
 
+let submitting = false;
 let changed = false;
 window.addEventListener('beforeunload', function (e) {
-    if (changed) {
+    if (changed && !submitting) {
+		submitting = false;
         e.preventDefault();
         e.returnValue = '';
     }
@@ -322,3 +324,16 @@ function filterExpert() {
     else result.innerHTML = "";
 }
 filterExpert();
+
+function toggleMarked(id) {
+    fetch("admin/subjectdetail/overview?service=changeMark&id=" + id)
+            .then((res) => res.text())
+            .then((text) => {
+                if (text) {
+                    if (text === "true")
+                        alert("Success");
+                } else {
+                    alert("An error has occured!");
+                }
+            });
+}
