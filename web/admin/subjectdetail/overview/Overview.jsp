@@ -15,6 +15,13 @@
             <%@include file="/admin/common/admin-header.jsp" %>
             <%@include file="/admin/common/subject-sidebar.jsp" %>
             <main class="admin-main">
+                <c:if test="${marked}">
+                    <div class="my-4 card container bg-info">
+                        <div class="card-body">
+                            <h4 class="text-light"><i class="bi bi-flag"></i> This subject is currently marked for publication</h4>
+                        </div>
+                    </div>
+                </c:if>
                 <div class="container">
                     <h2 class="my-4">
                         <i class="bi bi-clipboard-check-fill"></i>
@@ -26,7 +33,7 @@
                                 class="nav-link active"
                                 href="admin/subjectdetail/overview?subjectId=${param.subjectId}"
                                 >Overview</a>
-                                <i id="change-indicator" class="bi bi-diamond-fill"></i>
+                            <i id="change-indicator" class="bi bi-diamond-fill"></i>
                         </li>
                         <li class="nav-item">
                             <a
@@ -43,7 +50,7 @@
                     </ul>
                 </div>
 
-                <form class="container mt-3" method="POST" id='new-subject-form' action="admin/subjectdetail/overview" onkeydown="return event.key != 'Enter';" enctype="multipart/form-data" onreset="formReset()">
+                <form class="container mt-3" method="POST" id='new-subject-form' action="admin/subjectdetail/overview" onkeydown="return event.key != 'Enter';" enctype="multipart/form-data" onsubmit="submitting = true;" onreset="formReset()">
                     <div class="row">
                         <div class="row">
                             <div class="col-8">
@@ -76,7 +83,8 @@
                                             <div class="col-md-1 col-sm-0">
                                             </div>
                                             <div class="col-md-9 p-0">
-                                                <select class="form-control" id="subject-status" name="subjectStatus" onchange="handleStatusChange()">
+                                            <c:if test="${role eq 'owner'}"><input type="hidden" name="subjsubjectStatus" value="${subjectStatus}"></c:if>
+                                                <select class="form-control" id="subject-status" name="subjectStatus" onchange="handleStatusChange()" <c:if test="${role eq 'owner'}">disabled</c:if>>
                                                     <!--Temporary-->
                                                     <option value="0" <c:if test="${subjectStatus eq 0}">selected</c:if>>Unpublished</option>
                                                 <option value="1" <c:if test="${subjectStatus eq 1}">selected</c:if>>Published</option>
@@ -145,15 +153,31 @@
                     </div>
 
                     <div class="row mt-3">
-                        <div class="col-6">
+                        <div class="col-lg-6 col-12-md">
                             <input id="submitButton" class="btn btn-primary disabled" type="submit" value="Save">
                             <input id="clearButton" class="btn btn-secondary" type="reset" value="Reset">
-                        </div>
-                    </div>
 
-                    <input id='hiddenEmail' type="hidden" name="expertEmail">
-                    <input type="hidden" name="subjectId" value="${subjectId}">
+                        </div>
+                        <div class="col-lg-4 col-12-md">
+                            <div class="form-check form-switch float-end">
+                                <c:if test="${marked}"><a href='admin/subjectdetail/overview?service=changeMark&subjectId=${subjectId}'><input id="markbtn" class="btn btn-danger" type="button" value="Unmark this subject"></a></c:if>
+                                <c:if test="${!marked}"><a href='admin/subjectdetail/overview?service=changeMark&subjectId=${subjectId}'><input id="markbtn" class="btn btn-primary" type="button" value="Mark this subject"></a></c:if>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <input id='hiddenEmail' type="hidden" name="expertEmail">
+                        <input type="hidden" name="subjectId" value="${subjectId}">
                     <input type="hidden" name="service" value="edit">
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+                    <c:if test="${not empty notification}">
+                        <script>
+                                                    $(document).ready(function () {
+                                                        $(".notify").modal('show');
+                                                    });
+                        </script>
+                    </c:if>
                 </form>
             </main>
         </div>
@@ -191,7 +215,23 @@
 
                     </div>
                 </div>
-                <script src="admin/subjectdetail/overview/Overview.js" expertList='${expertList}' currentImg='${thumbnailUrl}' currentOwner="${ownerEmail}"></script>
+                <script src="admin/subjectdetail/overview/Overview.js" expertList='${expertList}' currentImg='${thumbnailUrl}' currentOwner="${ownerEmail}" initState='${marked}'></script>
+            </div>
+        </div>
+    </div>
+</div>
+            
+            
+<div class="modal fade notify" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                ${notification}
+                <c:set var="notification" scope="session" value="" />
             </div>
         </div>
     </div>

@@ -741,6 +741,66 @@ public class DAOSubject extends DBContext {
         }
         return Out;
     }
+    
+    public List<Subject> getMarkedSubjects(int ammoutOfSubjects) {
+        List<Subject> Out = new ArrayList<>();
+        String sql = "SELECT TOP (?) s.SubjectId, s.SubjectTitle, s.SubjectTagLine, s.SubjectThumbnail FROM Subject s WHERE s.MarkedForPublication = 1";
+
+        PreparedStatement pre;
+        try {
+            pre = connection.prepareStatement(sql);
+            pre.setInt(1, ammoutOfSubjects);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                //Couldn't overload a contructor for this specific purpose lol
+                Subject a = new Subject();
+                a.setSubjectId(rs.getInt(1));
+                a.setSubjectName(rs.getString(2));
+                a.setTagLine(rs.getString(3));
+                a.setThumbnail(rs.getString(4));
+                Out.add(a);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return Out;
+    }
+    
+    public boolean checkIdMarked(int id) {
+        String sql = "select MarkedForPublication from Subject where SubjectId = ?";
+
+        PreparedStatement pre;
+        try {
+            pre = connection.prepareStatement(sql);
+            pre.setInt(1, id);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                //Couldn't overload a contructor for this specific purpose lol
+
+                return rs.getBoolean(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean toggleMarked(int id, boolean changeTo) {
+        String sql = "update subject set MarkedForPublication = ? where subjectid = ?";
+        
+        System.out.println("set id " + id + " to " + changeTo);
+
+        PreparedStatement pre;
+        try {
+            pre = connection.prepareStatement(sql);
+            pre.setBoolean(1, changeTo);
+            pre.setInt(2, id);
+            return pre.executeUpdate() == 1;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 
     public boolean updateSubject(Subject subject) {
         boolean isUpdated = false;

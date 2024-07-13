@@ -15,6 +15,13 @@
             <%@include file="/admin/common/admin-header.jsp" %>
             <%@include file="/admin/common/subject-sidebar.jsp" %>
             <main class="admin-main">
+                <c:if test="${marked}">
+                    <div class="my-4 card container bg-info">
+                        <div class="card-body">
+                            <h4 class="text-light"><i class="bi bi-flag"></i> This subject is currently marked for publication</h4>
+                        </div>
+                    </div>
+                </c:if>
                 <div class="container">
                     <h2 class="my-4">
                         <i class="bi bi-clipboard-check-fill"></i>
@@ -25,22 +32,22 @@
                             <a
                                 class="nav-link"
                                 href="admin/subjectdetail/overview?subjectId=${param.subjectId}"
-                            >Overview</a>
+                                >Overview</a>
                         </li>
                         <li class="nav-item">
                             <a
                                 class="nav-link"
                                 href="DimensionServlet?subjectId=${param.subjectId}"
-                            >Dimension</a>
+                                >Dimension</a>
                         </li>
                         <li class="nav-item">
                             <a
                                 class="nav-link active"
                                 href="admin/subjectdetail/pricepackage?subjectId=${param.subjectId}"
-                            >Price Package</a>
+                                >Price Package</a>
                         </li>
                     </ul>
-                            
+
                     <div class="my-4 card">
                         <div class="card-body">
                             <div class="d-flex gap-2">
