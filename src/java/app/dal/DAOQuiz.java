@@ -312,8 +312,10 @@ public class DAOQuiz extends DBContext {
 
     public int addQuiz(QuizInformation quiz) {
         String sql = "INSERT INTO [dbo].[Quiz] "
-                + "([SubjectId], [QuizName], [Level], [DurationInMinutes], [PassRate], [QuizType], [IsPublished], [UpdatedTime], [Description], [TotalQuestion]) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "([SubjectId], [QuizName], [Level], [DurationInMinutes], "
+                + "[PassRate], [QuizType], [IsPublished], [UpdatedTime], "
+                + "[numberOfAttempts], [Description], [TotalQuestion]) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setInt(1, quiz.getSubjectId());
             stmt.setString(2, quiz.getQuizName());
@@ -323,8 +325,9 @@ public class DAOQuiz extends DBContext {
             stmt.setInt(6, quiz.getType().toInt());
             stmt.setInt(7, 1);
             stmt.setDate(8, Date.valueOf(LocalDate.now()));
-            stmt.setString(9, quiz.getDescription());
-            stmt.setInt(10, quiz.getTotalQuestion());
+            stmt.setInt(9, 0);
+            stmt.setString(10, quiz.getDescription());
+            stmt.setInt(11, quiz.getTotalQuestion());
             int affectedRows = stmt.executeUpdate();
             if (affectedRows > 0) {
                 try (ResultSet rs = stmt.getGeneratedKeys()) {
