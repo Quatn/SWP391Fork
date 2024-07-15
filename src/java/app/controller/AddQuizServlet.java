@@ -74,11 +74,6 @@ public class AddQuizServlet extends HttpServlet {
         String description = request.getParameter("description");
         String totalQuestionsStr = request.getParameter("totalQuestions");
         String[] lessonIds = request.getParameterValues("lessonId");
-        if (lessonIds == null) {
-            session.setAttribute("errorLesson", "Please select the question component in the quiz!");
-            response.sendRedirect("addQuiz.jsp");
-            return;
-        }
         String[] questionCounts = request.getParameterValues("numberQuestion");
 
         // Add these attributes to keep the input data
@@ -93,6 +88,12 @@ public class AddQuizServlet extends HttpServlet {
         request.setAttribute("lessonIds", lessonIds);
         request.setAttribute("questionCounts", questionCounts);
 
+        if (lessonIds == null) {
+            session.setAttribute("errorLesson", "Please select the question component in the quiz!");
+            doGet(request, response);
+            return;
+        }
+        
         List<QuizLesson> lessonQuestions = new ArrayList<>();
         for (int i = 0; i < lessonIds.length; i++) {
             lessonQuestions.add(new QuizLesson(-1, Integer.parseInt(lessonIds[i]), Integer.parseInt(questionCounts[i])));
@@ -196,10 +197,10 @@ public class AddQuizServlet extends HttpServlet {
                 int lessonId = Integer.parseInt(lessonIds[i].trim());
                 int questionCount = Integer.parseInt(questionCounts[i].trim());
 
-                List<Question> questionByLesson = quizDAO.getQuestionsByLessonId(lessonId);
+                List<Question> randomQuestion = quizDAO.getQuestionBySubjectAndLesson(lessonId, subjectId);
 
-                if (questionByLesson.size() < questionCount) {
-                    request.setAttribute("errorMessage", "Not enough questions in lesson ID: " + lessonId);
+                if (randomQuestion.size() < questionCount) {
+                    session.setAttribute("errorEnough", "Not enough questions in lesson ID: " + lessonId);
                     doGet(request, response);
                     return;
                 }
@@ -207,7 +208,7 @@ public class AddQuizServlet extends HttpServlet {
                 List<Question> selectedQuestions = new ArrayList<>();
                 Random rand = new Random();
                 while (selectedQuestions.size() < questionCount) {
-                    Question question = questionByLesson.get(rand.nextInt(questionByLesson.size()));
+                    Question question = randomQuestion.get(rand.nextInt(randomQuestion.size()));
                     if (!selectedQuestions.contains(question)) {
                         selectedQuestions.add(question);
                     }

@@ -361,7 +361,10 @@ public class DAOQuiz extends DBContext {
     }
 
     public void addQuestionToQuiz(int quizId, int questionId) {
-        String query = "INSERT INTO QuizQuesion (QuizId, QuestionId) VALUES (?, ?)";
+        String query = "INSERT INTO [dbo].[QuizQuestion]\n" +
+                        "           ([QuizId]\n" +
+                        "           ,[QuestionId])\n" +
+                        "     VALUES (?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, quizId);
             stmt.setInt(2, questionId);
@@ -383,11 +386,12 @@ public class DAOQuiz extends DBContext {
         }
     }
 
-    public List<Question> getQuestionsByLessonId(int lessonId) {
+    public List<Question> getQuestionBySubjectAndLesson(int lessonId, int subjectId) {
         List<Question> questions = new ArrayList<>();
-        String query = "SELECT * FROM Question WHERE LessonID = ?";
+        String query = "SELECT * FROM Question WHERE LessonID = ? and SubjectID = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, lessonId);
+            stmt.setInt(2, subjectId);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Question question = new Question();
