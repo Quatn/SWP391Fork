@@ -286,15 +286,8 @@ public class DAOQuiz extends DBContext {
 
     public static void main(String[] args) throws SQLException {
         DAOQuiz qq = new DAOQuiz();
-
-        ResultSet rs = new QueryBuilder("select QuizId from [Quiz]")
-                .toPreparedStatement(qq.connection)
-                .executeQuery();
-
-        while (rs.next()) {
-            int id = rs.getInt(1);
-            qq.randomizeForQuiz(id, 50);
-        }
+        boolean n = qq.isQuizAttempted(35);
+        System.out.println(n);
     }
 
     public List<QuizLesson> getGroupQuestionByLesson(int quizId) {
@@ -365,7 +358,7 @@ public class DAOQuiz extends DBContext {
     }
 
     public void addQuestionToQuiz(int quizId, int questionId) {
-        String query = "INSERT INTO QuestionQuiz (QuizId, QuestionId) VALUES (?, ?)";
+        String query = "INSERT INTO QuizQuesion (QuizId, QuestionId) VALUES (?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, quizId);
             stmt.setInt(2, questionId);
@@ -425,7 +418,8 @@ public class DAOQuiz extends DBContext {
 
     public boolean deleteQuiz(int quizId) throws SQLException {
         String deleteQuizSQL = "DELETE FROM Quiz WHERE QuizId = ?";
-        String deleteQuestionsSQL = "DELETE FROM QuestionQuiz WHERE QuizId = ?";
+        String deleteQuestionsSQL = "DELETE FROM [dbo].[QuizQuestion]\n" +
+                                "      WHERE QuizId = ?";
         String deleteLessonQuestionsSQL = "DELETE FROM QuizLessonQuestionCount WHERE QuizId = ?";
 
         try (PreparedStatement deleteQuizStmt = connection.prepareStatement(deleteQuizSQL);
@@ -435,7 +429,7 @@ public class DAOQuiz extends DBContext {
             // Begin transaction
             connection.setAutoCommit(false);
 
-            // Delete from QuestionQuiz
+            // Delete from QuizQuesion
             deleteQuestionsStmt.setInt(1, quizId);
             deleteQuestionsStmt.executeUpdate();
 

@@ -356,7 +356,7 @@ public class QuestionDAO extends DBContext {
     }
 
     public boolean isQuestionInQuiz(int questionId) {
-        String sql = "select * from QuestionQuiz \n"
+        String sql = "select * from QuizQuestion \n"
                 + "where QuestionId = ?";
         boolean isHas = false;
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
