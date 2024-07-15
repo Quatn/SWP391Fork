@@ -79,6 +79,13 @@
                     session.removeAttribute("errorLesson");
                 %>
             }
+            var errorEnough = '<c:out value="${sessionScope.errorEnough}"/>';
+            if (errorEnough) {
+                alert(errorEnough);
+                <%
+                    session.removeAttribute("errorEnough");
+                %>
+            }
         };
     </script>
 </head>

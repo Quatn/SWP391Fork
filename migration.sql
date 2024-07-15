@@ -348,7 +348,7 @@ CREATE TABLE [dbo].[Quiz] (
 	[QuizType] char(10) check([QuizType] in (0, 1)) default(0), --simulation, lesson-quiz
 	[IsPublished] bit,
 	[UpdatedTime] [datetime] default(CURRENT_TIMESTAMP),
-	[numberOfAttempts] int,
+	[numberOfAttempts] [int] NULL,
 	[Description] [nvarchar](max),
 	[TotalQuestion] int
 )
