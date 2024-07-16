@@ -119,7 +119,6 @@ public class DAOQuiz extends DBContext {
             }
 
             PreparedStatement stmt = new QueryBuilder("select top (?) QuestionID from [Question]")
-                    .whereAnd("SubjectId", Operator.EQUALS, quiz.getSubjectId())
                     .whereAnd("Status", Operator.EQUALS, 1)
                     .randomize()
                     .toPreparedStatement(connection);
