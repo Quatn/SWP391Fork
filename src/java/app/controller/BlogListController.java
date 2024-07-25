@@ -1,17 +1,20 @@
 package app.controller;
 
+import app.entity.BlogCategory;
 import app.dal.DAOBlog;
 import app.dal.DAOBlogCategory;
 import app.dal.QueryResult;
 import app.utils.Config;
 import app.utils.Parsers;
 import java.io.IOException;
+import java.util.List;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @WebServlet(name="BlogListController", urlPatterns={"/blogs/list"})
 public class BlogListController extends HttpServlet {
@@ -25,24 +28,10 @@ public class BlogListController extends HttpServlet {
         int categoryId = Parsers.parseIntOrDefault(request.getParameter("categoryId"), -1);
         String query = request.getParameter("q");
         
-        LocalDate startDate = Parsers.parseDateOrDefault(
-            request.getParameter("startDate"),
-            "yyyy-MM-dd",
-            null
-        );
-        
-        LocalDate endDate = Parsers.parseDateOrDefault(
-            request.getParameter("endDate"),
-            "yyyy-MM-dd",
-            null
-        );
-        
         DAOBlog daoBlog = new DAOBlog();
         QueryResult queryResult = daoBlog.searchBlogListingsPaginated(
                 query,
                 categoryId,
-                startDate,
-                endDate,
                 page,
                 pageSize
         );
@@ -51,7 +40,20 @@ public class BlogListController extends HttpServlet {
         request.setAttribute("blogs", queryResult.getResults());
         
         DAOBlogCategory daoBlogCategory = new DAOBlogCategory();
-        request.setAttribute("categories", daoBlogCategory.getAllCategories());
+        List<BlogCategory> categories = daoBlogCategory.getAllCategories();
+        request.setAttribute("categories", categories);
+
+        QueryResult latestPosts = daoBlog.getRecentBlogs(4);
+        request.setAttribute("recents", latestPosts.getResults());
+
+        if (categoryId != -1) {
+            Optional<BlogCategory> matchingCategory = categories
+                       .stream().filter((BlogCategory cate) -> cate.getCategoryId() == categoryId).findFirst();
+
+            if (matchingCategory.isPresent()) {
+                request.setAttribute("blogCategory", matchingCategory.get());
+            }
+        }
         
         daoBlog.close();
         daoBlogCategory.close();

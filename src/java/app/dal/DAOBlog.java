@@ -74,11 +74,11 @@ public class DAOBlog extends DBContext {
     }
 
     public QueryResult getByCategory(int categoryId, int limit) {
-        return searchBlogListingsPaginated(null, categoryId, null, null, 1, limit);
+        return searchBlogListingsPaginated(null, categoryId, 1, limit);
     }
 
     public QueryResult getRecentBlogs(int limit) {
-        return searchBlogListingsPaginated(null, -1, null, null, 1, limit);
+        return searchBlogListingsPaginated(null, -1, 1, limit);
     }
 
     /**
@@ -88,15 +88,12 @@ public class DAOBlog extends DBContext {
      * @param query - Blog title keyword to search
      * @param categoryId - Finds all blogs that is in this category, -1 for all
      * categories
-     * @param startDate - Start of updated time range
-     * @param endDate - End of updated time range
      * @param page - Page number starts at one
      * @param pageSize - Page size at least one
      * @return
      */
     public QueryResult searchBlogListingsPaginated(
             String query, int categoryId,
-            LocalDate startDate, LocalDate endDate,
             int page, int pageSize
     ) {
         try {
@@ -109,15 +106,6 @@ public class DAOBlog extends DBContext {
 
             if (query != null && !query.isBlank()) {
                 searchQuery.whereAnd("b.BlogTitle", Operator.LIKE, "%" + query + "%");
-            }
-
-            if (startDate != null && endDate != null) {
-                LocalDateTime s = startDate.atTime(0, 0, 0);
-                LocalDateTime e = endDate.atTime(23, 59, 59);
-                Timestamp startTimestamp = Timestamp.from(s.toInstant(ZoneOffset.UTC));
-                Timestamp endTimestamp = Timestamp.from(e.toInstant(ZoneOffset.UTC));
-
-                searchQuery.whereAnd("b.UpdatedTime", Operator.BETWEEN, startTimestamp, endTimestamp);
             }
 
             searchQuery

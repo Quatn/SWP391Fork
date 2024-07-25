@@ -45,48 +45,18 @@ public class MarkdownDocument {
             return headingText;
         }
 
-
-        private ListBlock findListBlockParentByLevel(int level) {
-            ListBlock root = rootList;
-            ListBlock listBlock = rootList;
-
-            int i = 1;
-            while (i < level) {
-                ListItem listItem = (ListItem)root.getLastChild();
-
-                if (listItem == null) break;
-
-                // can i go down one level? -- is the last element a block list?
-                if (listItem.getLastChild() instanceof ListBlock) {
-                    // yes, go down and save
-                    i++;
-                    listBlock = (ListBlock)listItem.getLastChild();
-                    root = listBlock;
-                } else {
-                    // no, create and return
-                    listBlock = new BulletList();
-                    listItem.appendChild(listBlock);
-                    return listBlock;
-                }
-            }
-
-            return listBlock;
-        }
-
         @Override
         public void visit(Heading heading) {
             String headingText = getHeadingText(heading);
             if (headingText == null) return;
 
-            ListBlock parent = findListBlockParentByLevel(heading.getLevel());
             ListItem listItem = new ListItem();
 
             Link link = new Link(String.format("%s#heading-0%d", url, counter++), null);
             link.appendChild(new Text(headingText));
-
             listItem.appendChild(link);
 
-            parent.appendChild(listItem);
+            rootList.appendChild(listItem);
         }
 
         @Override
@@ -150,6 +120,8 @@ public class MarkdownDocument {
      * Constructs a tree of all level headings 1 level down from the document root.
      * Returns the unordered list HTML
      * This does not handle headings inside of lists.
+     * @param url This url is used to create links that redirect to correct location specified
+     * by the caller
      * @return A HTML unordered list representing the tree.
      */
     public String getHtmlTableOfContents(String url) {

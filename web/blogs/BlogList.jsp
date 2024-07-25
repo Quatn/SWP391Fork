@@ -15,64 +15,36 @@
 
         <link href="blogs/BlogList.css" rel="stylesheet">
         <link href="blogs/BlogItem.css" rel="stylesheet">
+        <link href="blogs/BlogSider.css" rel="stylesheet">
     </head>
     <body class="body-layout">
         <%@include file="/common/header.jsp" %>
         
         <main class="container my-2">
-            <div class="text-center my-3">
-                <h1 class="">Blogs</h1>
+            <div class="my-3">
+                <c:if test="${empty blogCategory}">
+                        <h1 class="">Blogs</h1>
+                        <p class="text-secondary">Discover tips, tricks for exams and news related to our products.</p>
+                </c:if>
+                <c:if test="${not empty blogCategory}">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1>
+                                    <span class="text-secondary">Discover</span> ${blogCategory.getCategoryName()}
+                                </h1>
+                                <p class="text-secondary">Here are all posts from this category</p>
+                            </div>
+                            <a class="btn btn-outline-primary" href="blogs/list">Go back to View All</a>
+                        </div>
+                </c:if>
                 <c:if test="${not empty param.q}">
                     <h5 class="text-mute">
                         Searching sub-string <b>"${param.q}"</b> in blog titles.
                     </h5>
                 </c:if>
             </div>
-            <myTags:Paginator
-                className="mt-3 d-flex justify-content-end"
-                total="${pagesCount}"
-                size="1"
-                current="${param.page}"
-                url="blogs/list"
-            />
-            <div class="d-flex gap-3 blog-main-section">
-                <aside>
-                    <form class="blog-sidebar" method="GET" action="blogs/list">
-                        <div class="mb-3">
-                            <label for="searchBox" class="form-label">Search</label>
-                            <input type="text" placeholder="Search posts..." class="form-control" name="q" id="searchBox" value="${param.q}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="categories" class="form-label">Categories</label>
-                            <select class="form-select" id="categories" name="categoryId">
-                                <option value="-1">All</option>
-                                <c:forEach var="cat" items="${categories}">
-                                    <option
-                                        value="${cat.getCategoryId()}"
-                                        ${param.categoryId eq cat.getCategoryId() ? "selected" : ""}
-                                    >${cat.getCategoryName()}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="dateRange" class="form-label">Date range</label>
-                            <select class="form-select" id="dateRange" name="dateRange">
-                                <option value="any" ${param.dateRange eq 'any' ? "selected" : ""}>Any</option>
-                                <option
-                                    value="specified"
-                                    ${param.dateRange eq 'specified' ? "selected" : ""}
-                                >Specified</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <input type="date" id="startDate" value="${param.startDate}" name="startDate" />
-                            <input type="date" id="endDate" value="${param.endDate}" name="endDate" />
-                        </div>
-                        <button class="btn btn-primary w-100" type="submit">Search</button>
-                    </form>
-                </aside>
-                <section class="flex-grow-1">
-
+            <div class="row">
+                <section class="col-8">
                     <div class="blog-grid">
                         <c:forEach items="${blogs}" var="blog">
                             <myTags:BlogItem highlight="${param.q}" blog="${blog}" />
@@ -80,23 +52,26 @@
                     </div>
                     
                     <c:if test="${empty blogs or blogs.size() eq 0}">
-                        <div class="d-flex justify-content-center align-items-center h-100">
-                            <div class="text-center">
-                                <i class="bi bi-emoji-neutral-fill fs-1 text-danger"></i>
-                                <h1 class="text-body-secondary fw-bold">No posts found</h1>
-                                <a href="blogs/list" class="btn btn-primary">Reset</a>
-                            </div>
+                        <div class="text-center my-5">
+                            <i class="bi bi-emoji-neutral-fill fs-1 text-danger"></i>
+                            <h1 class="text-body-secondary fw-bold">No posts found</h1>
+                            <a href="blogs/list" class="btn btn-primary">Reset</a>
                         </div>
                     </c:if>
 
-                    <myTags:Paginator
-                        className="mt-3 d-flex justify-content-end"
-                        total="${pagesCount}"
-                        size="1"
-                        current="${param.page}"
-                        url="blogs/list"
-                    />
+                    <c:if test="${blogs.size() > 0}">
+                        <myTags:Paginator
+                            className="mt-3 d-flex justify-content-center"
+                            total="${pagesCount}"
+                            size="1"
+                            current="${param.page}"
+                            url="blogs/list"
+                        />
+                    </c:if>
                 </section>
+                <aside class="col-4">
+                   <%@include file="/blogs/BlogSider.jsp" %> 
+                </aside>
             </div>
         </main>
         <%@include file="/common/footer.jsp" %>
