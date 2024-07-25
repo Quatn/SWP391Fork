@@ -19,7 +19,8 @@ public class DAOQuiz extends DBContext {
     private static final String LISTING_QUERY
             = """
             select q.*, s.SubjectTitle from [Quiz] q
-            inner join [Subject] s on q.SubjectId = s.SubjectId""";
+            inner join [Subject] s on q.SubjectId = s.SubjectId
+            """;
 
     private static final String COUNT_LISTING_QUERY
             = "select count(*) from [Quiz] q\n"
@@ -71,8 +72,7 @@ public class DAOQuiz extends DBContext {
 
         try {
             QueryBuilder builder = new QueryBuilder("""
-                select distinct s.SubjectId, SubjectTitle from [Subject] s
-                inner join Quiz q on s.SubjectId = q.SubjectId
+                select s.SubjectId, SubjectTitle from [Subject] s
             """
             );
 

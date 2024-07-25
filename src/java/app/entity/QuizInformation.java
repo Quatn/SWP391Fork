@@ -34,7 +34,7 @@ public class QuizInformation {
         this.type = QuizType.fromInt(rs.getInt("QuizType"));
         this.published = rs.getBoolean("IsPublished");
         this.updatedTime = rs.getTimestamp("UpdatedTime");
-        this.numberOfAttempts = this.totalQuestion > 0 ? (this.quizId + 8) % 22 : 0;
+        this.numberOfAttempts = rs.getInt("numberOfAttempts");
         this.description = rs.getString("Description");
         this.totalQuestion = rs.getInt("TotalQuestion");
     }

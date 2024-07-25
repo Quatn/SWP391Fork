@@ -35,6 +35,13 @@
                         <i class="bi bi-clipboard-check-fill"></i>
                         ${isSearching ? 'Searching Quizzes List' : 'Quizzes List' }
                     </h2>
+
+                    <c:if test="${empty subjects}">
+                        <div class="alert alert-warning" role="alert">
+                            No subjects have been assigned to you. If you think this is a mistake, please contact the administrator
+                        </div>
+                    </c:if>
+
                     <%@include file="/admin/quizzeslist/QuizzesListForm.jsp" %>
 
                     <div class="my-4 card">

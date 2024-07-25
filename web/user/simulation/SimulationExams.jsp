@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="public/css/sortable/sortable-theme-bootstrap.css">
         <script src="common/common.js"></script>
     </head>
-    <body class="d-flex flex-column">
+    <body class="d-flex flex-column" x-data="{ selected: { name: '', duration: 0, passRate: 0 } }">
         <%@include file="/common/header.jsp" %>
 
         <main class="container mt-3 flex-grow-1">
@@ -34,7 +34,30 @@
             </c:if>
         </main>
 
+        <div class="modal fade" id="confirmStartQuizModal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5">Start "<span x-text="selected.name" class="fw-bold"></span>" Exam?</h1>
+              </div>
+              <div class="modal-body">
+                You have <span class="fw-bold"><span x-text="selected.duration"></span> minutes</span> to do this exam, you also need
+                at get at least <span class="fw-bold"><span x-text="selected.passRate"></span>% correct</span> to pass
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form method="POST">
+                    <input type="hidden" value="take" name="action" />
+                    <input type="hidden" value="${quiz.getQuizId()}" name="quiz" />
+                    <button class="btn btn-primary">Start Exam</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <%@include file="/common/footer.jsp" %>
+        <script src="public/js/alpine/core.min.js"></script>
         <script src="public/js/sortable/sortable.min.js"></script>
     </body>
 </html>
