@@ -12,13 +12,12 @@
         <script src="common/common.js"></script>
         
         <!-- Specific page import -->
-        <link href="user/ResetPassword.css" href="stylesheet">
-        <script src="user/ResetPassword.js"></script>
+        <link href="user/resetpassword/ResetPassword.css" rel="stylesheet">
     </head>
-    <body class="body-layout">
+    <body class="d-flex flex-column">
         <%@include file="/common/header.jsp" %>
 
-        <main class="d-flex justify-content-center align-items-center p-2">
+        <main class="flex-grow-1 d-flex justify-content-center align-items-center p-2">
             <c:choose>
                 <c:when test="${screen eq 'success'}">
                     <div class="card w-50 p-3">
@@ -105,6 +104,11 @@
                         <c:if test="${error eq 'error_invalid_token'}">
                             <div class="alert alert-primary mt-4" role="alert">
                                 Invalid token
+                            </div>
+                        </c:if>
+                        <c:if test="${error eq 'error_invalid_email'}">
+                            <div class="alert alert-danger mt-4" role="alert">
+                                Email does not exist, please check
                             </div>
                         </c:if>
                     </form>

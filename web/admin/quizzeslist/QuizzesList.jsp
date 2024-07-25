@@ -39,12 +39,8 @@
 
                     <div class="my-4 card">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold">
-                                <i class="bi bi-wrench"></i>
-                                Actions
-                            </h5>
                             <form action="admin/addquiz" method="get">
-                                <div class="d-flex justify-content-end mt-3 gap-2">
+                                <div class="d-flex justify-content-end gap-2">
                                     <input type ="text" name="check" value="false" hidden="">
                                     <button type="submit" class="btn btn-primary">
                                         <i class="bi bi-plus-circle"></i>
@@ -55,21 +51,11 @@
                         </div>
                     </div>
 
-                    <c:if test="${result.getTotalPages() > 0}">
-                        <myTags:Paginator
-                            className="mt-3 d-flex justify-content-end"
-                            current="${param.page}"
-                            total="${result.getTotalPages()}"
-                            size="1"
-                            url="admin/quizzeslist"
-                        />
-                    </c:if>
-
                     <%@include file="/admin/quizzeslist/QuizzesListTable.jsp" %>
 
                     <c:if test="${result.getTotalPages() > 0}">
                         <myTags:Paginator
-                            className="mt-3 d-flex justify-content-end"
+                            className="mt-3 d-flex justify-content-center"
                             current="${param.page}"
                             total="${result.getTotalPages()}"
                             size="1"
