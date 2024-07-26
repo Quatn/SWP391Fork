@@ -722,7 +722,7 @@ VALUES ('Quiz Strategies'),
 
 -- Insert blog posts into the Blog table with specified dates as strings
 
-INSERT INTO [dbo].[Blog] (UserId, BlogCategoryId, BlogTitle, UpdatedTime, PostBrief, PostText)
+INSERT INTO [dbo].[Blog] (UserId, BlogCategoryId, BlogTitle, UpdatedTime, PostBrief, PostText, PostThumbnail)
 VALUES 
 -- Quiz Strategies
 (1, 1, 'Top 5 Strategies for Acing Your Quizzes', '2024-02-15', 'Learn the top 5 strategies to improve your quiz scores and ace every test.', '', 'blog1.jpg'),
