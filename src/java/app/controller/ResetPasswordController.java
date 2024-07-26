@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.Objects;
 
-@WebServlet(name="ResetPasswordController", urlPatterns={"/user/reset"})
+@WebServlet(name = "ResetPasswordController", urlPatterns = {"/user/reset"})
 public class ResetPasswordController extends HttpServlet {
 
     //in case the path changes, just change this line
@@ -24,7 +24,7 @@ public class ResetPasswordController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         DAOUser daoUser = new DAOUser();
         DAOResetTokens daoResetTokens = new DAOResetTokens();
 
@@ -46,27 +46,28 @@ public class ResetPasswordController extends HttpServlet {
                 request.setAttribute("user", daoUser.getUserById(resetRecord.getUserId()));
             }
         }
-        
-        
+
         daoUser.close();
         daoResetTokens.close();
 
         request.getRequestDispatcher(RESET_PAGE).forward(request, response);
-    } 
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         String action = request.getParameter("action");
 
         switch (action) {
-            case "send_email" -> handleSendEmail(request, response);
-            case "reset_password" -> handleChangePassword(request, response);
+            case "send_email" ->
+                handleSendEmail(request, response);
+            case "reset_password" ->
+                handleChangePassword(request, response);
         }
     }
-    
+
     private void handleChangePassword(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         DAOUser daoUser = new DAOUser();
         DAOResetTokens daoResetTokens = new DAOResetTokens();
 
@@ -87,23 +88,37 @@ public class ResetPasswordController extends HttpServlet {
             if (!resetRecord.isValid()) {
                 request.setAttribute("screen", "expired");
             } else if (same) {
-                request.setAttribute("screen", "success");
-                response.setHeader("Refresh", "3; url=" + URLUtils.getBaseURL(request) + "/");
-                daoUser.updatePasswordById(resetRecord.getUserId(), newPassword);
-                daoResetTokens.deleteToken(resetRecord.getUserId());
+                if (!newPassword.matches("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$")) {
+                    request.setAttribute("user", daoUser.getUserById(resetRecord.getUserId()));
+                    request.setAttribute("screen", "change_pw");
+                    request.setAttribute("error", "error_pw_not_match");
+                } else {
+                    int id = resetRecord.getUserId();
+                    String email = daoUser.getUserById(id).getEmail();
+                    if (daoUser.verifyLogin(email, newPassword)) {
+                        request.setAttribute("user", daoUser.getUserById(resetRecord.getUserId()));
+                        request.setAttribute("screen", "change_pw");
+                        request.setAttribute("error", "error_pw_dulplicated");
+                    } else {
+                        request.setAttribute("screen", "success");
+                        response.setHeader("Refresh", "3; url=" + URLUtils.getBaseURL(request) + "/");
+                        daoUser.updatePasswordById(resetRecord.getUserId(), newPassword);
+                        daoResetTokens.deleteToken(resetRecord.getUserId());
+                    }
+                }
             } else {
                 request.setAttribute("user", daoUser.getUserById(resetRecord.getUserId()));
                 request.setAttribute("screen", "change_pw");
                 request.setAttribute("error", "error_pw_not_same");
             }
         }
-        
+
         daoUser.close();
         daoResetTokens.close();
-        
+
         request.getRequestDispatcher(RESET_PAGE).forward(request, response);
     }
-    
+
     private String generateResetUrl(HttpServletRequest req, String token) {
         return String.format(
                 "%s://%s:%s%s/user/reset?token=" + token,
@@ -115,10 +130,10 @@ public class ResetPasswordController extends HttpServlet {
     }
 
     private void handleSendEmail(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         DAOUser daoUser = new DAOUser();
         DAOResetTokens daoResetTokens = new DAOResetTokens();
-        
+
         String email = request.getParameter("email");
 
         User user = daoUser.getUserByEmail(email);
@@ -142,7 +157,7 @@ public class ResetPasswordController extends HttpServlet {
                     + generateResetUrl(request, token);
 
             try {
-                service.sendMailTo("Reset Password", content, new String[] { email });
+                service.sendMailTo("Reset Password", content, new String[]{email});
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -151,7 +166,7 @@ public class ResetPasswordController extends HttpServlet {
         request.setAttribute("screen", "sent");
         request.setAttribute("timeout", timeout);
         request.getRequestDispatcher(RESET_PAGE).forward(request, response);
-        
+
         daoUser.close();
         daoResetTokens.close();
     }

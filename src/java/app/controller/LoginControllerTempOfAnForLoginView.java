@@ -101,14 +101,7 @@ public class LoginControllerTempOfAnForLoginView extends HttpServlet {
     public boolean validateUser(String username, String password) {
         boolean flag = false;
         DAOUser dao = new DAOUser();
-        Vector<User> vec = dao.getAll();
-        for (User user : vec) {
-            if (user.getEmail().equals(username) && user.getPassword().equals(password)) {
-                flag = true;
-                break;
-            }
-        }
-        return flag;
+        return dao.verifyLogin(username, password);
     }
 
     @Override

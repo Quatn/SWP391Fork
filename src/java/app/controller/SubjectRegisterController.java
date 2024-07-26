@@ -13,6 +13,7 @@ import app.entity.Subject;
 import app.entity.User;
 import app.utils.Config;
 import app.utils.GmailService;
+import app.utils.MD5Encryption;
 import app.utils.RSAEncryption;
 import app.utils.RandomSecurePasswordGenerator;
 import jakarta.servlet.RequestDispatcher;
@@ -78,13 +79,15 @@ public class SubjectRegisterController extends HttpServlet {
                 u.setRoleId(1);
                 u.setFullName(fullName);
                 RandomSecurePasswordGenerator rSPG;
+                MD5Encryption md = new MD5Encryption();
                 rSPG = new RandomSecurePasswordGenerator.PasswordGeneratorBuilder()
                         .useDigits(true)
                         .useLower(true)
                         .useUpper(true)
                         .build();
                 String password = rSPG.generateSecureRandomPassword(8);
-                u.setPassword(password);
+                String hashPassword = md.encryptPassword(password);
+                u.setPassword(hashPassword);
                 switch (gender) {
                     case "Male":
                         u.setGenderId(1);
