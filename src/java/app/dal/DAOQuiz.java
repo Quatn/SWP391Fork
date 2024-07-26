@@ -295,8 +295,6 @@ public class DAOQuiz extends DBContext {
 
     public static void main(String[] args) throws SQLException {
         DAOQuiz qq = new DAOQuiz();
-        boolean n = qq.isQuizAttempted(35);
-        System.out.println(n);
     }
 
     public List<QuizLesson> getGroupQuestionByLesson(int quizId) {
@@ -481,17 +479,27 @@ public class DAOQuiz extends DBContext {
                 " WHERE QuizId = ?";
         
         
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, name);
-            preparedStatement.setInt(2, level);
-            preparedStatement.setInt(3, duration);
-            preparedStatement.setInt(4, passrate);
-            preparedStatement.setInt(5, type);
-            preparedStatement.setString(6, description);
-            preparedStatement.setInt(7, quizId);
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, name);
+            ps.setInt(2, level);
+            ps.setInt(3, duration);
+            ps.setInt(4, passrate);
+            ps.setInt(5, type);
+            ps.setString(6, description);
+            ps.setInt(7, quizId);
 
-            int rowsUpdated = preparedStatement.executeUpdate();
+            int rowsUpdated = ps.executeUpdate();
             return rowsUpdated > 0;
+        }
+    }
+
+    public void revertQuiz(int quizId) throws SQLException {
+        String sql = "DELETE FROM [dbo].[Quiz]\n" +
+                "      WHERE QuizId = ?";
+        
+        try (PreparedStatement ps = connection.prepareStatement(sql)){
+            ps.setInt(1, quizId);
+            ps.executeUpdate();
         }
     }
 

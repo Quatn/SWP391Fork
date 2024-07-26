@@ -201,6 +201,7 @@ public class AddQuizServlet extends HttpServlet {
 
                 if (randomQuestion.size() < questionCount) {
                     session.setAttribute("errorEnough", "Not enough questions in lesson ID: " + lessonId);
+                    quizDAO.revertQuiz(quizId);
                     doGet(request, response);
                     return;
                 }
