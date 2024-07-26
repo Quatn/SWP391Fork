@@ -68,7 +68,7 @@ public class SimulationExamController extends HttpServlet {
         String userEmail = getCurrentUserEmail(request);
 
         if (userEmail == null) {
-            response.sendRedirect(getHomePage());
+            request.getRequestDispatcher("/Unauthorized.jsp").forward(request, response);
             return;
         }
 

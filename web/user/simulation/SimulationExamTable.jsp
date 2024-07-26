@@ -42,10 +42,15 @@
                     <td>${quiz.getDurationInMinutes()}</td>
                     <td>${quiz.getPassRate()}%</td>
                     <td style="width: 1px; white-space: nowrap;">
-                        <button @click="selected = { name: '${quiz.getQuizName()}', passRate: ${quiz.getPassRate()}, duration: ${quiz.getDurationInMinutes()} }" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmStartQuizModal">Take Exam</button>
+                        <button @click="selected = { name: '${quiz.getQuizName()}', passRate: ${quiz.getPassRate()}, duration: ${quiz.getDurationInMinutes()}, quizId: ${quiz.getQuizId()} }" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmStartQuizModal">Take Exam</button>
                     </td>
                 </tr>
             </c:forEach>
+            <c:if test="${result.getResults().isEmpty()}">
+                <tr>
+                    <td colspan="12" class="text-center">No results</td>
+                </tr>
+            </c:if>
         </tbody>
     </table>
 </div>
