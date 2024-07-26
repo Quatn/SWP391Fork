@@ -35,7 +35,9 @@
                             <tr>
                                 <th>Question Content:</th>
                                 <td>
-                                    <input name="questionName" value="${question.questionName}" style="width: 100%">
+                                    <textarea id="questionTextarea" name="questionName" style="width: 100%; box-sizing: border-box;">
+                                        <c:out value="${question.questionName}" />
+                                    </textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -99,11 +101,11 @@
                                         <select name="isCorrect">
                                             <option value="1" <c:if test="${answer.isCorrect == 1}">selected</c:if>>True</option>
                                             <option value="0" <c:if test="${answer.isCorrect == 0}">selected</c:if>>False</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger" 
-                                                onclick="deleteOption(${answer.answerID}, ${question.questionID})">
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger" 
+                                                    onclick="deleteOption(${answer.answerID}, ${question.questionID})">
                                             <div class="bi bi-trash"> Delete</div>
                                         </button>
                                     </td>
@@ -119,7 +121,7 @@
                     <button type="button" class="btn btn-warning ms-2" onclick="resetForm()">Reset</button> 
                     <button type="button" class="btn btn-danger ms-2" onclick="deleteQuestion(${question.questionID})">Delete Question</button>
                 </div>
-                                
+
                 <!-- Add Answer Option Button as Icon -->
                 <button class="btn btn-primary mt-3" onclick="showAddOptionForm()">
                     <div class="bi bi-plus-square"> Add option</div>
