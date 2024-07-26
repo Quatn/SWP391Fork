@@ -19,7 +19,8 @@ public class DAOQuiz extends DBContext {
     private static final String LISTING_QUERY
             = """
             select q.*, s.SubjectTitle from [Quiz] q
-            inner join [Subject] s on q.SubjectId = s.SubjectId""";
+            inner join [Subject] s on q.SubjectId = s.SubjectId
+            """;
 
     private static final String COUNT_LISTING_QUERY
             = "select count(*) from [Quiz] q\n"
@@ -66,15 +67,20 @@ public class DAOQuiz extends DBContext {
         return 0;
     }
 
-    public List<Subject> getSubjectsWithQuiz() {
+    public List<Subject> getSubjectsWithQuiz(int assignedExpertId) {
         List<Subject> ret = new ArrayList<>();
 
         try {
-            ResultSet rs = new QueryBuilder("""
-                select distinct s.SubjectId, SubjectTitle from [Subject] s
-                inner join Quiz q on s.SubjectId = q.SubjectId
+            QueryBuilder builder = new QueryBuilder("""
+                select s.SubjectId, SubjectTitle from [Subject] s
             """
-            ).toPreparedStatement(connection).executeQuery();
+            );
+
+            if (assignedExpertId != -1) {
+                builder.whereAnd("s.SubjectOwnerId", Operator.EQUALS, assignedExpertId);
+            }
+
+            ResultSet rs = builder.toPreparedStatement(connection).executeQuery();
 
             while (rs.next()) {
                 Subject s = new Subject();
@@ -156,6 +162,7 @@ public class DAOQuiz extends DBContext {
             String quizName,
             int subjectId,
             QuizType type,
+            int assignedExpertId,
             int page, int pageSize
     ) {
         List<QuizInformation> ret = new ArrayList<>();
@@ -163,9 +170,12 @@ public class DAOQuiz extends DBContext {
 
         try {
             QueryBuilder query = new QueryBuilder(LISTING_QUERY)
-                    .setLoggingEnabled(true)
                     .orderBy("q.UpdatedTime", OrderDirection.DESC)
                     .orderBy("q.SubjectId", OrderDirection.ASC);
+
+            if (assignedExpertId != -1) {
+                query.whereAnd("s.SubjectOwnerId", Operator.EQUALS, assignedExpertId);
+            }
 
             if (quizName != null && !quizName.isBlank()) {
                 query.whereAnd("QuizName", Operator.LIKE, "%" + quizName.trim() + "%");
@@ -285,15 +295,8 @@ public class DAOQuiz extends DBContext {
 
     public static void main(String[] args) throws SQLException {
         DAOQuiz qq = new DAOQuiz();
-
-        ResultSet rs = new QueryBuilder("select QuizId from [Quiz]")
-                .toPreparedStatement(qq.connection)
-                .executeQuery();
-
-        while (rs.next()) {
-            int id = rs.getInt(1);
-            qq.randomizeForQuiz(id, 50);
-        }
+        boolean n = qq.isQuizAttempted(35);
+        System.out.println(n);
     }
 
     public List<QuizLesson> getGroupQuestionByLesson(int quizId) {
@@ -318,8 +321,10 @@ public class DAOQuiz extends DBContext {
 
     public int addQuiz(QuizInformation quiz) {
         String sql = "INSERT INTO [dbo].[Quiz] "
-                + "([SubjectId], [QuizName], [Level], [DurationInMinutes], [PassRate], [QuizType], [IsPublished], [UpdatedTime], [Description], [TotalQuestion]) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "([SubjectId], [QuizName], [Level], [DurationInMinutes], "
+                + "[PassRate], [QuizType], [IsPublished], [UpdatedTime], "
+                + "[numberOfAttempts], [Description], [TotalQuestion]) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setInt(1, quiz.getSubjectId());
             stmt.setString(2, quiz.getQuizName());
@@ -329,8 +334,9 @@ public class DAOQuiz extends DBContext {
             stmt.setInt(6, quiz.getType().toInt());
             stmt.setInt(7, 1);
             stmt.setDate(8, Date.valueOf(LocalDate.now()));
-            stmt.setString(9, quiz.getDescription());
-            stmt.setInt(10, quiz.getTotalQuestion());
+            stmt.setInt(9, 0);
+            stmt.setString(10, quiz.getDescription());
+            stmt.setInt(11, quiz.getTotalQuestion());
             int affectedRows = stmt.executeUpdate();
             if (affectedRows > 0) {
                 try (ResultSet rs = stmt.getGeneratedKeys()) {
@@ -364,7 +370,10 @@ public class DAOQuiz extends DBContext {
     }
 
     public void addQuestionToQuiz(int quizId, int questionId) {
-        String query = "INSERT INTO QuestionQuiz (QuizId, QuestionId) VALUES (?, ?)";
+        String query = "INSERT INTO [dbo].[QuizQuestion]\n" +
+                        "           ([QuizId]\n" +
+                        "           ,[QuestionId])\n" +
+                        "     VALUES (?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, quizId);
             stmt.setInt(2, questionId);
@@ -386,11 +395,12 @@ public class DAOQuiz extends DBContext {
         }
     }
 
-    public List<Question> getQuestionsByLessonId(int lessonId) {
+    public List<Question> getQuestionBySubjectAndLesson(int lessonId, int subjectId) {
         List<Question> questions = new ArrayList<>();
-        String query = "SELECT * FROM Question WHERE LessonID = ?";
+        String query = "SELECT * FROM Question WHERE LessonID = ? and SubjectID = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, lessonId);
+            stmt.setInt(2, subjectId);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Question question = new Question();
@@ -424,7 +434,8 @@ public class DAOQuiz extends DBContext {
 
     public boolean deleteQuiz(int quizId) throws SQLException {
         String deleteQuizSQL = "DELETE FROM Quiz WHERE QuizId = ?";
-        String deleteQuestionsSQL = "DELETE FROM QuestionQuiz WHERE QuizId = ?";
+        String deleteQuestionsSQL = "DELETE FROM [dbo].[QuizQuestion]\n" +
+                                "      WHERE QuizId = ?";
         String deleteLessonQuestionsSQL = "DELETE FROM QuizLessonQuestionCount WHERE QuizId = ?";
 
         try (PreparedStatement deleteQuizStmt = connection.prepareStatement(deleteQuizSQL);
@@ -434,7 +445,7 @@ public class DAOQuiz extends DBContext {
             // Begin transaction
             connection.setAutoCommit(false);
 
-            // Delete from QuestionQuiz
+            // Delete from QuizQuesion
             deleteQuestionsStmt.setInt(1, quizId);
             deleteQuestionsStmt.executeUpdate();
 

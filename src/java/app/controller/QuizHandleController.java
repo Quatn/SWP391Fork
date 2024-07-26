@@ -22,16 +22,6 @@ import java.util.List;
 public class QuizHandleController extends HttpServlet {
     private static final String PAGE_NAME = "/user/quizhandle/QuizHandle.jsp";
 
-    private String getCurrentUserEmail(HttpServletRequest request) {
-        HttpSession session = request.getSession(false);
-        if (session == null) return null;
-
-        Object mailAttr = session.getAttribute("userEmail");
-        if (mailAttr == null) return null;
-
-        return mailAttr.toString();
-    }
-
     private String getHomePage() {
         return getServletContext().getContextPath();
     }

@@ -5,20 +5,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Reset Password</title>
-        
+
         <!-- Common import -->
         <%@include file="/common/ImportBootstrap.jsp" %>
         <link href="common/common.css" rel="stylesheet">
         <script src="common/common.js"></script>
-        
+
         <!-- Specific page import -->
-        <link href="user/ResetPassword.css" href="stylesheet">
-        <script src="user/ResetPassword.js"></script>
+        <link href="user/resetpassword/ResetPassword.css" rel="stylesheet">
     </head>
-    <body class="body-layout">
+    <body class="d-flex flex-column">
         <%@include file="/common/header.jsp" %>
 
-        <main class="d-flex justify-content-center align-items-center p-2">
+        <main class="flex-grow-1 d-flex justify-content-center align-items-center p-2">
             <c:choose>
                 <c:when test="${screen eq 'success'}">
                     <div class="card w-50 p-3">
@@ -31,22 +30,42 @@
                 <c:when test="${screen eq 'change_pw'}">
                     <form method="POST" class="card w-50 p-3">
                         <input type="hidden" name="action" value="reset_password">
-                        
+
                         <div class="text-center">
                             <h2>Welcome back, ${user.getFullName()}!</h2>
                             <p class="mb-3">Create a new password for your account</p>
+                            <p class="mt-3 text text-danger">
+                                Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character
+                            </p>
                         </div>
-                        <div
+                        <div>
                             <label class="form-label">New Password</label>
-                            <input type="password" class="form-control" name="newpw" placeholder="New password" required>
+                            <input type="password" class="form-control" 
+                                   name="newpw" 
+                                   placeholder="New password"
+                                   required>
                         </div>
-                        <div
+                        <div>
                             <label class="form-label">Confirm new password</label>
-                            <input type="password" class="form-control" name="confirmnewpw" placeholder="Confirm new password" required>
+                            <input type="password" class="form-control" 
+                                   name="confirmnewpw" 
+                                   placeholder="Confirm new password"
+                                   required>
+
                         </div>
                         <c:if test="${error eq 'error_pw_not_same'}">
                             <div class="alert alert-primary mt-4" role="alert">
                                 Please make sure two passwords are the same
+                            </div>
+                        </c:if>
+                        <c:if test="${error eq 'error_pw_dulplicated'}">
+                            <div class="alert alert-warning mt-4" role="alert">
+                                <strong>Oops!</strong> The new password is the same as your current password!
+                            </div>
+                        </c:if>
+                        <c:if test="${error eq 'error_pw_not_match'}">
+                            <div class="alert alert-danger mt-4" role="alert">
+                                Please make sure that the password meets the requirement above
                             </div>
                         </c:if>
                         <button type="submit" class="btn btn-primary mt-4">Continue</button>
@@ -74,10 +93,10 @@
                             </p>
                             <p class="text-secondary">
                                 <c:if test="${timeout > 60}">
-                                This email expires after ${timeout / 60} minutes
+                                    This email expires after ${timeout / 60} minutes
                                 </c:if>
                                 <c:if test="${timeout < 60}">
-                                This email expires after ${timeout} seconds
+                                    This email expires after ${timeout} seconds
                                 </c:if>
                             </p>
                             <a href="user/reset">
@@ -105,6 +124,11 @@
                         <c:if test="${error eq 'error_invalid_token'}">
                             <div class="alert alert-primary mt-4" role="alert">
                                 Invalid token
+                            </div>
+                        </c:if>
+                        <c:if test="${error eq 'error_invalid_email'}">
+                            <div class="alert alert-danger mt-4" role="alert">
+                                Email does not exist, please check
                             </div>
                         </c:if>
                     </form>
