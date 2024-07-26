@@ -32,6 +32,7 @@ public class ImportQuestionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.getRequestDispatcher("admin/importquestion.jsp").forward(request, response);
+        return;
     }
 
     QuestionDAO quesDAO = new QuestionDAO();
@@ -48,19 +49,28 @@ public class ImportQuestionServlet extends HttpServlet {
             InputStream fileContent = filePart.getInputStream();
             Workbook workbook = new XSSFWorkbook(fileContent);
             Sheet sheet = workbook.getSheetAt(0); //sheet 1
+            int line = 1;
             for (Row row : sheet) {
                 if (row.getRowNum() == 0) {//skip first row
                     continue;
                 }
-
+                
                 String text = getCellValueAsString(row.getCell(0));
                 String explanation = getCellValueAsString(row.getCell(1));
                 int level = (int) row.getCell(2).getNumericCellValue();
                 int subjectID = (int) row.getCell(3).getNumericCellValue();
+                boolean checkSubjectId = quesDAO.isExistSubjectId(subjectID);
+                if(!checkSubjectId){
+                    request.setAttribute("notification", "Not found subjectId" + subjectID + " in line " + line);
+                    request.getRequestDispatcher("admin/importquestion.jsp").forward(request, response);
+                    return;
+                }
+                
                 int lessonID = (int) row.getCell(4).getNumericCellValue();
                 
                 int questionID = quesDAO.addQuestion(text, explanation, level, subjectID, lessonID);
                 
+                line++;
                 //add answer 
                 for(int i=5; i<row.getLastCellNum(); i+=2){
                     String ansName = getCellValueAsString(row.getCell(i));

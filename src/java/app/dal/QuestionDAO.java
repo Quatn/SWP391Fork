@@ -399,4 +399,22 @@ public class QuestionDAO extends DBContext {
     public static void main(String[] args) {
         QuestionDAO q = new QuestionDAO();
     }
+
+    public boolean isExistSubjectId(int subjectID) {
+        String sql = "select * from Subject\n"
+                + "where SubjectId = ?";
+        boolean isExist = false;
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setInt(1, subjectID);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    isExist = true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return isExist;
+    }
+   
 }
