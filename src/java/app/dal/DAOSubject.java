@@ -822,16 +822,16 @@ public class DAOSubject extends DBContext {
     
      public int updateSubjectOverview(Subject sub) {
          System.out.println("Changing" + sub);
-        String sql = "UPDATE Subject SET SubjectTitle = ?, SubjectCategoryId = ?, SubjectStatus = ?, IsFeaturedSubject = ?, SubjectTagLine = ?, SubjectBriefInfo = ?, SubjectDescription = ?, SubjectUpdatedDate = CAST(GETDATE() as DATE)"
+        String sql = "UPDATE Subject SET SubjectTitle = ?, SubjectStatus = ?, IsFeaturedSubject = ?, SubjectTagLine = ?, SubjectBriefInfo = ?, SubjectDescription = ?, SubjectUpdatedDate = CAST(GETDATE() as DATE)"
                 + ((sub.getThumbnail().length() > 0)? ", SubjectThumbnail = ? " : " ")
                 + ((sub.getOwnerId() > 0)? ", SubjectOwnerId = ? " :  " ")
+                + ((sub.getCategoryId()> 0)? ", SubjectCategoryId = ? " :  " ")
                 + "WHERE SubjectId = ?";
         PreparedStatement pre;
         try {
             pre = connection.prepareStatement(sql);
             int seq = 1;
             pre.setString(seq++, sub.getSubjectName());
-            pre.setInt(seq++, sub.getCategoryId());
             pre.setInt(seq++, sub.getStatusId());
             pre.setBoolean(seq++, sub.getIsFeatured());
             pre.setString(seq++, sub.getTagLine());
@@ -839,6 +839,7 @@ public class DAOSubject extends DBContext {
             pre.setString(seq++, sub.getSubjectDescription());
             if ((sub.getThumbnail().length() > 0)) pre.setString(seq++, sub.getThumbnail());
             if (sub.getOwnerId() > 0) pre.setInt(seq++, sub.getOwnerId());
+            if (sub.getCategoryId() > 0) pre.setInt(seq++, sub.getCategoryId());
             pre.setInt(seq++, sub.getSubjectId());
 
             return pre.executeUpdate();

@@ -222,7 +222,7 @@
 </div>
             
             
-<div class="modal fade notify" tabindex="-1" role="dialog" >
+<div class="modal fade notify" role="dialog" >
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -237,3 +237,22 @@
     </div>
 </div>
 
+<div class="modal fade" id="useTemplate" role="dialog" >
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Use a template for subject description</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4>Choose a template:</h4>
+                <select class="form-control" id="template-options">
+                    <option value="1" selected>4 sections with a navbar</option>
+                </select>
+                <strong style="color: red;"><small>Choosing a template will wipe what you've already written in the subject description text area</small></strong>
+                <button type="button" class="btn btn-primary float-end mt-5" onclick="setTemplate(document.getElementById('template-options').value)" data-bs-dismiss="modal" aria-label="Close">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>

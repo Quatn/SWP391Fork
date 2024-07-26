@@ -48,7 +48,7 @@
                         </a>
                     </c:if>
                     <a href="javascript:void(0)"><button type="button" class="btn w-100 text-start" data-bs-toggle="modal" data-bs-target=".changePassModal">
-                            Change Pass
+                            Change Password
                         </button>
                     </a>
                     <a href="SettingsServlet"><button type="button" class="btn w-100 text-start">
@@ -60,7 +60,7 @@
                         <a href="javascript:void(0)" class="me-auto">
                             <button type="submit" class="btn text-start">Logout</button>
                         </a>
-                        <a href="javascript:void(0)" class="my-auto">
+                        <a href="javascript:void(0)" class="my-auto mx-2">
                             Contact Us
                         </a>
                         <input type="hidden" name="service" value="logout"/>

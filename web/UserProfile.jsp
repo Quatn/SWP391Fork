@@ -68,8 +68,8 @@
             <div class="card mb-3"> 
                 <div class="row g-0 w-100 m-0">
                     <div class="col-lg-4 container">
-                        <div style="position: relative" class="w-100 border border-dark" style="width: 100%;">
-                            <img id="img-display" style="width: 100%; max-height: 300px; object-fit: cover" src="UserProfile?service=showPic" alt="Profile picture" />
+                        <div id="img-div" style="position: relative" class="w-100 border border-dark">
+                            <img id="img-display" src="UserProfile?service=showPic" alt="Profile picture" />
                             <label id="upload-label" for="upload">Select image</label>
                         </div>
                         <div id="upload-submission">
