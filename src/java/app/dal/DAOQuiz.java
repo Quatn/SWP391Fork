@@ -469,4 +469,30 @@ public class DAOQuiz extends DBContext {
         }
     }
 
+    public boolean editQuiz(int quizId, String name, int level, int duration, int passrate, int type, String description) throws SQLException {
+        String sql = "UPDATE [dbo].[Quiz]\n" +
+                "   SET \n" +
+                "      [QuizName] = ?\n" +
+                "      ,[Level] = ?\n" +
+                "      ,[DurationInMinutes] = ?\n" +
+                "      ,[PassRate] = ?\n" +
+                "      ,[QuizType] = ?\n" +
+                "      ,[Description] = ?\n" +
+                " WHERE QuizId = ?";
+        
+        
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, name);
+            preparedStatement.setInt(2, level);
+            preparedStatement.setInt(3, duration);
+            preparedStatement.setInt(4, passrate);
+            preparedStatement.setInt(5, type);
+            preparedStatement.setString(6, description);
+            preparedStatement.setInt(7, quizId);
+
+            int rowsUpdated = preparedStatement.executeUpdate();
+            return rowsUpdated > 0;
+        }
+    }
+
 }
