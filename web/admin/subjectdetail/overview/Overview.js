@@ -258,6 +258,7 @@ function setTemplate(templateNum) {
         default:
             break;
     }
+    handleDescChange();
 }
 
 const expertList = JSON.parse(document.currentScript.getAttribute("expertList"));

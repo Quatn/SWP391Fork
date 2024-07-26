@@ -138,7 +138,12 @@ public class SubjectOverviewController extends HttpServlet {
             String subjectTitle = request.getParameter("subjectTitle");
             int subjectCategory = Integer.parseInt(request.getParameter("subjectCategory"));
             boolean featured = (request.getParameter("featured") != null);
-            int subjectStatus = Integer.parseInt(request.getParameter("subjectStatus"));
+            int subjectStatus = -1;
+            try {
+                subjectStatus = Integer.parseInt(request.getParameter("subjectStatus"));
+                System.out.println("ta" + subjectStatus);
+            }
+            catch (Exception e){}
             String expertEmail = request.getParameter("expertEmail");
             User owner = daoUser.getUserByEmail(expertEmail);
             String subjectTagline = request.getParameter("subjectTagline");
@@ -170,7 +175,7 @@ public class SubjectOverviewController extends HttpServlet {
                 }
             }
             System.out.println("Ye" + new Subject(0, subjectTitle, subjectTagline, subjectBrief, subjectDescription, thumbnailUrl, subjectCategory) + expertEmail);
-            if (owner == null || owner.getRoleId() == 4) {
+            if (owner == null || owner.getRoleId() == 2) {
                 if (daoSubject.updateSubjectOverview(new Subject(subjectId, subjectTitle, subjectTagline, subjectBrief, subjectDescription, thumbnailUrl, subjectCategory, featured, subjectStatus, (owner == null) ? -1 : owner.getUserId())) == 1) {
                     session.setAttribute("notification", "<p>Subject created succefully!</p>");
                     session.setAttribute("notification", "Subject updated succefully!");
