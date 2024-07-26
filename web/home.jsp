@@ -112,7 +112,7 @@
             </div>
         </div>
         
-        <script src="./public/js/HomeDisplayPosts.js"></script>
+        <script src="./public/js/HomeDisplayPosts.js" postPageSize="${pageSize}"></script>
 
         
     </main>
