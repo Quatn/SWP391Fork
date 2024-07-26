@@ -1,5 +1,4 @@
 <head>
-    <jsp:include page="/ChangePassAn.jsp" />
     <jsp:include page="/UserRegisterThroughMail.jsp" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -41,12 +40,15 @@
                             ${sessionScope.userEmail}
                         </button>
                     </div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePassModal">
+                    <!--
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".changePassModal">
                         Change Pass
                     </button>
                     <a href="SettingsServlet" class="btn btn-secondary">
                         Settings
                     </a>
+                    -->
+
                 </c:if>
 
                 <c:if test="${empty sessionScope.userEmail}">
@@ -63,7 +65,7 @@
     </div>
 </nav>
 
-<div class="modal fade" id="userProfileModal" tabindex="-1" role="dialog" >
+<div class="modal fade" id="userProfileModal" role="dialog" >
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -77,7 +79,7 @@
     </div>
 </div>
 
-<div class="modal" id="loginModal" tabindex="-1" role="dialog" >
+<div class="modal fade" id="loginModal" role="dialog" >
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">

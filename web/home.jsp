@@ -99,10 +99,10 @@
         <div class="container">
             <div class="p-2 mt-5 rounded bg-light d-flex sticky-top">
                 <h3 class="mx-2 my-0" style="line-height: 46px">Sort by: </h3>
-                    <input type="radio" class="btn-check" name="options" id="SortHot" autocomplete="off" checked>
+                    <input type="radio" class="btn-check" name="options" id="SortHot" autocomplete="off" onclick="swapToHot()" checked>
                     <label for="SortHot" class="lh-lg mx-2 btn btn-outline-primary">Hot <i class="bi bi-fire"></i></label>
 
-                    <input type="radio" class="btn-check" name="options" id="SortNew" autocomplete="off">
+                    <input type="radio" class="btn-check" name="options" id="SortNew" autocomplete="off" onclick="swapToNew()">
                     <label for="SortNew" class="lh-lg mx-2 btn btn-outline-primary">New <i class="bi bi-bar-chart-line"></i></label>
                 <div style="flex-grow: 1"></div>
                 <!--button class="lh-lg mx-2 btn btn-outline-warning active" onclick="resetFeed()">Reset feed</button-->
