@@ -17,7 +17,7 @@ let endOfFeed = `
 let apending = false;
 let apendingIntervention = false;
 
-function postElement(postId, userId, fullName, postTime, postTitle, CardContent) {
+function postElement(postId, userId, fullName, postTime, postTitle, CardContent, postThumbnail) {
     return `
             <div id="post_${postId}" class="card">
                 <div class="card-body">
@@ -29,7 +29,7 @@ function postElement(postId, userId, fullName, postTime, postTitle, CardContent)
                     <h5>${postTitle}</h5>
                     <p class="card-text">${CardContent}</p>
                 </div>
-                <img class="card-img-bottom" src="./public/images/blogimg.jpg" alt="Card image cap">
+                <img class="card-img-bottom" src="./public/thumbnails/${postThumbnail}" alt="Card image cap">
             </div>
             `;
 } 
@@ -44,7 +44,7 @@ function appendHotposts(ammount, resetOffset) {
                         firstLoad = false;
                         let blogList = JSON.parse(text);
                         blogList.forEach((post, index) => {
-                            postContainer.innerHTML += postElement(post.BlogId, post.UserId, post.FullName, post.UpdatedTime, post.BlogTitle, post.CardContent);
+                            postContainer.innerHTML += postElement(post.BlogId, post.UserId, post.FullName, post.UpdatedTime, post.BlogTitle, post.CardContent, post.Thumbnail);
                         });
                     }
                     else {

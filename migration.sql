@@ -306,7 +306,8 @@ CREATE TABLE [dbo].[Blog](
 	[BlogTitle] [nvarchar](512),
 	[UpdatedTime] [datetime],
 	[PostBrief] [nvarchar](2048),
-	[PostText] [ntext])
+	[PostText] [ntext],
+	[PostThumbnail] [varchar](255))
 GO
 
 CREATE TABLE [dbo].[Question](

@@ -95,7 +95,7 @@ public class Homepage extends HttpServlet {
                     try( PrintWriter out = response.getWriter()){
                         out.print(Arrays.stream(fetchPost.toArray())
                             .map(obj -> (Blog)obj)
-                            .map(blog -> String.format("{\"BlogId\": %d, \"UserId\": %d, \"FullName\": \"%s\", \"BlogCategoryId\": %d, \"BlogTitle\": \"%s\", \"UpdatedTime\": \"%s\", \"CardContent\": \"%s\"}"
+                            .map(blog -> String.format("{\"BlogId\": %d, \"UserId\": %d, \"FullName\": \"%s\", \"BlogCategoryId\": %d, \"BlogTitle\": \"%s\", \"UpdatedTime\": \"%s\", \"CardContent\": \"%s\", \"Thumbnail\": \"%s\"}"
                                     ,blog.getBlogId()
                                     , blog.getUserId()
                                     , fullNameMap.get(blog.getUserId())
@@ -103,6 +103,7 @@ public class Homepage extends HttpServlet {
                                     , blog.getBlogTitle()
                                     , blog.getUpdatedTime()
                                     , blog.getPostBrief()
+                                    , blog.getPostThumbnail()
                             ))
                             .collect(Collectors.toList())
                         );
@@ -113,11 +114,9 @@ public class Homepage extends HttpServlet {
         }
 
 
-        if (session.getAttribute("homeSliders") == null) {
             DAOSlide daoSlide = new DAOSlide(); 
             List<Slide> sliders = daoSlide.getAllSlide();
-            session.setAttribute("homeSliders", sliders);
-        }
+            request.setAttribute("homeSliders", sliders);
 
         if (session.getAttribute("featuredSubjects") == null) {
             DAOSubject daoSubject = new DAOSubject();

@@ -143,7 +143,7 @@ public class DAOBlog extends DBContext {
     
     public List<Blog> getHotpostsForDisplay(int ammout, int offSet) {
         List<Blog> Out = new ArrayList<>();
-        String sql = "SELECT TOP (?) BlogId, UserId, BlogCategoryId, BlogTitle, UpdatedTime, PostBrief FROM Blog WHERE BlogId IN ("
+        String sql = "SELECT TOP (?) BlogId, UserId, BlogCategoryId, BlogTitle, UpdatedTime, PostBrief, PostThumbnail FROM Blog WHERE BlogId IN ("
                 + Arrays.stream(Arrays.copyOfRange(ListOfHotPosts, offSet, Math.min(offSet + ammout, ListOfHotPosts.length)))
                         .mapToObj(Integer::toString).collect(Collectors.joining(","))
                 + ")";
@@ -155,7 +155,7 @@ public class DAOBlog extends DBContext {
             pre.setInt(1, ammout);
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
-                Blog a = new Blog(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                Blog a = new Blog(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
                 Out.add(a);
             }
         } catch (SQLException ex) {

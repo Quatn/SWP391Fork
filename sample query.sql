@@ -664,11 +664,6 @@ INSERT INTO [Dimension] VALUES(50, 'Group', 'Initiating', 'This is initiating');
 INSERT INTO [Dimension] VALUES(50, 'Group', 'Planning', 'This is planning');
 INSERT INTO [Dimension] VALUES(50, 'Group', 'Executing', 'This is executing');
 
-INSERT INTO [Role] values ('Customer');
-INSERT INTO [Role] values ('Admin');
-INSERT INTO [Role] values ('Marketing');
-INSERT INTO [Role] values ('Expert');
-
 INSERT INTO [OrganizationPackage] values ('Team', 4, 80, 70, 25, 1)
 INSERT INTO [OrganizationPackage] values ('Team', 8, 155, 135, 45, 1)
 INSERT INTO [OrganizationPackage] values ('Team', 12, 225, 195, 60, 1)
@@ -747,80 +742,80 @@ VALUES ('Quiz Strategies'),
 INSERT INTO [dbo].[Blog] (UserId, BlogCategoryId, BlogTitle, UpdatedTime, PostBrief, PostText)
 VALUES 
 -- Quiz Strategies
-(1, 1, 'Top 5 Strategies for Acing Your Quizzes', '2024-02-15', 'Learn the top 5 strategies to improve your quiz scores and ace every test.', ''),
-(1, 1, 'How to Effectively Manage Your Time During Quizzes', '2024-02-20', 'Discover time management techniques to help you finish quizzes on time without rushing.', ''),
-(1, 1, 'The Power of Practice Quizzes', '2024-03-01', 'Understand the benefits of taking practice quizzes and how they can enhance your learning.', ''),
-(1, 1, 'Analyzing Quiz Questions: What to Look For', '2024-03-05', 'Learn how to break down quiz questions to understand what is being asked and how to answer effectively.', ''),
-(1, 1, 'Using Elimination Methods to Improve Quiz Performance', '2024-03-10', 'Explore the process of eliminating incorrect answers to increase your chances of choosing the right one.', ''),
-(1, 1, 'Quiz Strategies for Different Learning Styles', '2024-03-15', 'Find out how to tailor quiz strategies to match your learning style for better results.', ''),
-(1, 1, 'Creating a Study Schedule for Quiz Preparation', '2024-03-20', 'Learn how to create a study schedule that optimizes your quiz preparation time.', ''),
+(1, 1, 'Top 5 Strategies for Acing Your Quizzes', '2024-02-15', 'Learn the top 5 strategies to improve your quiz scores and ace every test.', '', 'blog1.jpg'),
+(1, 1, 'How to Effectively Manage Your Time During Quizzes', '2024-02-20', 'Discover time management techniques to help you finish quizzes on time without rushing.', '', 'blog2.jpg'),
+(1, 1, 'The Power of Practice Quizzes', '2024-03-01', 'Understand the benefits of taking practice quizzes and how they can enhance your learning.', '', 'blog3.jpg'),
+(1, 1, 'Analyzing Quiz Questions: What to Look For', '2024-03-05', 'Learn how to break down quiz questions to understand what is being asked and how to answer effectively.', '', 'blog4.jpg'),
+(1, 1, 'Using Elimination Methods to Improve Quiz Performance', '2024-03-10', 'Explore the process of eliminating incorrect answers to increase your chances of choosing the right one.', '', 'blog5.jpg'),
+(1, 1, 'Quiz Strategies for Different Learning Styles', '2024-03-15', 'Find out how to tailor quiz strategies to match your learning style for better results.', '', 'blog6.jpg'),
+(1, 1, 'Creating a Study Schedule for Quiz Preparation', '2024-03-20', 'Learn how to create a study schedule that optimizes your quiz preparation time.', '', 'blog7.jpg'),
 
 -- Test Preparation Tips
-(1, 2, 'Effective Test Preparation Techniques', '2024-03-25', 'Master the most effective techniques for preparing for tests.', ''),
-(1, 2, 'The Importance of Sleep Before a Test', '2024-03-30', 'Discover why a good nights sleep is crucial before taking a test.', ''),
-(1, 2, 'Balancing Study Sessions with Breaks', '2024-04-05', 'Learn how to balance study sessions with breaks to maximize retention.', ''),
-(1, 2, 'Using Flashcards for Test Prep', '2024-04-10', 'Explore the benefits of using flashcards as a study tool for test preparation.', ''),
-(1, 2, 'Group Study vs. Solo Study: Pros and Cons', '2024-04-15', 'Weigh the pros and cons of group study versus solo study for test preparation.', ''),
-(1, 2, 'How to Create a Test Prep Plan', '2024-04-20', 'Learn how to create a comprehensive test preparation plan.', ''),
+(1, 2, 'Effective Test Preparation Techniques', '2024-03-25', 'Master the most effective techniques for preparing for tests.', '', 'blog8.jpg'),
+(1, 2, 'The Importance of Sleep Before a Test', '2024-03-30', 'Discover why a good nights sleep is crucial before taking a test.', '', 'blog9.jpg'),
+(1, 2, 'Balancing Study Sessions with Breaks', '2024-04-05', 'Learn how to balance study sessions with breaks to maximize retention.', '', 'blog10.jpg'),
+(1, 2, 'Using Flashcards for Test Prep', '2024-04-10', 'Explore the benefits of using flashcards as a study tool for test preparation.', '', 'blog11.jpg'),
+(1, 2, 'Group Study vs. Solo Study: Pros and Cons', '2024-04-15', 'Weigh the pros and cons of group study versus solo study for test preparation.', '', 'blog12.jpg'),
+(1, 2, 'How to Create a Test Prep Plan', '2024-04-20', 'Learn how to create a comprehensive test preparation plan.', '', 'blog13.jpg'),
 
 -- Exam Anxiety Management
-(1, 3, 'Techniques to Reduce Exam Anxiety', '2024-04-25', 'Discover effective techniques to manage and reduce exam anxiety.', ''),
-(1, 3, 'How to Stay Calm During an Exam', '2024-04-30', 'Learn strategies to stay calm and focused during exams.', ''),
-(1, 3, 'The Role of Mindfulness in Exam Preparation', '2024-05-05', 'Understand how mindfulness practices can help in exam preparation.', ''),
-(1, 3, 'Breathing Exercises to Manage Exam Stress', '2024-05-10', 'Explore breathing exercises that can help reduce stress during exams.', ''),
-(1, 3, 'How to Overcome Negative Thoughts Before an Exam', '2024-05-15', 'Learn techniques to overcome negative thoughts and boost confidence before exams.', ''),
-(1, 3, 'Building a Positive Mindset for Exam Success', '2024-05-20', 'Discover ways to build a positive mindset for better exam performance.', ''),
-(1, 3, 'Nutrition Tips to Reduce Exam Stress', '2024-05-25', 'Learn how proper nutrition can help reduce stress and improve exam performance.', ''),
+(1, 3, 'Techniques to Reduce Exam Anxiety', '2024-04-25', 'Discover effective techniques to manage and reduce exam anxiety.', '', 'blog14.jpg'),
+(1, 3, 'How to Stay Calm During an Exam', '2024-04-30', 'Learn strategies to stay calm and focused during exams.', '', 'blog15.jpg'),
+(1, 3, 'The Role of Mindfulness in Exam Preparation', '2024-05-05', 'Understand how mindfulness practices can help in exam preparation.', '', 'blog16.jpg'),
+(1, 3, 'Breathing Exercises to Manage Exam Stress', '2024-05-10', 'Explore breathing exercises that can help reduce stress during exams.', '', 'blog17.jpg'),
+(1, 3, 'How to Overcome Negative Thoughts Before an Exam', '2024-05-15', 'Learn techniques to overcome negative thoughts and boost confidence before exams.', '', 'blog18.jpg'),
+(1, 3, 'Building a Positive Mindset for Exam Success', '2024-05-20', 'Discover ways to build a positive mindset for better exam performance.', '', 'blog19.jpg'),
+(1, 3, 'Nutrition Tips to Reduce Exam Stress', '2024-05-25', 'Learn how proper nutrition can help reduce stress and improve exam performance.', '', 'blog20.jpg'),
 
 
 -- Popular Quiz Categories
-(1, 4, 'Top 10 Popular Quiz Categories in 2024', '2024-02-01', 'Explore the top 10 quiz categories that are trending in 2024.', ''),
-(1, 4, 'Why General Knowledge Quizzes Are So Popular', '2024-02-05', 'Understand why general knowledge quizzes attract so many participants.', ''),
-(1, 4, 'The Rise of Pop Culture Quizzes', '2024-02-10', 'Discover the reasons behind the popularity of pop culture quizzes.', ''),
-(1, 4, 'History Quizzes: Fun and Educational', '2024-02-15', 'Learn why history quizzes are both fun and educational.', ''),
-(1, 4, 'Science Quizzes: Test Your Knowledge', '2024-02-20', 'Challenge your knowledge with engaging science quizzes.', ''),
-(1, 4, 'The Popularity of Literature Quizzes', '2024-02-25', 'Explore the reasons why literature quizzes are a hit among readers.', ''),
-(1, 4, 'Sports Quizzes: Are You a True Fan?', '2024-03-01', 'Test your sports knowledge with exciting sports quizzes.', ''),
+(1, 4, 'Top 10 Popular Quiz Categories in 2024', '2024-02-01', 'Explore the top 10 quiz categories that are trending in 2024.', '', 'blog21.jpg'),
+(1, 4, 'Why General Knowledge Quizzes Are So Popular', '2024-02-05', 'Understand why general knowledge quizzes attract so many participants.', '', 'blog22.jpg'),
+(1, 4, 'The Rise of Pop Culture Quizzes', '2024-02-10', 'Discover the reasons behind the popularity of pop culture quizzes.', '', 'blog23.jpg'),
+(1, 4, 'History Quizzes: Fun and Educational', '2024-02-15', 'Learn why history quizzes are both fun and educational.', '', 'blog24.jpg'),
+(1, 4, 'Science Quizzes: Test Your Knowledge', '2024-02-20', 'Challenge your knowledge with engaging science quizzes.', '', 'blog25.jpg'),
+(1, 4, 'The Popularity of Literature Quizzes', '2024-02-25', 'Explore the reasons why literature quizzes are a hit among readers.', '', 'blog26.jpg'),
+(1, 4, 'Sports Quizzes: Are You a True Fan?', '2024-03-01', 'Test your sports knowledge with exciting sports quizzes.', '', 'blog27.jpg'),
 
 
 -- Success Stories
-(1, 5, 'How I Aced My Exams Using These Tips', '2024-01-05', 'Read the success story of a student who aced their exams using our tips.', ''),
-(1, 5, 'From Failing to Passing: A Students Journey', '2024-01-10', 'Discover how a student turned their grades around with effective study strategies.', ''),
-(1, 5, 'Overcoming Exam Anxiety: A Personal Story', '2024-01-15', 'Read a personal story of overcoming exam anxiety and achieving success.', ''),
-(1, 5, 'Achieving Top Scores with Consistent Effort', '2024-01-20', 'Learn how consistent effort helped a student achieve top scores.', ''),
-(1, 5, 'Success Story: Using Quizzes for Better Learning', '2024-01-25', 'Find out how using quizzes as a learning tool led to academic success.', ''),
-(1, 5, 'The Power of a Positive Mindset in Exam Success', '2024-01-30', 'Discover the impact of a positive mindset on exam success through this story.', ''),
-(1, 5, 'From Struggling to Thriving: A Students Tale', '2024-02-01', 'Read about a students journey from struggling to thriving in their studies.', ''),
+(1, 5, 'How I Aced My Exams Using These Tips', '2024-01-05', 'Read the success story of a student who aced their exams using our tips.', '', 'blog28.jpg'),
+(1, 5, 'From Failing to Passing: A Students Journey', '2024-01-10', 'Discover how a student turned their grades around with effective study strategies.', '', 'blog29.jpg'),
+(1, 5, 'Overcoming Exam Anxiety: A Personal Story', '2024-01-15', 'Read a personal story of overcoming exam anxiety and achieving success.', '', 'blog30.jpg'),
+(1, 5, 'Achieving Top Scores with Consistent Effort', '2024-01-20', 'Learn how consistent effort helped a student achieve top scores.', '', 'blog31.jpg'),
+(1, 5, 'Success Story: Using Quizzes for Better Learning', '2024-01-25', 'Find out how using quizzes as a learning tool led to academic success.', '', 'blog32.jpg'),
+(1, 5, 'The Power of a Positive Mindset in Exam Success', '2024-01-30', 'Discover the impact of a positive mindset on exam success through this story.', '', 'blog33.jpg'),
+(1, 5, 'From Struggling to Thriving: A Students Tale', '2024-02-01', 'Read about a students journey from struggling to thriving in their studies.', '', 'blog34.jpg'),
 
 
 -- General Tips & Tricks
-(1, 6, '5 Study Habits of Successful Students', '2024-02-05', 'Discover the study habits that successful students swear by.', ''),
-(1, 6, 'How to Stay Organized During the School Year', '2024-02-10', 'Learn tips and tricks to stay organized throughout the school year.', ''),
-(1, 6, 'Effective Note-Taking Strategies', '2024-02-15', 'Explore different note-taking strategies to enhance your learning.', ''),
-(1, 6, 'Maximizing Productivity: Tips for Students', '2024-02-20', 'Discover ways to maximize productivity and make the most of your study time.', ''),
-(1, 6, 'How to Avoid Procrastination', '2024-02-25', 'Learn techniques to avoid procrastination and stay on track with your studies.', ''),
-(1, 6, 'Balancing School and Extracurricular Activities', '2024-03-01', 'Find out how to balance school work with extracurricular activities effectively.', ''),
-(1, 6, 'Tips for Effective Group Study Sessions', '2024-03-05', 'Learn tips for making the most out of group study sessions.', ''),
+(1, 6, '5 Study Habits of Successful Students', '2024-02-05', 'Discover the study habits that successful students swear by.', '', 'blog35.jpg'),
+(1, 6, 'How to Stay Organized During the School Year', '2024-02-10', 'Learn tips and tricks to stay organized throughout the school year.', '', 'blog36.jpg'),
+(1, 6, 'Effective Note-Taking Strategies', '2024-02-15', 'Explore different note-taking strategies to enhance your learning.', '', 'blog37.jpg'),
+(1, 6, 'Maximizing Productivity: Tips for Students', '2024-02-20', 'Discover ways to maximize productivity and make the most of your study time.', '', 'blog38.jpg'),
+(1, 6, 'How to Avoid Procrastination', '2024-02-25', 'Learn techniques to avoid procrastination and stay on track with your studies.', '', 'blog39.jpg'),
+(1, 6, 'Balancing School and Extracurricular Activities', '2024-03-01', 'Find out how to balance school work with extracurricular activities effectively.', '', 'blog40.jpg'),
+(1, 6, 'Tips for Effective Group Study Sessions', '2024-03-05', 'Learn tips for making the most out of group study sessions.', '', 'blog41.jpg'),
 
 
 -- New Feature Announcements
-(1, 7, 'Introducing Our New Quiz Feature!', '2024-03-10', 'Discover the exciting new quiz feature weve just launched.', ''),
-(1, 7, 'New User Interface: A Fresh Look', '2024-03-15', 'Explore the changes in our new user interface designed for a better experience.', ''),
-(1, 7, 'Enhanced Performance Metrics for Your Quizzes', '2024-03-20', 'Learn about the enhanced performance metrics available for your quizzes.', ''),
-(1, 7, 'Customizable Quiz Themes Now Available', '2024-03-25', 'Discover how you can now customize quiz themes to match your preferences.', ''),
-(1, 7, 'New Language Support: Quiz in Your Language', '2024-03-30', 'Find out about the new languages weve added support for in our quizzes.', ''),
-(1, 7, 'Improved Accessibility Features', '2024-04-05', 'Learn about the improved accessibility features weve implemented.', ''),
-(1, 7, 'Introducing Quiz Leaderboards', '2024-04-10', 'Get competitive with our new quiz leaderboards feature.', ''),
+(1, 7, 'Introducing Our New Quiz Feature!', '2024-03-10', 'Discover the exciting new quiz feature weve just launched.', '', 'blog42.jpg'),
+(1, 7, 'New User Interface: A Fresh Look', '2024-03-15', 'Explore the changes in our new user interface designed for a better experience.', '', 'blog43.jpg'),
+(1, 7, 'Enhanced Performance Metrics for Your Quizzes', '2024-03-20', 'Learn about the enhanced performance metrics available for your quizzes.', '', 'blog44.jpg'),
+(1, 7, 'Customizable Quiz Themes Now Available', '2024-03-25', 'Discover how you can now customize quiz themes to match your preferences.', '', 'blog45.jpg'),
+(1, 7, 'New Language Support: Quiz in Your Language', '2024-03-30', 'Find out about the new languages weve added support for in our quizzes.', '', 'blog46.jpg'),
+(1, 7, 'Improved Accessibility Features', '2024-04-05', 'Learn about the improved accessibility features weve implemented.', '', 'blog47.jpg'),
+(1, 7, 'Introducing Quiz Leaderboards', '2024-04-10', 'Get competitive with our new quiz leaderboards feature.', '', 'blog48.jpg'),
 
 
 -- Product Updates
-(1, 8, 'Latest Product Update: Whats New?', '2024-04-15', 'Find out whats new in our latest product update.', ''),
-(1, 8, 'Bug Fixes and Improvements', '2024-04-20', 'Learn about the latest bug fixes and performance improvements.', ''),
-(1, 8, 'New Features Added in the Latest Release', '2024-04-25', 'Discover the new features added in our latest product release.', ''),
-(1, 8, 'Upcoming Changes You Should Know About', '2024-04-30', 'Stay informed about the upcoming changes in our product.', ''),
-(1, 8, 'User Feedback: What Weve Improved', '2024-05-05', 'See how user feedback has shaped our recent improvements.', ''),
-(1, 8, 'Enhanced Security Features', '2024-05-10', 'Learn about the enhanced security features weve implemented.', ''),
-(1, 8, 'Faster Loading Times with Our Latest Update', '2024-05-15', 'Experience faster loading times with our latest update.', '');
+(1, 8, 'Latest Product Update: Whats New?', '2024-04-15', 'Find out whats new in our latest product update.', '', 'blog49.jpg'),
+(1, 8, 'Bug Fixes and Improvements', '2024-04-20', 'Learn about the latest bug fixes and performance improvements.', '', 'blog50.jpg'),
+(1, 8, 'New Features Added in the Latest Release', '2024-04-25', 'Discover the new features added in our latest product release.', '', 'blog51.jpg'),
+(1, 8, 'Upcoming Changes You Should Know About', '2024-04-30', 'Stay informed about the upcoming changes in our product.', '', 'blog52.jpg'),
+(1, 8, 'User Feedback: What Weve Improved', '2024-05-05', 'See how user feedback has shaped our recent improvements.', '', 'blog53.jpg'),
+(1, 8, 'Enhanced Security Features', '2024-05-10', 'Learn about the enhanced security features weve implemented.', '', 'blog54.jpg'),
+(1, 8, 'Faster Loading Times with Our Latest Update', '2024-05-15', 'Experience faster loading times with our latest update.', '', 'blog55.jpg');
 
 -- Insert 30 sample quizzes for subject IDs 1 to 13
 INSERT INTO [dbo].[Quiz] (SubjectId, QuizName, Level, DurationInMinutes, PassRate, QuizType, IsPublished) VALUES 

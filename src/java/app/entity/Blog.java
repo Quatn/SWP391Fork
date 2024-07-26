@@ -16,6 +16,7 @@ public class Blog {
     String UpdatedTime; 
     String PostText;
     String PostBrief;
+    String PostThumbnail;
 
     public Blog() {
     }
@@ -27,6 +28,16 @@ public class Blog {
         this.BlogTitle = BlogTitle;
         this.UpdatedTime = UpdatedTime;
         this.PostBrief = PostBrief;
+    }
+    
+    public Blog(Integer BlogId, Integer UserId, Integer BlogCategoryId, String BlogTitle, String UpdatedTime, String PostBrief, String PostThumbnail) {
+        this.BlogId = BlogId;
+        this.UserId = UserId;
+        this.BlogCategoryId = BlogCategoryId;
+        this.BlogTitle = BlogTitle;
+        this.UpdatedTime = UpdatedTime;
+        this.PostBrief = PostBrief;
+        this.PostThumbnail = PostThumbnail;
     }
 
     public Integer getBlogId() {
@@ -83,6 +94,14 @@ public class Blog {
 
     public void setPostBrief(String PostBrief) {
         this.PostBrief = PostBrief;
+    }
+
+    public String getPostThumbnail() {
+        return PostThumbnail;
+    }
+
+    public void setPostThumbnail(String PostThumbnail) {
+        this.PostThumbnail = PostThumbnail;
     }
 
     @Override
