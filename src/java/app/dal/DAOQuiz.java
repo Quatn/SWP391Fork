@@ -19,7 +19,8 @@ public class DAOQuiz extends DBContext {
     private static final String LISTING_QUERY
             = """
             select q.*, s.SubjectTitle from [Quiz] q
-            inner join [Subject] s on q.SubjectId = s.SubjectId""";
+            inner join [Subject] s on q.SubjectId = s.SubjectId
+            """;
 
     private static final String COUNT_LISTING_QUERY
             = "select count(*) from [Quiz] q\n"
@@ -66,15 +67,20 @@ public class DAOQuiz extends DBContext {
         return 0;
     }
 
-    public List<Subject> getSubjectsWithQuiz() {
+    public List<Subject> getSubjectsWithQuiz(int assignedExpertId) {
         List<Subject> ret = new ArrayList<>();
 
         try {
-            ResultSet rs = new QueryBuilder("""
-                select distinct s.SubjectId, SubjectTitle from [Subject] s
-                inner join Quiz q on s.SubjectId = q.SubjectId
+            QueryBuilder builder = new QueryBuilder("""
+                select s.SubjectId, SubjectTitle from [Subject] s
             """
-            ).toPreparedStatement(connection).executeQuery();
+            );
+
+            if (assignedExpertId != -1) {
+                builder.whereAnd("s.SubjectOwnerId", Operator.EQUALS, assignedExpertId);
+            }
+
+            ResultSet rs = builder.toPreparedStatement(connection).executeQuery();
 
             while (rs.next()) {
                 Subject s = new Subject();
@@ -156,6 +162,7 @@ public class DAOQuiz extends DBContext {
             String quizName,
             int subjectId,
             QuizType type,
+            int assignedExpertId,
             int page, int pageSize
     ) {
         List<QuizInformation> ret = new ArrayList<>();
@@ -163,9 +170,12 @@ public class DAOQuiz extends DBContext {
 
         try {
             QueryBuilder query = new QueryBuilder(LISTING_QUERY)
-                    .setLoggingEnabled(true)
                     .orderBy("q.UpdatedTime", OrderDirection.DESC)
                     .orderBy("q.SubjectId", OrderDirection.ASC);
+
+            if (assignedExpertId != -1) {
+                query.whereAnd("s.SubjectOwnerId", Operator.EQUALS, assignedExpertId);
+            }
 
             if (quizName != null && !quizName.isBlank()) {
                 query.whereAnd("QuizName", Operator.LIKE, "%" + quizName.trim() + "%");

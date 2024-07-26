@@ -1,15 +1,3 @@
-.ad-overlay {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5) 40%, transparent);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-.cover-image {
-    object-fit: cover;
-    aspect-ratio: 16 / 10;
-}
-
 .toc-container {
     position: sticky;
     width: 60px;
@@ -26,6 +14,11 @@
 .toc-container:hover .toc-icon {
     opacity: 0;
     pointer-events: none;
+}
+
+.cover-image {
+    object-fit: cover;
+    aspect-ratio: 16 / 10;
 }
 
 .toc-container:hover {

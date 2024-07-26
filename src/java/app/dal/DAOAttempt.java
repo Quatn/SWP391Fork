@@ -58,6 +58,10 @@ public class DAOAttempt extends DBContext {
 
             prepareAnswerSheet(attempt);
 
+            stmt = connection.prepareStatement("update [Quiz] set numberOfAttempts = numberOfAttempts + 1 where QuizId = ?");
+            stmt.setInt(1, quizId);
+            stmt.executeUpdate();
+
             return attempt;
         } catch (Exception ex) {
             ex.printStackTrace();

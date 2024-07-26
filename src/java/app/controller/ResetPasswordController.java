@@ -20,7 +20,7 @@ import java.util.Objects;
 public class ResetPasswordController extends HttpServlet {
 
     //in case the path changes, just change this line
-    private final String RESET_PAGE = "/user/ResetPassword.jsp";
+    private final String RESET_PAGE = "/user/resetpassword/ResetPassword.jsp";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -122,6 +122,12 @@ public class ResetPasswordController extends HttpServlet {
         String email = request.getParameter("email");
 
         User user = daoUser.getUserByEmail(email);
+
+        if (user == null) {
+            request.setAttribute("error", "error_invalid_email");
+            request.getRequestDispatcher(RESET_PAGE).forward(request, response);
+            return;
+        }
 
         Config config = new Config(getServletContext());
         int timeout = config.getIntOrDefault("pw.reset.timeout_secs", 1);

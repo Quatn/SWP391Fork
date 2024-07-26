@@ -4,10 +4,6 @@
 <form class="card" action="admin/quizzeslist" method="get">
     <input type="hidden" name="published" value="${empty param.published ? '1' : param.published}">
     <div class="card-body">
-        <h5 class="card-title fw-bold">
-            <i class="bi bi-funnel-fill"></i>
-            Filter
-        </h5>
         <div class="row">
             <div class="form-group col-md-4">
                 <label class="form-label" for="quizName">Quiz Name</label>

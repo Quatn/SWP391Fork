@@ -14,8 +14,6 @@
                         <i class="bi bi-person-circle"></i>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownAdmin">
-                        <li><a class="dropdown-item" href="#">Your profile</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
                         <form method="post" action="loginviewofAn">
                             <button type="submit" class="btn">Logout</button>
                             <input type="hidden" name="service" value="logout"/>

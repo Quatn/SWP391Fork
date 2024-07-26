@@ -1,9 +1,11 @@
 package app.controller;
 
 import app.dal.DAOQuiz;
+import app.dal.DAOUser;
 import app.dal.QueryResult;
 import app.entity.QuizType;
 import app.entity.Subject;
+import app.entity.User;
 import app.utils.Config;
 import app.utils.Parsers;
 import app.utils.URLUtils;
@@ -23,9 +25,26 @@ import java.util.Map;
 public class QuizzesListController extends HttpServlet {
     private final static String PAGE_NAME = "/admin/quizzeslist/QuizzesList.jsp";
 
+    private User getCurrentUser(HttpServletRequest request) {
+        HttpSession sess = request.getSession(false);
+        if (sess == null) return null;
+
+        Object userEmail = sess.getAttribute("userEmail");
+        if (userEmail == null) return null;
+
+        DAOUser daoUser = new DAOUser();
+        return daoUser.getUserByEmail(userEmail.toString());
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        User user = getCurrentUser(request);
+        if (user == null || (user.getRoleId() != 2 && user.getRoleId() != 4)) {
+            request.getRequestDispatcher("/Unauthorized.jsp").forward(request, response);
+            return;
+        }
+
         Config cfg = new Config(getServletContext());
 
         int page = Parsers.parseIntOrDefault(request.getParameter("page"), 1);
@@ -46,10 +65,13 @@ public class QuizzesListController extends HttpServlet {
         int subjectId = Parsers.parseIntOrDefault(subject, -1);
         QuizType quizType = QuizType.fromInt(type);
 
+        int assignedExpertId = user.getRoleId() == 2 ? -1 : user.getUserId();
+
         QueryResult result = daoQuiz.search(
                 quizName,
                 subjectId,
                 quizType,
+                assignedExpertId,
                 page, pageSize
         );
 
@@ -62,7 +84,7 @@ public class QuizzesListController extends HttpServlet {
             response.sendRedirect("quizzeslist?" + params);
         }
         
-        List<Subject> subjects = daoQuiz.getSubjectsWithQuiz();
+        List<Subject> subjects = daoQuiz.getSubjectsWithQuiz(assignedExpertId);
 
         request.setAttribute("subjects", subjects);
         request.setAttribute("result", result);
