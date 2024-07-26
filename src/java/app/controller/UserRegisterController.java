@@ -9,6 +9,7 @@ import app.entity.Registration;
 import app.entity.Subject;
 import app.entity.User;
 import app.utils.GmailService;
+import app.utils.MD5Encryption;
 import app.utils.RSAEncryption;
 import app.utils.RandomSecurePasswordGenerator;
 import jakarta.servlet.RequestDispatcher;
@@ -41,6 +42,7 @@ public class UserRegisterController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         GmailService gmailService = new GmailService(getServletContext());
+        MD5Encryption md = new MD5Encryption();
         DAOUser daoUser = new DAOUser();
         String service = request.getParameter("service");
         String redirectTo = "";
@@ -70,7 +72,8 @@ public class UserRegisterController extends HttpServlet {
                         .useUpper(true)
                         .build();
                 String password = rSPG.generateSecureRandomPassword(8);
-                u.setPassword(password);
+                String hashPassword = md.encryptPassword(password);
+                u.setPassword(hashPassword);
                 switch (gender) {
                     case "Male":
                         u.setGenderId(1);

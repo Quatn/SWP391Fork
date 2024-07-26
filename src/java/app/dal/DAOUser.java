@@ -3,6 +3,7 @@ package app.dal;
 import java.util.ArrayList;
 import java.util.List;
 import app.entity.User;
+import app.utils.MD5Encryption;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
@@ -17,6 +18,8 @@ import java.util.stream.Collectors;
 public class DAOUser extends DBContext {
 
     public boolean updatePasswordById(int id, String password) {
+        MD5Encryption md = new MD5Encryption();
+        password = md.encryptPassword(password);
         try {
             PreparedStatement stmt = connection.prepareStatement("update [User] set [Password] = ? where [UserId] = ?");
             stmt.setString(1, password);
@@ -79,7 +82,7 @@ public class DAOUser extends DBContext {
         }
         return isRegistered;
     }
-    
+
     public boolean isMobileRegistered(String mobile) {
         boolean isRegistered = false;
         String sql = "SELECT COUNT(*) FROM [dbo].[User] WHERE Mobile = ?";
@@ -130,6 +133,23 @@ public class DAOUser extends DBContext {
             ex.printStackTrace();
         }
         return null;
+    }
+
+    public boolean verifyLogin(String email, String password) {
+        MD5Encryption md = new MD5Encryption();
+        String sql = "select * from [User] u where u.Email = ?";
+        String hashPassword = "";
+        try {
+            PreparedStatement preStat = connection.prepareStatement(sql);
+            preStat.setString(1, email);
+            ResultSet rs = preStat.executeQuery();
+            if (rs.next()) {
+                hashPassword = rs.getString("Password");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return md.verifyPassword(password, hashPassword);
     }
 
     public User getUserByEmail(String email) {
@@ -262,7 +282,7 @@ public class DAOUser extends DBContext {
         }
         return Out;
     }
-    
+
     public ConcurrentHashMap<String, String> ExpertsEmailNameMap() {
         ConcurrentHashMap<String, String> Out = new ConcurrentHashMap<>();
         String sql = "SELECT Email, FullName FROM [User] where RoleId = 4";
@@ -279,6 +299,8 @@ public class DAOUser extends DBContext {
     }
 
     public static void main(String[] args) {
+        DAOUser dao = new DAOUser();
+        System.out.println(dao.verifyLogin("ngocdbhe182383@fpt.edu.vn", "@Ngoc123"));
     }
 
     /**
