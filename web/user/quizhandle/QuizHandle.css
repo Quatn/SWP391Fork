@@ -21,6 +21,7 @@ body {
     place-items: center;
     border: 1px solid black;
     border-radius: 4px;
+    margin-bottom: 4px;
     color: black;
 }
 
@@ -59,4 +60,12 @@ body {
 
 .fast-navigate-button[data-answered="true"] i {
     color: white;
+}
+
+.show-when-alone {
+    display: none;
+}
+
+.show-when-alone:first-child {
+    display: block;
 }

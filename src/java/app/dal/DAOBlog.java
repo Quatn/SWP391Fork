@@ -23,6 +23,7 @@ public class DAOBlog extends DBContext {
             + "b.BlogId,\n"
             + "b.BlogTitle,\n"
             + "b.PostBrief,\n"
+            + "b.PostThumbnail,\n"
             + "b.UpdatedTime,\n"
             + "u.FullName,\n"
             + "u.UserId,\n"
