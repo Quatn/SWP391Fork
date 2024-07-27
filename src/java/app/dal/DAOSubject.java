@@ -535,7 +535,7 @@ public class DAOSubject extends DBContext {
                     select o.OrganizationId, o.OrganizationName from [Organization] o
                     join [OrganizationMember] om on om.MemberId = o.OrganizationId
                     join [User] u on u.UserId = om.MemberId
-                    where u.Email = """;
+                    where u.Email = ?""";
         try {
             PreparedStatement pre = connection.prepareStatement(sql);
             //change query due to database script's change

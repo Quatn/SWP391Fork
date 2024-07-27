@@ -5,8 +5,6 @@
 package app.controller;
 
 import app.dal.DAOUser;
-import app.entity.Registration;
-import app.entity.Subject;
 import app.entity.User;
 import app.utils.GmailService;
 import app.utils.MD5Encryption;
@@ -14,7 +12,6 @@ import app.utils.RSAEncryption;
 import app.utils.RandomSecurePasswordGenerator;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
