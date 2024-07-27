@@ -58,15 +58,26 @@ public class ImportQuestionServlet extends HttpServlet {
                 int level = (int) row.getCell(2).getNumericCellValue();
                 int subjectID = (int) row.getCell(3).getNumericCellValue();
                 int lessonID = (int) row.getCell(4).getNumericCellValue();
-                
+
                 int questionID = quesDAO.addQuestion(text, explanation, level, subjectID, lessonID);
-                
+
                 //add answer 
-                for(int i=5; i<row.getLastCellNum(); i+=2){
-                    String ansName = getCellValueAsString(row.getCell(i));
-                    int isCorrect = (int) row.getCell(i+1).getNumericCellValue();
-                    System.out.println("question id: " +questionID+ "name " + ansName + "; iscorrect " + isCorrect);
-                    quesDAO.addAnswer(questionID, ansName, isCorrect);
+                for (int i = 5; i < row.getLastCellNum(); i += 2) {
+                    Cell ansCell = row.getCell(i);
+                    Cell isCorrectCell = row.getCell(i + 1);
+
+                    if (ansCell == null || isCorrectCell == null) {
+                        continue; // Skip if either the answer cell or the correctness cell is null
+                    }
+
+                    String ansName = getCellValueAsString(ansCell);
+                    int isCorrect = (int) isCorrectCell.getNumericCellValue();
+
+                    System.out.println("question id: " + questionID + " name: " + ansName + "; isCorrect: " + isCorrect);
+
+                    if (ansName != null && !ansName.isBlank()) {
+                        quesDAO.addAnswer(questionID, ansName, isCorrect);
+                    }
                 }
             }
             request.setAttribute("notification", "File import successfully!");
@@ -77,7 +88,6 @@ public class ImportQuestionServlet extends HttpServlet {
         request.getRequestDispatcher("admin/importquestion.jsp").forward(request, response);
     }
 
-    
     private String getCellValueAsString(Cell cell) {
         if (cell == null) {
             return "";
@@ -106,6 +116,7 @@ public class ImportQuestionServlet extends HttpServlet {
             }
         }
     }
+
     @Override
     public String getServletInfo() {
         return "Short description";
