@@ -44,7 +44,7 @@
                                     <br> Registration Time: ${requestScope.registTime}
                                     <br> Valid From: ${requestScope.validFrom}
                                     <br> Valid To: ${requestScope.validTo}
-                                    <br> Price: ${requestScope.price}
+                                    <br> Price: ${Integer.valueOf(requestScope.price*1000)} VND
                                 </p>
                             </div>
                         </div>
