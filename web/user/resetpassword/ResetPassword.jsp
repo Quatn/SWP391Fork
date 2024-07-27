@@ -58,11 +58,6 @@
                                 Please make sure two passwords are the same
                             </div>
                         </c:if>
-                        <c:if test="${error eq 'error_pw_dulplicated'}">
-                            <div class="alert alert-warning mt-4" role="alert">
-                                <strong>Oops!</strong> The new password is the same as your current password!
-                            </div>
-                        </c:if>
                         <c:if test="${error eq 'error_pw_not_match'}">
                             <div class="alert alert-danger mt-4" role="alert">
                                 Please make sure that the password meets the requirement above
