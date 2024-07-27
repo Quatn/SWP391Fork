@@ -56,6 +56,9 @@ public class Homepage extends HttpServlet {
         Config cfg = new Config(ctx);
         int pageSize = cfg.getIntOrDefault("homepage.pagination.size", 5);
         request.setAttribute("pageSize", pageSize);
+        
+        DAOBlog daoBlog = new DAOBlog();
+        session.setAttribute("sidebarLatestPosts", daoBlog.getNewpostsForDisplay(8, 0));
 
         if (service != null) {
 
@@ -73,7 +76,6 @@ public class Homepage extends HttpServlet {
                 } catch (Exception e) {
                 }
 
-                DAOBlog daoBlog = new DAOBlog();
                 List<Blog> fetchPost = null;
                 //idk why i wanted to add this either, but here we are
                 if (ammount > 0) {
