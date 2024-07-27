@@ -42,7 +42,7 @@
             </div>
             
             <div class="container">
-                <p class="card p-3 shadow text-justify card-text my-4">${attemptQuestion.getQuestion().getQuestionName()}</p>
+                <p class="card p-3 shadow text-justify card-text my-4" style="white-space: pre-wrap;">${attemptQuestion.getQuestion().getQuestionName()}</p>
                 
                 <form method="POST" class="d-flex flex-column gap-3">
                     <input type="hidden" name="action" value="answer" />
@@ -58,7 +58,7 @@
 
             </div>
         </main>
-        <div class="container-fluid mb-2 d-flex justify-content-end">
+        <div class="container-fluid mb-2 d-flex justify-content-end mt-3">
             <form method="POST">
                 <input type="hidden" name="action" value="mark">
                 <input type="hidden" name="question" value="${attemptQuestion.getQuestion().getQuestionID()}" />
