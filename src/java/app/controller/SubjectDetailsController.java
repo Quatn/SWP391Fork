@@ -54,35 +54,33 @@ public class SubjectDetailsController extends HttpServlet {
             HashMap<Integer, ArrayList<Package>> map = daoSubject.getSubjectPackagesMap();
             request.setAttribute("map", map);
 
-
             List<SubjectCategory> categoryLine = daoSubject.getSubjectCategoryLineById(displaySubject.getCategoryId());
             System.out.println(displaySubject);
             Collections.reverse(categoryLine);
 
             request.setAttribute("subjectDetailsCategoryLine", categoryLine);
 
-            //Still not gonna clean this up cus I've got no time lol
-            Vector<Subject> newSubjectList = (Vector<Subject>) request.getAttribute("dataNewSubject");
-            if (request.getAttribute("dataNewSubject") == null) {
-                newSubjectList = daoSubject.getNewSubject();
-                request.setAttribute("dataNewSubject", newSubjectList);
-            }
+            Vector<Subject> newSubjectList = daoSubject.getNewSubject();
+            request.setAttribute("dataNewSubject", newSubjectList);
+            
             if (newSubjectList.stream().map(prdct -> prdct.getSubjectId()).anyMatch(sId -> sId == id)) {
                 request.setAttribute("SubjectTagNew", true);
             } else {
                 request.setAttribute("SubjectTagNew", false);
             }
-            
-            Vector<Subject> saleSubjectList = (Vector<Subject>) request.getAttribute("dataSaleSubject");
-            if (request.getAttribute("dataSaleSubject") == null) {
-                saleSubjectList = daoSubject.getBigSaleSubject();
-                request.setAttribute("dataSaleSubject", saleSubjectList);
-            }
+
+            Vector<Subject> saleSubjectList = saleSubjectList = daoSubject.getBigSaleSubject();
+            request.setAttribute("dataSaleSubject", saleSubjectList);
+
             if (saleSubjectList.stream().map(prdct -> prdct.getSubjectId()).anyMatch(sId -> sId == id)) {
                 request.setAttribute("SubjectTagBigSale", true);
             } else {
                 request.setAttribute("SubjectTagBigSale", false);
             }
+
+            //Forgor that this is actually needed
+            Vector<Subject> featuredSubjectList = featuredSubjectList = daoSubject.getFeaturedSubject();
+            request.setAttribute("dataFeaturedSubject", featuredSubjectList);
 
             request.setAttribute("SubjectTagFeatured", displaySubject.getIsFeatured());
 

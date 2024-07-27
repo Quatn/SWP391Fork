@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <img src="public/images/blogimg.jpg" class="cover-image rounded-3" height="400" width="100%" class="rounded" alt="Main Image">
+                        <img src="public/thumbnails/${information.getBlogThumbnail()}" class="cover-image rounded-3" height="400" width="100%" class="rounded" alt="Main Image">
                     </div>
 
                     <div class="blog-content">

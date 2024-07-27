@@ -48,7 +48,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
         width: 65%;
         margin: 30px auto;
         object-fit: contain;
-        
     }
     
     & .profilePic {
@@ -63,3 +62,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     border-radius: 10px;
 }
 
+.post-link {
+    color: black;
+}

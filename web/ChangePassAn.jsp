@@ -4,6 +4,7 @@
     Author     : OwO
 --%>
 
+<%-- 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,9 +25,9 @@
             } else {
             
         %>
-
-
-        <div class="modal fade" id="changePassModal" tabindex="-1" role="dialog" >
+--%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <div class="modal fade changePassModal" id="changePassModal"  aria-labelledby="changePassModal" >
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -34,6 +35,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                        <c:if test="${not empty sessionScope.userEmail}">
                         <form method="post" action="loginviewofAn" class="form-changepass">
                             <h3 classs="text-center">Change Password</h3>
                             <div class="form-group mb-3">
@@ -52,14 +54,19 @@
                                 <input type="submit" name="submit" value="Change Password" class="btn btn-primary"/>
                                 <input type="hidden" name = "service" value = "changepass"/>
                             </div>
+                        </form>
+                        </c:if>
+                        <c:if test="${empty sessionScope.userEmail}">
+                            <h1>Not authorized</h1>
+                        </c:if>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
-    </div>
 
-
+<%-- 
     <%}%>
+
 </body>
 </html>
+--%>

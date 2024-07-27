@@ -74,44 +74,47 @@ public class ResetPasswordController extends HttpServlet {
         String token = request.getParameter("token");
         String newPassword = request.getParameter("newpw");
         String confirmNewPassword = request.getParameter("confirmnewpw");
-        boolean same = newPassword.equals(confirmNewPassword);
 
-        if (token != null) {
-            ResetRecord resetRecord = daoResetTokens.getByToken(token);
-
-            if (resetRecord == null) {
-                request.setAttribute("error", "error_invalid_token");
-                request.getRequestDispatcher(RESET_PAGE).forward(request, response);
-                return;
-            }
-
-            if (!resetRecord.isValid()) {
-                request.setAttribute("screen", "expired");
-            } else if (same) {
-                if (!newPassword.matches("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$")) {
-                    request.setAttribute("user", daoUser.getUserById(resetRecord.getUserId()));
-                    request.setAttribute("screen", "change_pw");
-                    request.setAttribute("error", "error_pw_not_match");
-                } else {
-                    int id = resetRecord.getUserId();
-                    String email = daoUser.getUserById(id).getEmail();
-                    if (daoUser.verifyLogin(email, newPassword)) {
-                        request.setAttribute("user", daoUser.getUserById(resetRecord.getUserId()));
-                        request.setAttribute("screen", "change_pw");
-                        request.setAttribute("error", "error_pw_dulplicated");
-                    } else {
-                        request.setAttribute("screen", "success");
-                        response.setHeader("Refresh", "3; url=" + URLUtils.getBaseURL(request) + "/");
-                        daoUser.updatePasswordById(resetRecord.getUserId(), newPassword);
-                        daoResetTokens.deleteToken(resetRecord.getUserId());
-                    }
-                }
-            } else {
-                request.setAttribute("user", daoUser.getUserById(resetRecord.getUserId()));
-                request.setAttribute("screen", "change_pw");
-                request.setAttribute("error", "error_pw_not_same");
-            }
+        if (token == null) {
+            request.setAttribute("error", "error_invalid_token");
+            request.getRequestDispatcher(RESET_PAGE).forward(request, response);
+            return;
         }
+         
+        ResetRecord resetRecord = daoResetTokens.getByToken(token);
+        if (resetRecord == null) {
+            request.setAttribute("error", "error_invalid_token");
+            request.getRequestDispatcher(RESET_PAGE).forward(request, response);
+            return;
+        }
+
+        if (!resetRecord.isValid()) {
+            request.setAttribute("screen", "expired");
+            request.getRequestDispatcher(RESET_PAGE).forward(request, response);
+            return;
+        }
+        
+        boolean same = newPassword.equals(confirmNewPassword);
+        if (!same) {
+            request.setAttribute("user", daoUser.getUserById(resetRecord.getUserId()));
+            request.setAttribute("screen", "change_pw");
+            request.setAttribute("error", "error_pw_not_same");
+            request.getRequestDispatcher(RESET_PAGE).forward(request, response);
+            return;
+        }
+
+        if (!newPassword.matches("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$")) {
+            request.setAttribute("user", daoUser.getUserById(resetRecord.getUserId()));
+            request.setAttribute("screen", "change_pw");
+            request.setAttribute("error", "error_pw_not_match");
+            request.getRequestDispatcher(RESET_PAGE).forward(request, response);
+            return;
+        }
+
+        request.setAttribute("screen", "success");
+        response.setHeader("Refresh", "3; url=" + URLUtils.getBaseURL(request) + "/");
+        daoUser.updatePasswordById(resetRecord.getUserId(), newPassword);
+        daoResetTokens.deleteToken(resetRecord.getUserId());
 
         daoUser.close();
         daoResetTokens.close();

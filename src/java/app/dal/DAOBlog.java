@@ -23,6 +23,7 @@ public class DAOBlog extends DBContext {
             + "b.BlogId,\n"
             + "b.BlogTitle,\n"
             + "b.PostBrief,\n"
+            + "b.PostThumbnail,\n"
             + "b.UpdatedTime,\n"
             + "u.FullName,\n"
             + "u.UserId,\n"
@@ -38,7 +39,7 @@ public class DAOBlog extends DBContext {
 
     public MarkdownDocument getPostTextById(int id) {
         String sql = "select PostText from [Blog] where BlogId = ?";
-        
+
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, id);
@@ -53,23 +54,23 @@ public class DAOBlog extends DBContext {
 
         return null;
     }
-    
+
     public BlogInformation getBlogInformationById(int id) {
         String sql = LISTING_QUERY
                 + "where b.BlogId = ?";
-        
+
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
-            
+
             if (rs.next()) {
                 return new BlogInformation(rs);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
+
         return null;
     }
 
@@ -140,22 +141,52 @@ public class DAOBlog extends DBContext {
     //Hard-coded ids
     //TODO: Make an algorithm to define what posts are considered as "hot"
     static int[] ListOfHotPosts = {1, 8, 2, 4, 10, 3, 6, 7, 9, 46, 26, 25, 16, 38, 44, 50, 31, 27, 39, 40, 49, 18, 42, 34};
-    
+
     public List<Blog> getHotpostsForDisplay(int ammout, int offSet) {
         List<Blog> Out = new ArrayList<>();
-        String sql = "SELECT TOP (?) BlogId, UserId, BlogCategoryId, BlogTitle, UpdatedTime, PostBrief FROM Blog WHERE BlogId IN ("
-                + Arrays.stream(Arrays.copyOfRange(ListOfHotPosts, offSet, Math.min(offSet + ammout, ListOfHotPosts.length)))
-                        .mapToObj(Integer::toString).collect(Collectors.joining(","))
-                + ")";
-        System.out.println(sql);
+        //String sql = "SELECT TOP (?) BlogId, UserId, BlogCategoryId, BlogTitle, UpdatedTime, PostBrief, PostThumbnail FROM Blog WHERE BlogId IN ("
+        //        + Arrays.stream(Arrays.copyOfRange(ListOfHotPosts, offSet, Math.min(offSet + ammout, ListOfHotPosts.length)))
+        //                .mapToObj(Integer::toString).collect(Collectors.joining(","))
+        //        + ")";
+
+        //new random hotpst picker because it is atleast better than hard-coded ids
+        String sql = "select BlogId, UserId, BlogCategoryId, BlogTitle, UpdatedTime, PostBrief, PostThumbnail from [Blog] b \n"
+                + "where LEN(b.BlogTitle) < 50 and LEN(b.PostBrief) > 50 \n"
+                + "order by b.BlogCategoryId, b.BlogId desc\n"
+                + "OFFSET ? ROWS \n"
+                + "FETCH NEXT ? ROWS ONLY;";
 
         PreparedStatement pre;
         try {
             pre = connection.prepareStatement(sql);
-            pre.setInt(1, ammout);
+            pre.setInt(1, offSet);
+            pre.setInt(2, ammout);
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
-                Blog a = new Blog(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                Blog a = new Blog(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
+                Out.add(a);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return Out;
+    }
+    
+    public List<Blog> getNewpostsForDisplay(int ammout, int offSet) {
+        List<Blog> Out = new ArrayList<>();
+        String sql = "select BlogId, UserId, BlogCategoryId, BlogTitle, UpdatedTime, PostBrief, PostThumbnail from [Blog] b \n"
+                + "order by b.UpdatedTime desc\n"
+                + "OFFSET ? ROWS \n"
+                + "FETCH NEXT ? ROWS ONLY;";
+
+        PreparedStatement pre;
+        try {
+            pre = connection.prepareStatement(sql);
+            pre.setInt(1, offSet);
+            pre.setInt(2, ammout);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                Blog a = new Blog(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
                 Out.add(a);
             }
         } catch (SQLException ex) {

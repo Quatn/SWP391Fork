@@ -117,6 +117,7 @@ SET QUOTED_IDENTIFIER ON
 
 Go
 
+
 CREATE TABLE [dbo].[Gender](
 	[GenderId] [int] IDENTITY(1,1) primary key ,
 	[GenderName] [varchar](50))
@@ -306,7 +307,8 @@ CREATE TABLE [dbo].[Blog](
 	[BlogTitle] [nvarchar](512),
 	[UpdatedTime] [datetime],
 	[PostBrief] [nvarchar](2048),
-	[PostText] [ntext])
+	[PostText] [ntext],
+	[PostThumbnail] [varchar](255))
 GO
 
 CREATE TABLE [dbo].[Question](
@@ -377,3 +379,24 @@ CREATE TABLE [dbo].[AttemptQuestionAnswer] (
 	[Marked] bit default(0),
 	FOREIGN KEY ([QuestionId], [AnswerId]) REFERENCES [dbo].[Answer]([QuestionID], [AnswerID])
 );
+
+CREATE TABLE [dbo].[QuizLessonQuestionCount](
+	[QuizId] [int] NOT NULL,
+	[LessonId] [int] NOT NULL,
+	[QuestionCount] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[QuizId] ASC,
+	[LessonId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[QuizLessonQuestionCount]  WITH CHECK ADD  CONSTRAINT [FK__QuizLesso__QuizI__0B91BA14] FOREIGN KEY([QuizId])
+REFERENCES [dbo].[Quiz] ([QuizId])
+GO
+ALTER TABLE [dbo].[QuizLessonQuestionCount] CHECK CONSTRAINT [FK__QuizLesso__QuizI__0B91BA14]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO

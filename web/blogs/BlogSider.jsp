@@ -47,7 +47,7 @@
     <c:forEach items="${recents}" var="post">
         <a href="blogs/detail?id=${post.getBlogId()}">
             <div class="card d-flex flex-row align-items-center mb-3">
-                <img height="128" src="public/images/blogimg.jpg" class="p-2 rounded-4" alt="${post.getPostBrief()}">
+                <img height="128" src="public/thumbnails/${post.getBlogThumbnail()}" class="p-2 rounded-4" alt="${post.getPostBrief()}">
                 <div class="card-body">
                     <h5 class="card-title">${post.getBlogTitle()}</h5>
                     <p class="card-text"><small class="text-muted">${blogSiderFormatter.dateFormat(post.getUpdatedTime())}</small></p>

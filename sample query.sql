@@ -75,14 +75,14 @@ INSERT INTO [SubjectLevel] VALUES('Advanced');
 
 INSERT INTO [Subject] VALUES('College Algebra with the Math Sorcerer',2, 7, 1, 1, 1, '2004-05-01','2004-05-01','consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis interdum tristique. Aenean arcu eros, varius nec augue a, ultrices congue ex. Donec eu elementum lectus, sit amet posuere lorem.', '##Coursera style description Sample The subject description part of the subject details page will parse the description of a subject and display it similar to how Coursera display their subject info Note: This section will not be displayed
 	##About <h3>What you''ll learn:</h3> <ul> <li>Understanding differential equations and solving first order and first degree differential equations.</li> <li>Apply the concept of trigonometry in real world problems.</li> <li>Understanding differentiation and integration with related applications.</li> <li>Solve a system of equations with the help of matrices.</li> </ul> <h3>Details to know</h3> <span>Assessments: 16 Assessments</span>
-	##Outcome <h3>Advance your subject-matter expertise <ul> <li>learn in-demand skills from university and industry experts</li> <li>master a subject or tool with hands-on projects</li> <li>develop a deep understanding of key concepts</li> <li>earn a career certificate from imperial college london</li> </ul> <h3>Shareable certificate</h3>
+	##Outcome <h3>Advance your subject-matter expertise</h3> <ul> <li>learn in-demand skills from university and industry experts</li> <li>master a subject or tool with hands-on projects</li> <li>develop a deep understanding of key concepts</li> <li>earn a career certificate from imperial college london</li> </ul> <h3>Shareable certificate</h3>
 	##Lessons <h3>There are 3 modules in this course</h3> <h4>Module 1</h4> <ul> <li>L1</li> <li>L2</li> <li>L3</li> </ul> <h4>Module 2</h4> <ul> <li>L1</li> <li>L2</li> <li>L3</li> </ul> <h4>Module 3</h4> <ul> <li>L1</li> <li>L2</li> <li>L3</li> </ul>
 	##Duration <h3>27 hours to complete</h3> <h4>3 weeks at 9 hours a week</h4>
 	##End', 'sub2.jpg', 3, 0);
 
 INSERT INTO [Subject] VALUES('Become an Algebra Master',3, 7, 1, 1, 1, '2004-05-01','2004-05-01','Lorem ipsum dolor sit amet', 'Quisque convallis interdum tristique. Aenean arcu eros, varius nec augue a, ultrices congue ex. Donec eu elementum lectus, sit amet posuere lorem.', '##Coursera style description
 	##About <h3>What you''ll learn:</h3> <ul> <li>Ut luctus lacus id sollicitudin semper.</li> <li>Quisque eget lorem a arcu posuere venenatis.</li> <li>Fusce posuere ultricies suscipit.</li> <li>Donec eget cursus diam.</li> </ul> <h3>Details to know</h3> <span>Assessments: 16 Assessments</span>
-	##Outcome <h3>Advance your subject-matter expertise <ul> <li>learn in-demand skills from university and industry experts</li> <li>master a subject or tool with hands-on projects</li> <li>develop a deep understanding of key concepts</li> <li>earn a career certificate from imperial college london</li> </ul> <h3>Shareable certificate</h3>
+	##Outcome <h3>Advance your subject-matter expertise</h3> <ul> <li>learn in-demand skills from university and industry experts</li> <li>master a subject or tool with hands-on projects</li> <li>develop a deep understanding of key concepts</li> <li>earn a career certificate from imperial college london</li> </ul> <h3>Shareable certificate</h3>
 	##Lessons <h3>There are 3 modules in this course</h3> <h4>Module 1</h4> <ul> <li>L1</li> <li>L2</li> <li>L3</li> </ul> <h4>Module 2</h4> <ul> <li>L1</li> <li>L2</li> <li>L3</li> </ul> <h4>Module 3</h4> <ul> <li>L1</li> <li>L2</li> <li>L3</li> </ul> 
 	##Duration <h3>27 hours to complete</h3> <h4>3 weeks at 9 hours a week</h4>
 	##End','sub3.jpg', 6, 0);
@@ -91,7 +91,7 @@ INSERT INTO [Subject] VALUES('US / United States History',6, 33, 1, 1, 0, '2004-
 
 INSERT INTO [Subject] VALUES('C Fundamental', 2, 29, 1, 1, 1, '2004-05-01','2004-05-01','Maecenas ex nulla, tempor vel', 'Vestibulum volutpat lacus id mauris hendrerit, et sagittis ligula ultricies. Donec eu elementum lectus, sit amet posuere lorem.', '##Coursera style description
 	##About <h3>What you''ll learn:</h3> <ul> <li>Sed cursus ac felis a pharetra. Integer vulputate sagittis venenatis.</li> <li> In blandit hendrerit augue, at placerat nisi.</li> <li>Fusce at ante vel eros lobortis rhoncus quis quis neque.</li> <li>Pellentesque interdum dolor justo, sodales pharetra tortor tristique a.</li> </ul> <h3>Details to know</h3> <span>Assessments: 16 Assessments</span>
-	##Outcome <h3>Advance your subject-matter expertise <ul> <li>learn in-demand skills from university and industry experts</li> <li>master a subject or tool with hands-on projects</li> <li>develop a deep understanding of key concepts</li> <li>earn a career certificate from imperial college london</li> </ul> <h3>Shareable certificate</h3> ##Lessons <h3>There are 3 modules in this course</h3> <h4>Module 1</h4> <ul> <li>L1</li> <li>L2</li> <li>L3</li> </ul> <h4>Module 2</h4> <ul> <li>L1</li> <li>L2</li> <li>L3</li> </ul> <h4>Module 3</h4> <ul> <li>L1</li> <li>L2</li> <li>L3</li> </ul>
+	##Outcome <h3>Advance your subject-matter expertise</h3> <ul> <li>learn in-demand skills from university and industry experts</li> <li>master a subject or tool with hands-on projects</li> <li>develop a deep understanding of key concepts</li> <li>earn a career certificate from imperial college london</li> </ul> <h3>Shareable certificate</h3> ##Lessons <h3>There are 3 modules in this course</h3> <h4>Module 1</h4> <ul> <li>L1</li> <li>L2</li> <li>L3</li> </ul> <h4>Module 2</h4> <ul> <li>L1</li> <li>L2</li> <li>L3</li> </ul> <h4>Module 3</h4> <ul> <li>L1</li> <li>L2</li> <li>L3</li> </ul>
 	##Duration <h3>27 hours to complete</h3> <h4>3 weeks at 9 hours a week</h4>
 	##End','sub5.jpg', 8, 0);
 
@@ -647,11 +647,6 @@ INSERT INTO [Dimension] VALUES(50, 'Group', 'Initiating', 'This is initiating');
 INSERT INTO [Dimension] VALUES(50, 'Group', 'Planning', 'This is planning');
 INSERT INTO [Dimension] VALUES(50, 'Group', 'Executing', 'This is executing');
 
-INSERT INTO [Role] values ('Customer');
-INSERT INTO [Role] values ('Admin');
-INSERT INTO [Role] values ('Marketing');
-INSERT INTO [Role] values ('Expert');
-
 INSERT INTO [OrganizationPackage] values ('Team', 4, 80, 70, 25, 1)
 INSERT INTO [OrganizationPackage] values ('Team', 8, 155, 135, 45, 1)
 INSERT INTO [OrganizationPackage] values ('Team', 12, 225, 195, 60, 1)
@@ -727,83 +722,83 @@ VALUES ('Quiz Strategies'),
 
 -- Insert blog posts into the Blog table with specified dates as strings
 
-INSERT INTO [dbo].[Blog] (UserId, BlogCategoryId, BlogTitle, UpdatedTime, PostBrief, PostText)
+INSERT INTO [dbo].[Blog] (UserId, BlogCategoryId, BlogTitle, UpdatedTime, PostBrief, PostText, PostThumbnail)
 VALUES 
 -- Quiz Strategies
-(1, 1, 'Top 5 Strategies for Acing Your Quizzes', '2024-02-15', 'Learn the top 5 strategies to improve your quiz scores and ace every test.', ''),
-(1, 1, 'How to Effectively Manage Your Time During Quizzes', '2024-02-20', 'Discover time management techniques to help you finish quizzes on time without rushing.', ''),
-(1, 1, 'The Power of Practice Quizzes', '2024-03-01', 'Understand the benefits of taking practice quizzes and how they can enhance your learning.', ''),
-(1, 1, 'Analyzing Quiz Questions: What to Look For', '2024-03-05', 'Learn how to break down quiz questions to understand what is being asked and how to answer effectively.', ''),
-(1, 1, 'Using Elimination Methods to Improve Quiz Performance', '2024-03-10', 'Explore the process of eliminating incorrect answers to increase your chances of choosing the right one.', ''),
-(1, 1, 'Quiz Strategies for Different Learning Styles', '2024-03-15', 'Find out how to tailor quiz strategies to match your learning style for better results.', ''),
-(1, 1, 'Creating a Study Schedule for Quiz Preparation', '2024-03-20', 'Learn how to create a study schedule that optimizes your quiz preparation time.', ''),
+(1, 1, 'Top 5 Strategies for Acing Your Quizzes', '2024-02-15', 'Learn the top 5 strategies to improve your quiz scores and ace every test.', '', 'blog1.jpg'),
+(1, 1, 'How to Effectively Manage Your Time During Quizzes', '2024-02-20', 'Discover time management techniques to help you finish quizzes on time without rushing.', '', 'blog2.jpg'),
+(1, 1, 'The Power of Practice Quizzes', '2024-03-01', 'Understand the benefits of taking practice quizzes and how they can enhance your learning.', '', 'blog3.jpg'),
+(1, 1, 'Analyzing Quiz Questions: What to Look For', '2024-03-05', 'Learn how to break down quiz questions to understand what is being asked and how to answer effectively.', '', 'blog4.jpg'),
+(1, 1, 'Using Elimination Methods to Improve Quiz Performance', '2024-03-10', 'Explore the process of eliminating incorrect answers to increase your chances of choosing the right one.', '', 'blog5.jpg'),
+(1, 1, 'Quiz Strategies for Different Learning Styles', '2024-03-15', 'Find out how to tailor quiz strategies to match your learning style for better results.', '', 'blog6.jpg'),
+(1, 1, 'Creating a Study Schedule for Quiz Preparation', '2024-03-20', 'Learn how to create a study schedule that optimizes your quiz preparation time.', '', 'blog7.jpg'),
 
 -- Test Preparation Tips
-(1, 2, 'Effective Test Preparation Techniques', '2024-03-25', 'Master the most effective techniques for preparing for tests.', ''),
-(1, 2, 'The Importance of Sleep Before a Test', '2024-03-30', 'Discover why a good nights sleep is crucial before taking a test.', ''),
-(1, 2, 'Balancing Study Sessions with Breaks', '2024-04-05', 'Learn how to balance study sessions with breaks to maximize retention.', ''),
-(1, 2, 'Using Flashcards for Test Prep', '2024-04-10', 'Explore the benefits of using flashcards as a study tool for test preparation.', ''),
-(1, 2, 'Group Study vs. Solo Study: Pros and Cons', '2024-04-15', 'Weigh the pros and cons of group study versus solo study for test preparation.', ''),
-(1, 2, 'How to Create a Test Prep Plan', '2024-04-20', 'Learn how to create a comprehensive test preparation plan.', ''),
+(1, 2, 'Effective Test Preparation Techniques', '2024-03-25', 'Master the most effective techniques for preparing for tests.', '', 'blog8.jpg'),
+(1, 2, 'The Importance of Sleep Before a Test', '2024-03-30', 'Discover why a good nights sleep is crucial before taking a test.', '', 'blog9.jpg'),
+(1, 2, 'Balancing Study Sessions with Breaks', '2024-04-05', 'Learn how to balance study sessions with breaks to maximize retention.', '', 'blog10.jpg'),
+(1, 2, 'Using Flashcards for Test Prep', '2024-04-10', 'Explore the benefits of using flashcards as a study tool for test preparation.', '', 'blog11.jpg'),
+(1, 2, 'Group Study vs. Solo Study: Pros and Cons', '2024-04-15', 'Weigh the pros and cons of group study versus solo study for test preparation.', '', 'blog12.jpg'),
+(1, 2, 'How to Create a Test Prep Plan', '2024-04-20', 'Learn how to create a comprehensive test preparation plan.', '', 'blog13.jpg'),
 
 -- Exam Anxiety Management
-(1, 3, 'Techniques to Reduce Exam Anxiety', '2024-04-25', 'Discover effective techniques to manage and reduce exam anxiety.', ''),
-(1, 3, 'How to Stay Calm During an Exam', '2024-04-30', 'Learn strategies to stay calm and focused during exams.', ''),
-(1, 3, 'The Role of Mindfulness in Exam Preparation', '2024-05-05', 'Understand how mindfulness practices can help in exam preparation.', ''),
-(1, 3, 'Breathing Exercises to Manage Exam Stress', '2024-05-10', 'Explore breathing exercises that can help reduce stress during exams.', ''),
-(1, 3, 'How to Overcome Negative Thoughts Before an Exam', '2024-05-15', 'Learn techniques to overcome negative thoughts and boost confidence before exams.', ''),
-(1, 3, 'Building a Positive Mindset for Exam Success', '2024-05-20', 'Discover ways to build a positive mindset for better exam performance.', ''),
-(1, 3, 'Nutrition Tips to Reduce Exam Stress', '2024-05-25', 'Learn how proper nutrition can help reduce stress and improve exam performance.', ''),
+(1, 3, 'Techniques to Reduce Exam Anxiety', '2024-04-25', 'Discover effective techniques to manage and reduce exam anxiety.', '', 'blog14.jpg'),
+(1, 3, 'How to Stay Calm During an Exam', '2024-04-30', 'Learn strategies to stay calm and focused during exams.', '', 'blog15.jpg'),
+(1, 3, 'The Role of Mindfulness in Exam Preparation', '2024-05-05', 'Understand how mindfulness practices can help in exam preparation.', '', 'blog16.jpg'),
+(1, 3, 'Breathing Exercises to Manage Exam Stress', '2024-05-10', 'Explore breathing exercises that can help reduce stress during exams.', '', 'blog17.jpg'),
+(1, 3, 'How to Overcome Negative Thoughts Before an Exam', '2024-05-15', 'Learn techniques to overcome negative thoughts and boost confidence before exams.', '', 'blog18.jpg'),
+(1, 3, 'Building a Positive Mindset for Exam Success', '2024-05-20', 'Discover ways to build a positive mindset for better exam performance.', '', 'blog19.jpg'),
+(1, 3, 'Nutrition Tips to Reduce Exam Stress', '2024-05-25', 'Learn how proper nutrition can help reduce stress and improve exam performance.', '', 'blog20.jpg'),
 
 
 -- Popular Quiz Categories
-(1, 4, 'Top 10 Popular Quiz Categories in 2024', '2024-02-01', 'Explore the top 10 quiz categories that are trending in 2024.', ''),
-(1, 4, 'Why General Knowledge Quizzes Are So Popular', '2024-02-05', 'Understand why general knowledge quizzes attract so many participants.', ''),
-(1, 4, 'The Rise of Pop Culture Quizzes', '2024-02-10', 'Discover the reasons behind the popularity of pop culture quizzes.', ''),
-(1, 4, 'History Quizzes: Fun and Educational', '2024-02-15', 'Learn why history quizzes are both fun and educational.', ''),
-(1, 4, 'Science Quizzes: Test Your Knowledge', '2024-02-20', 'Challenge your knowledge with engaging science quizzes.', ''),
-(1, 4, 'The Popularity of Literature Quizzes', '2024-02-25', 'Explore the reasons why literature quizzes are a hit among readers.', ''),
-(1, 4, 'Sports Quizzes: Are You a True Fan?', '2024-03-01', 'Test your sports knowledge with exciting sports quizzes.', ''),
+(1, 4, 'Top 10 Popular Quiz Categories in 2024', '2024-02-01', 'Explore the top 10 quiz categories that are trending in 2024.', '', 'blog21.jpg'),
+(1, 4, 'Why General Knowledge Quizzes Are So Popular', '2024-02-05', 'Understand why general knowledge quizzes attract so many participants.', '', 'blog22.jpg'),
+(1, 4, 'The Rise of Pop Culture Quizzes', '2024-02-10', 'Discover the reasons behind the popularity of pop culture quizzes.', '', 'blog23.jpg'),
+(1, 4, 'History Quizzes: Fun and Educational', '2024-02-15', 'Learn why history quizzes are both fun and educational.', '', 'blog24.jpg'),
+(1, 4, 'Science Quizzes: Test Your Knowledge', '2024-02-20', 'Challenge your knowledge with engaging science quizzes.', '', 'blog25.jpg'),
+(1, 4, 'The Popularity of Literature Quizzes', '2024-02-25', 'Explore the reasons why literature quizzes are a hit among readers.', '', 'blog26.jpg'),
+(1, 4, 'Sports Quizzes: Are You a True Fan?', '2024-03-01', 'Test your sports knowledge with exciting sports quizzes.', '', 'blog27.jpg'),
 
 
 -- Success Stories
-(1, 5, 'How I Aced My Exams Using These Tips', '2024-01-05', 'Read the success story of a student who aced their exams using our tips.', ''),
-(1, 5, 'From Failing to Passing: A Students Journey', '2024-01-10', 'Discover how a student turned their grades around with effective study strategies.', ''),
-(1, 5, 'Overcoming Exam Anxiety: A Personal Story', '2024-01-15', 'Read a personal story of overcoming exam anxiety and achieving success.', ''),
-(1, 5, 'Achieving Top Scores with Consistent Effort', '2024-01-20', 'Learn how consistent effort helped a student achieve top scores.', ''),
-(1, 5, 'Success Story: Using Quizzes for Better Learning', '2024-01-25', 'Find out how using quizzes as a learning tool led to academic success.', ''),
-(1, 5, 'The Power of a Positive Mindset in Exam Success', '2024-01-30', 'Discover the impact of a positive mindset on exam success through this story.', ''),
-(1, 5, 'From Struggling to Thriving: A Students Tale', '2024-02-01', 'Read about a students journey from struggling to thriving in their studies.', ''),
+(1, 5, 'How I Aced My Exams Using These Tips', '2024-01-05', 'Read the success story of a student who aced their exams using our tips.', '', 'blog28.jpg'),
+(1, 5, 'From Failing to Passing: A Students Journey', '2024-01-10', 'Discover how a student turned their grades around with effective study strategies.', '', 'blog29.jpg'),
+(1, 5, 'Overcoming Exam Anxiety: A Personal Story', '2024-01-15', 'Read a personal story of overcoming exam anxiety and achieving success.', '', 'blog30.jpg'),
+(1, 5, 'Achieving Top Scores with Consistent Effort', '2024-01-20', 'Learn how consistent effort helped a student achieve top scores.', '', 'blog31.jpg'),
+(1, 5, 'Success Story: Using Quizzes for Better Learning', '2024-01-25', 'Find out how using quizzes as a learning tool led to academic success.', '', 'blog32.jpg'),
+(1, 5, 'The Power of a Positive Mindset in Exam Success', '2024-01-30', 'Discover the impact of a positive mindset on exam success through this story.', '', 'blog33.jpg'),
+(1, 5, 'From Struggling to Thriving: A Students Tale', '2024-02-01', 'Read about a students journey from struggling to thriving in their studies.', '', 'blog34.jpg'),
 
 
 -- General Tips & Tricks
-(1, 6, '5 Study Habits of Successful Students', '2024-02-05', 'Discover the study habits that successful students swear by.', ''),
-(1, 6, 'How to Stay Organized During the School Year', '2024-02-10', 'Learn tips and tricks to stay organized throughout the school year.', ''),
-(1, 6, 'Effective Note-Taking Strategies', '2024-02-15', 'Explore different note-taking strategies to enhance your learning.', ''),
-(1, 6, 'Maximizing Productivity: Tips for Students', '2024-02-20', 'Discover ways to maximize productivity and make the most of your study time.', ''),
-(1, 6, 'How to Avoid Procrastination', '2024-02-25', 'Learn techniques to avoid procrastination and stay on track with your studies.', ''),
-(1, 6, 'Balancing School and Extracurricular Activities', '2024-03-01', 'Find out how to balance school work with extracurricular activities effectively.', ''),
-(1, 6, 'Tips for Effective Group Study Sessions', '2024-03-05', 'Learn tips for making the most out of group study sessions.', ''),
+(1, 6, '5 Study Habits of Successful Students', '2024-02-05', 'Discover the study habits that successful students swear by.', '', 'blog35.jpg'),
+(1, 6, 'How to Stay Organized During the School Year', '2024-02-10', 'Learn tips and tricks to stay organized throughout the school year.', '', 'blog36.jpg'),
+(1, 6, 'Effective Note-Taking Strategies', '2024-02-15', 'Explore different note-taking strategies to enhance your learning.', '', 'blog37.jpg'),
+(1, 6, 'Maximizing Productivity: Tips for Students', '2024-02-20', 'Discover ways to maximize productivity and make the most of your study time.', '', 'blog38.jpg'),
+(1, 6, 'How to Avoid Procrastination', '2024-02-25', 'Learn techniques to avoid procrastination and stay on track with your studies.', '', 'blog39.jpg'),
+(1, 6, 'Balancing School and Extracurricular Activities', '2024-03-01', 'Find out how to balance school work with extracurricular activities effectively.', '', 'blog40.jpg'),
+(1, 6, 'Tips for Effective Group Study Sessions', '2024-03-05', 'Learn tips for making the most out of group study sessions.', '', 'blog41.jpg'),
 
 
 -- New Feature Announcements
-(1, 7, 'Introducing Our New Quiz Feature!', '2024-03-10', 'Discover the exciting new quiz feature weve just launched.', ''),
-(1, 7, 'New User Interface: A Fresh Look', '2024-03-15', 'Explore the changes in our new user interface designed for a better experience.', ''),
-(1, 7, 'Enhanced Performance Metrics for Your Quizzes', '2024-03-20', 'Learn about the enhanced performance metrics available for your quizzes.', ''),
-(1, 7, 'Customizable Quiz Themes Now Available', '2024-03-25', 'Discover how you can now customize quiz themes to match your preferences.', ''),
-(1, 7, 'New Language Support: Quiz in Your Language', '2024-03-30', 'Find out about the new languages weve added support for in our quizzes.', ''),
-(1, 7, 'Improved Accessibility Features', '2024-04-05', 'Learn about the improved accessibility features weve implemented.', ''),
-(1, 7, 'Introducing Quiz Leaderboards', '2024-04-10', 'Get competitive with our new quiz leaderboards feature.', ''),
+(1, 7, 'Introducing Our New Quiz Feature!', '2024-03-10', 'Discover the exciting new quiz feature weve just launched.', '', 'blog42.jpg'),
+(1, 7, 'New User Interface: A Fresh Look', '2024-03-15', 'Explore the changes in our new user interface designed for a better experience.', '', 'blog43.jpg'),
+(1, 7, 'Enhanced Performance Metrics for Your Quizzes', '2024-03-20', 'Learn about the enhanced performance metrics available for your quizzes.', '', 'blog44.jpg'),
+(1, 7, 'Customizable Quiz Themes Now Available', '2024-03-25', 'Discover how you can now customize quiz themes to match your preferences.', '', 'blog45.jpg'),
+(1, 7, 'New Language Support: Quiz in Your Language', '2024-03-30', 'Find out about the new languages weve added support for in our quizzes.', '', 'blog46.jpg'),
+(1, 7, 'Improved Accessibility Features', '2024-04-05', 'Learn about the improved accessibility features weve implemented.', '', 'blog47.jpg'),
+(1, 7, 'Introducing Quiz Leaderboards', '2024-04-10', 'Get competitive with our new quiz leaderboards feature.', '', 'blog48.jpg'),
 
 
 -- Product Updates
-(1, 8, 'Latest Product Update: Whats New?', '2024-04-15', 'Find out whats new in our latest product update.', ''),
-(1, 8, 'Bug Fixes and Improvements', '2024-04-20', 'Learn about the latest bug fixes and performance improvements.', ''),
-(1, 8, 'New Features Added in the Latest Release', '2024-04-25', 'Discover the new features added in our latest product release.', ''),
-(1, 8, 'Upcoming Changes You Should Know About', '2024-04-30', 'Stay informed about the upcoming changes in our product.', ''),
-(1, 8, 'User Feedback: What Weve Improved', '2024-05-05', 'See how user feedback has shaped our recent improvements.', ''),
-(1, 8, 'Enhanced Security Features', '2024-05-10', 'Learn about the enhanced security features weve implemented.', ''),
-(1, 8, 'Faster Loading Times with Our Latest Update', '2024-05-15', 'Experience faster loading times with our latest update.', '');
+(1, 8, 'Latest Product Update: Whats New?', '2024-04-15', 'Find out whats new in our latest product update.', '', 'blog49.jpg'),
+(1, 8, 'Bug Fixes and Improvements', '2024-04-20', 'Learn about the latest bug fixes and performance improvements.', '', 'blog50.jpg'),
+(1, 8, 'New Features Added in the Latest Release', '2024-04-25', 'Discover the new features added in our latest product release.', '', 'blog51.jpg'),
+(1, 8, 'Upcoming Changes You Should Know About', '2024-04-30', 'Stay informed about the upcoming changes in our product.', '', 'blog52.jpg'),
+(1, 8, 'User Feedback: What Weve Improved', '2024-05-05', 'See how user feedback has shaped our recent improvements.', '', 'blog53.jpg'),
+(1, 8, 'Enhanced Security Features', '2024-05-10', 'Learn about the enhanced security features weve implemented.', '', 'blog54.jpg'),
+(1, 8, 'Faster Loading Times with Our Latest Update', '2024-05-15', 'Experience faster loading times with our latest update.', '', 'blog55.jpg');
 
 -- Insert 30 sample quizzes for subject IDs 1 to 13
 INSERT INTO [dbo].[Quiz] (SubjectId, QuizName, Level, DurationInMinutes, PassRate, QuizType, IsPublished) VALUES 
@@ -839,276 +834,12 @@ INSERT INTO [dbo].[Quiz] (SubjectId, QuizName, Level, DurationInMinutes, PassRat
 (3, N'Quantum Mechanics', '2', 60, 85, '0', 1);
 
 
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N' 1+1=?', N'plus', 1, 1, 1, 2)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'thu do VN', N'country', 1, 1, 2, 2)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'MAD (Mean Absolute Deviation) Question 1', N'Explanation for MAD (Mean Absolute Deviation) question 1', 2, 1, 1, 2)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'MAD (Mean Absolute Deviation) Question 2', N'Explanation for MAD (Mean Absolute Deviation) question 2', 1, 1, 1, 2)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'MAD (Mean Absolute Deviation) Question 3', N'Explanation for MAD (Mean Absolute Deviation) question 3', 3, 1, 2, 2)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'MAD (Mean Absolute Deviation) Question 4', N'Explanation for MAD (Mean Absolute Deviation) question 4', 3, 1, 2, 2)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'MAD (Mean Absolute Deviation) Question 5', N'Explanation for MAD (Mean Absolute Deviation) question 5', 2, 1, 3, 2)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'MAD (Mean Absolute Deviation) Question 6', N'Explanation for MAD (Mean Absolute Deviation) question 6', 2, 1, 3, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'MAD (Mean Absolute Deviation) Question 7', N'Explanation for MAD (Mean Absolute Deviation) question 7', 3, 1, 4, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'MAD (Mean Absolute Deviation) Question 8', N'Explanation for MAD (Mean Absolute Deviation) question 8', 3, 1, 4, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'MAD (Mean Absolute Deviation) Question 9', N'Explanation for MAD (Mean Absolute Deviation) question 9', 2, 1, 5, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'MAD (Mean Absolute Deviation) Question 10', N'Explanation for MAD (Mean Absolute Deviation) question 10', 2, 1, 5, 1)
+INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N' C99 standard guarantees uniqueness of ____ characters for internal names.', N'', 1, 1, 1, 1)
 
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'CSI (Customer Satisfaction Index) Question 1', N'Explanation for CSI (Customer Satisfaction Index) question 1', 1, 2, 6, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'CSI (Customer Satisfaction Index) Question 2', N'Explanation for CSI (Customer Satisfaction Index) question 2', 3, 2, 6, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'CSI (Customer Satisfaction Index) Question 3', N'Explanation for CSI (Customer Satisfaction Index) question 3', 1, 2, 7, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'CSI (Customer Satisfaction Index) Question 4', N'Explanation for CSI (Customer Satisfaction Index) question 4', 1, 2, 7, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'CSI (Customer Satisfaction Index) Question 5', N'Explanation for CSI (Customer Satisfaction Index) question 5', 1, 2, 8, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'CSI (Customer Satisfaction Index) Question 6', N'Explanation for CSI (Customer Satisfaction Index) question 6', 3, 2, 8, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'CSI (Customer Satisfaction Index) Question 7', N'Explanation for CSI (Customer Satisfaction Index) question 7', 3, 2, 9, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'CSI (Customer Satisfaction Index) Question 8', N'Explanation for CSI (Customer Satisfaction Index) question 8', 3, 2, 9, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'CSI (Customer Satisfaction Index) Question 9', N'Explanation for CSI (Customer Satisfaction Index) question 9', 2, 2, 10, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'CSI (Customer Satisfaction Index) Question 10', N'Explanation for CSI (Customer Satisfaction Index) question 10', 3, 2, 10, 1)
-
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'WED (Weekly Earnings Distribution) Question 1', N'Explanation for WED (Weekly Earnings Distribution) question 1', 2, 3, 11, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'WED (Weekly Earnings Distribution) Question 2', N'Explanation for WED (Weekly Earnings Distribution) question 2', 3, 3, 11, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'WED (Weekly Earnings Distribution) Question 3', N'Explanation for WED (Weekly Earnings Distribution) question 3', 3, 3, 12, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'WED (Weekly Earnings Distribution) Question 4', N'Explanation for WED (Weekly Earnings Distribution) question 4', 1, 3, 12, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'WED (Weekly Earnings Distribution) Question 5', N'Explanation for WED (Weekly Earnings Distribution) question 5', 3, 3, 13, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'WED (Weekly Earnings Distribution) Question 6', N'Explanation for WED (Weekly Earnings Distribution) question 6', 3, 3, 13, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'WED (Weekly Earnings Distribution) Question 7', N'Explanation for WED (Weekly Earnings Distribution) question 7', 3, 3, 14, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'WED (Weekly Earnings Distribution) Question 8', N'Explanation for WED (Weekly Earnings Distribution) question 8', 2, 3, 14, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'WED (Weekly Earnings Distribution) Question 9', N'Explanation for WED (Weekly Earnings Distribution) question 9', 2, 3, 15, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'WED (Weekly Earnings Distribution) Question 10', N'Explanation for WED (Weekly Earnings Distribution) question 10', 1, 3, 15, 1)
-
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'OSG (Open Study Group) Question 1', N'Explanation for OSG (Open Study Group) question 1', 3, 4, 16, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'OSG (Open Study Group) Question 2', N'Explanation for OSG (Open Study Group) question 2', 3, 4, 16, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'OSG (Open Study Group) Question 3', N'Explanation for OSG (Open Study Group) question 3', 1, 4, 17, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'OSG (Open Study Group) Question 4', N'Explanation for OSG (Open Study Group) question 4', 2, 4, 17, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'OSG (Open Study Group) Question 5', N'Explanation for OSG (Open Study Group) question 5', 1, 4, 18, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'OSG (Open Study Group) Question 6', N'Explanation for OSG (Open Study Group) question 6', 3, 4, 18, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'OSG (Open Study Group) Question 7', N'Explanation for OSG (Open Study Group) question 7', 3, 4, 19, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'OSG (Open Study Group) Question 8', N'Explanation for OSG (Open Study Group) question 8', 1, 4, 19, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'OSG (Open Study Group) Question 9', N'Explanation for OSG (Open Study Group) question 9', 1, 4, 20, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'OSG (Open Study Group) Question 10', N'Explanation for OSG (Open Study Group) question 10', 2, 4, 20, 1)
-
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N' 1+1=?', N'plus', 1, 1, 1, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N'thu do VN', N'country', 1, 1, 2, 1)
-INSERT [dbo].[Question] ([QuestionText], [Explanation], [Level], [SubjectID], [LessonID], [Status]) VALUES (N' 1+1=?', N'plus', 1, 1, 1, 1)
-
-
-
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (1, N'2.0', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (1, N'3.0', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (1, N'4.0', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (2, N'da1', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (2, N'da2', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (2, N'HN', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (2, N'dap3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (3, N'Answer 1 for MAD (Mean Absolute Deviation) question 1', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (3, N'Answer 2 for MAD (Mean Absolute Deviation) question 1', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (3, N'Answer 3 for MAD (Mean Absolute Deviation) question 1', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (3, N'Answer 4 for MAD (Mean Absolute Deviation) question 1', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (3, N'Answer 5 for MAD (Mean Absolute Deviation) question 1', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (4, N'Answer 1 for MAD (Mean Absolute Deviation) question 2', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (4, N'Answer 2 for MAD (Mean Absolute Deviation) question 2', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (4, N'Answer 3 for MAD (Mean Absolute Deviation) question 2', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (4, N'Answer 4 for MAD (Mean Absolute Deviation) question 2', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (4, N'Answer 5 for MAD (Mean Absolute Deviation) question 2', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (5, N'Answer 1 for MAD (Mean Absolute Deviation) question 3', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (5, N'Answer 2 for MAD (Mean Absolute Deviation) question 3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (5, N'Answer 3 for MAD (Mean Absolute Deviation) question 3', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (5, N'Answer 4 for MAD (Mean Absolute Deviation) question 3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (5, N'Answer 5 for MAD (Mean Absolute Deviation) question 3', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (6, N'Answer 1 for MAD (Mean Absolute Deviation) question 4', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (6, N'Answer 2 for MAD (Mean Absolute Deviation) question 4', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (6, N'Answer 3 for MAD (Mean Absolute Deviation) question 4', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (6, N'Answer 4 for MAD (Mean Absolute Deviation) question 4', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (6, N'Answer 5 for MAD (Mean Absolute Deviation) question 4', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (7, N'Answer 1 for MAD (Mean Absolute Deviation) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (7, N'Answer 2 for MAD (Mean Absolute Deviation) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (7, N'Answer 3 for MAD (Mean Absolute Deviation) question 5', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (7, N'Answer 4 for MAD (Mean Absolute Deviation) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (7, N'Answer 5 for MAD (Mean Absolute Deviation) question 5', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (8, N'Answer 1 for MAD (Mean Absolute Deviation) question 6', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (8, N'Answer 2 for MAD (Mean Absolute Deviation) question 6', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (8, N'Answer 3 for MAD (Mean Absolute Deviation) question 6', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (8, N'Answer 4 for MAD (Mean Absolute Deviation) question 6', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (8, N'Answer 5 for MAD (Mean Absolute Deviation) question 6', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (9, N'Answer 1 for MAD (Mean Absolute Deviation) question 7', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (9, N'Answer 2 for MAD (Mean Absolute Deviation) question 7', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (9, N'Answer 3 for MAD (Mean Absolute Deviation) question 7', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (9, N'Answer 4 for MAD (Mean Absolute Deviation) question 7', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (9, N'Answer 5 for MAD (Mean Absolute Deviation) question 7', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (10, N'Answer 1 for MAD (Mean Absolute Deviation) question 8', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (10, N'Answer 2 for MAD (Mean Absolute Deviation) question 8', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (10, N'Answer 3 for MAD (Mean Absolute Deviation) question 8', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (10, N'Answer 4 for MAD (Mean Absolute Deviation) question 8', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (10, N'Answer 5 for MAD (Mean Absolute Deviation) question 8', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (11, N'Answer 1 for MAD (Mean Absolute Deviation) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (11, N'Answer 2 for MAD (Mean Absolute Deviation) question 9', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (11, N'Answer 3 for MAD (Mean Absolute Deviation) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (11, N'Answer 4 for MAD (Mean Absolute Deviation) question 9', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (11, N'Answer 5 for MAD (Mean Absolute Deviation) question 9', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (12, N'Answer 1 for MAD (Mean Absolute Deviation) question 10', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (12, N'Answer 2 for MAD (Mean Absolute Deviation) question 10', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (12, N'Answer 3 for MAD (Mean Absolute Deviation) question 10', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (12, N'Answer 4 for MAD (Mean Absolute Deviation) question 10', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (12, N'Answer 5 for MAD (Mean Absolute Deviation) question 10', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (13, N'Answer 1 for CSI (Customer Satisfaction Index) question 1', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (13, N'Answer 2 for CSI (Customer Satisfaction Index) question 1', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (13, N'Answer 3 for CSI (Customer Satisfaction Index) question 1', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (13, N'Answer 4 for CSI (Customer Satisfaction Index) question 1', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (13, N'Answer 5 for CSI (Customer Satisfaction Index) question 1', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (14, N'Answer 1 for CSI (Customer Satisfaction Index) question 2', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (14, N'Answer 2 for CSI (Customer Satisfaction Index) question 2', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (14, N'Answer 3 for CSI (Customer Satisfaction Index) question 2', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (14, N'Answer 4 for CSI (Customer Satisfaction Index) question 2', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (14, N'Answer 5 for CSI (Customer Satisfaction Index) question 2', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (15, N'Answer 1 for CSI (Customer Satisfaction Index) question 3', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (15, N'Answer 2 for CSI (Customer Satisfaction Index) question 3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (15, N'Answer 3 for CSI (Customer Satisfaction Index) question 3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (15, N'Answer 4 for CSI (Customer Satisfaction Index) question 3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (15, N'Answer 5 for CSI (Customer Satisfaction Index) question 3', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (16, N'Answer 1 for CSI (Customer Satisfaction Index) question 4', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (16, N'Answer 2 for CSI (Customer Satisfaction Index) question 4', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (16, N'Answer 3 for CSI (Customer Satisfaction Index) question 4', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (16, N'Answer 4 for CSI (Customer Satisfaction Index) question 4', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (16, N'Answer 5 for CSI (Customer Satisfaction Index) question 4', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (17, N'Answer 1 for CSI (Customer Satisfaction Index) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (17, N'Answer 2 for CSI (Customer Satisfaction Index) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (17, N'Answer 3 for CSI (Customer Satisfaction Index) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (17, N'Answer 4 for CSI (Customer Satisfaction Index) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (17, N'Answer 5 for CSI (Customer Satisfaction Index) question 5', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (18, N'Answer 1 for CSI (Customer Satisfaction Index) question 6', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (18, N'Answer 2 for CSI (Customer Satisfaction Index) question 6', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (18, N'Answer 3 for CSI (Customer Satisfaction Index) question 6', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (18, N'Answer 4 for CSI (Customer Satisfaction Index) question 6', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (18, N'Answer 5 for CSI (Customer Satisfaction Index) question 6', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (19, N'Answer 1 for CSI (Customer Satisfaction Index) question 7', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (19, N'Answer 2 for CSI (Customer Satisfaction Index) question 7', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (19, N'Answer 3 for CSI (Customer Satisfaction Index) question 7', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (19, N'Answer 4 for CSI (Customer Satisfaction Index) question 7', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (19, N'Answer 5 for CSI (Customer Satisfaction Index) question 7', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (20, N'Answer 1 for CSI (Customer Satisfaction Index) question 8', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (20, N'Answer 2 for CSI (Customer Satisfaction Index) question 8', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (20, N'Answer 3 for CSI (Customer Satisfaction Index) question 8', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (20, N'Answer 4 for CSI (Customer Satisfaction Index) question 8', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (20, N'Answer 5 for CSI (Customer Satisfaction Index) question 8', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (21, N'Answer 1 for CSI (Customer Satisfaction Index) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (21, N'Answer 2 for CSI (Customer Satisfaction Index) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (21, N'Answer 3 for CSI (Customer Satisfaction Index) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (21, N'Answer 4 for CSI (Customer Satisfaction Index) question 9', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (21, N'Answer 5 for CSI (Customer Satisfaction Index) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (22, N'Answer 1 for CSI (Customer Satisfaction Index) question 10', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (22, N'Answer 2 for CSI (Customer Satisfaction Index) question 10', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (22, N'Answer 3 for CSI (Customer Satisfaction Index) question 10', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (22, N'Answer 4 for CSI (Customer Satisfaction Index) question 10', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (22, N'Answer 5 for CSI (Customer Satisfaction Index) question 10', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (23, N'Answer 1 for WED (Weekly Earnings Distribution) question 1', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (23, N'Answer 2 for WED (Weekly Earnings Distribution) question 1', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (23, N'Answer 3 for WED (Weekly Earnings Distribution) question 1', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (23, N'Answer 4 for WED (Weekly Earnings Distribution) question 1', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (23, N'Answer 5 for WED (Weekly Earnings Distribution) question 1', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (24, N'Answer 1 for WED (Weekly Earnings Distribution) question 2', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (24, N'Answer 2 for WED (Weekly Earnings Distribution) question 2', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (24, N'Answer 3 for WED (Weekly Earnings Distribution) question 2', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (24, N'Answer 4 for WED (Weekly Earnings Distribution) question 2', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (24, N'Answer 5 for WED (Weekly Earnings Distribution) question 2', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (25, N'Answer 1 for WED (Weekly Earnings Distribution) question 3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (25, N'Answer 2 for WED (Weekly Earnings Distribution) question 3', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (25, N'Answer 3 for WED (Weekly Earnings Distribution) question 3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (25, N'Answer 4 for WED (Weekly Earnings Distribution) question 3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (25, N'Answer 5 for WED (Weekly Earnings Distribution) question 3', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (26, N'Answer 1 for WED (Weekly Earnings Distribution) question 4', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (26, N'Answer 2 for WED (Weekly Earnings Distribution) question 4', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (26, N'Answer 3 for WED (Weekly Earnings Distribution) question 4', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (26, N'Answer 4 for WED (Weekly Earnings Distribution) question 4', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (26, N'Answer 5 for WED (Weekly Earnings Distribution) question 4', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (27, N'Answer 1 for WED (Weekly Earnings Distribution) question 5', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (27, N'Answer 2 for WED (Weekly Earnings Distribution) question 5', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (27, N'Answer 3 for WED (Weekly Earnings Distribution) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (27, N'Answer 4 for WED (Weekly Earnings Distribution) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (27, N'Answer 5 for WED (Weekly Earnings Distribution) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (28, N'Answer 1 for WED (Weekly Earnings Distribution) question 6', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (28, N'Answer 2 for WED (Weekly Earnings Distribution) question 6', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (28, N'Answer 3 for WED (Weekly Earnings Distribution) question 6', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (28, N'Answer 4 for WED (Weekly Earnings Distribution) question 6', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (28, N'Answer 5 for WED (Weekly Earnings Distribution) question 6', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (29, N'Answer 1 for WED (Weekly Earnings Distribution) question 7', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (29, N'Answer 2 for WED (Weekly Earnings Distribution) question 7', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (29, N'Answer 3 for WED (Weekly Earnings Distribution) question 7', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (29, N'Answer 4 for WED (Weekly Earnings Distribution) question 7', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (29, N'Answer 5 for WED (Weekly Earnings Distribution) question 7', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (30, N'Answer 1 for WED (Weekly Earnings Distribution) question 8', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (30, N'Answer 2 for WED (Weekly Earnings Distribution) question 8', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (30, N'Answer 3 for WED (Weekly Earnings Distribution) question 8', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (30, N'Answer 4 for WED (Weekly Earnings Distribution) question 8', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (30, N'Answer 5 for WED (Weekly Earnings Distribution) question 8', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (31, N'Answer 1 for WED (Weekly Earnings Distribution) question 9', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (31, N'Answer 2 for WED (Weekly Earnings Distribution) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (31, N'Answer 3 for WED (Weekly Earnings Distribution) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (31, N'Answer 4 for WED (Weekly Earnings Distribution) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (31, N'Answer 5 for WED (Weekly Earnings Distribution) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (32, N'Answer 1 for WED (Weekly Earnings Distribution) question 10', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (32, N'Answer 2 for WED (Weekly Earnings Distribution) question 10', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (32, N'Answer 3 for WED (Weekly Earnings Distribution) question 10', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (32, N'Answer 4 for WED (Weekly Earnings Distribution) question 10', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (32, N'Answer 5 for WED (Weekly Earnings Distribution) question 10', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (33, N'Answer 1 for OSG (Open Study Group) question 1', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (33, N'Answer 2 for OSG (Open Study Group) question 1', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (33, N'Answer 3 for OSG (Open Study Group) question 1', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (33, N'Answer 4 for OSG (Open Study Group) question 1', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (33, N'Answer 5 for OSG (Open Study Group) question 1', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (34, N'Answer 1 for OSG (Open Study Group) question 2', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (34, N'Answer 2 for OSG (Open Study Group) question 2', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (34, N'Answer 3 for OSG (Open Study Group) question 2', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (34, N'Answer 4 for OSG (Open Study Group) question 2', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (34, N'Answer 5 for OSG (Open Study Group) question 2', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (35, N'Answer 1 for OSG (Open Study Group) question 3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (35, N'Answer 2 for OSG (Open Study Group) question 3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (35, N'Answer 3 for OSG (Open Study Group) question 3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (35, N'Answer 4 for OSG (Open Study Group) question 3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (35, N'Answer 5 for OSG (Open Study Group) question 3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (36, N'Answer 1 for OSG (Open Study Group) question 4', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (36, N'Answer 2 for OSG (Open Study Group) question 4', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (36, N'Answer 3 for OSG (Open Study Group) question 4', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (36, N'Answer 4 for OSG (Open Study Group) question 4', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (36, N'Answer 5 for OSG (Open Study Group) question 4', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (37, N'Answer 1 for OSG (Open Study Group) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (37, N'Answer 2 for OSG (Open Study Group) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (37, N'Answer 3 for OSG (Open Study Group) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (37, N'Answer 4 for OSG (Open Study Group) question 5', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (37, N'Answer 5 for OSG (Open Study Group) question 5', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (38, N'Answer 1 for OSG (Open Study Group) question 6', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (38, N'Answer 2 for OSG (Open Study Group) question 6', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (38, N'Answer 3 for OSG (Open Study Group) question 6', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (38, N'Answer 4 for OSG (Open Study Group) question 6', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (38, N'Answer 5 for OSG (Open Study Group) question 6', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (39, N'Answer 1 for OSG (Open Study Group) question 7', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (39, N'Answer 2 for OSG (Open Study Group) question 7', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (39, N'Answer 3 for OSG (Open Study Group) question 7', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (39, N'Answer 4 for OSG (Open Study Group) question 7', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (39, N'Answer 5 for OSG (Open Study Group) question 7', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (40, N'Answer 1 for OSG (Open Study Group) question 8', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (40, N'Answer 2 for OSG (Open Study Group) question 8', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (40, N'Answer 3 for OSG (Open Study Group) question 8', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (40, N'Answer 4 for OSG (Open Study Group) question 8', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (40, N'Answer 5 for OSG (Open Study Group) question 8', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (41, N'Answer 1 for OSG (Open Study Group) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (41, N'Answer 2 for OSG (Open Study Group) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (41, N'Answer 3 for OSG (Open Study Group) question 9', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (41, N'Answer 4 for OSG (Open Study Group) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (41, N'Answer 5 for OSG (Open Study Group) question 9', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (42, N'Answer 1 for OSG (Open Study Group) question 10', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (42, N'Answer 2 for OSG (Open Study Group) question 10', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (42, N'Answer 3 for OSG (Open Study Group) question 10', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (42, N'Answer 4 for OSG (Open Study Group) question 10', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (42, N'Answer 5 for OSG (Open Study Group) question 10', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (43, N'2.0', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (43, N'3.0', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (43, N'4.0', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (44, N'da1', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (44, N'da2', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (44, N'HN', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (44, N'dap3', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (45, N'2.0', 1)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (45, N'3.0', 0)
-INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (45, N'4.0', 0)
-
+INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (1, N'31', 0)
+INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (1, N'63', 1)
+INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (1, N'12', 0)
+INSERT [dbo].[Answer] ([QuestionID], [AnswerName], [IsCorrect]) VALUES (1, N'14', 0)
 
 INSERT INTO [dbo].[Slide] VALUES (N'Sample Slide', N'0101010101',N'https://example.com/slide100', 1,N'abc', 1);
 INSERT INTO [dbo].[Slide] VALUES (N'Slide 1', N'0101011001', N'https://example.com/slide1', 1,N'abc', 1);
