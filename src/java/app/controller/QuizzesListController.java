@@ -51,12 +51,6 @@ public class QuizzesListController extends HttpServlet {
         int pageSize = cfg.getIntOrDefault("pagination.size", 5);
         DAOQuiz daoQuiz = new DAOQuiz();
 
-        String published = request.getParameter("published");
-        if (published == null) {
-            response.sendRedirect("?published=1");
-            return;
-        }
-        
         String subject = request.getParameter("subjectIds");
         String quizName = request.getParameter("quizName");
         String quizTypes = request.getParameter("quizTypes");
@@ -65,6 +59,8 @@ public class QuizzesListController extends HttpServlet {
         int subjectId = Parsers.parseIntOrDefault(subject, -1);
         QuizType quizType = QuizType.fromInt(type);
 
+        // is this the admin, if so set to -1 to ignore this parameter.
+        // otherwise if this is the expert, set this parameter to userid
         int assignedExpertId = user.getRoleId() == 2 ? -1 : user.getUserId();
 
         QueryResult result = daoQuiz.search(
@@ -84,7 +80,7 @@ public class QuizzesListController extends HttpServlet {
             response.sendRedirect("quizzeslist?" + params);
         }
         
-        List<Subject> subjects = daoQuiz.getSubjectsWithQuiz(assignedExpertId);
+        List<Subject> subjects = daoQuiz.getSubjectsForOwner(assignedExpertId);
 
         request.setAttribute("subjects", subjects);
         request.setAttribute("result", result);
