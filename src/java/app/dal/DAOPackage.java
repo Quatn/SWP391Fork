@@ -72,7 +72,7 @@ public class DAOPackage extends DBContext{
             
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(DAOPackage.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         
         return false;
@@ -106,8 +106,6 @@ public class DAOPackage extends DBContext{
         String descInsert = "INSERT INTO [dbo].[PricePackageDesc] (PackageId, [Desc]) VALUES (?, ?)";
 
         try {
-            connection.setAutoCommit(false);
-            
             PreparedStatement baseStmt = connection.prepareStatement(base);
             baseStmt.setString(1, pack.getPackageName());
             baseStmt.setInt(2, pack.getDuration());
@@ -116,10 +114,7 @@ public class DAOPackage extends DBContext{
             baseStmt.setBoolean(5, pack.isActive());
             baseStmt.setInt(6, pack.getPackageId());
             int n = baseStmt.executeUpdate();
-            if (n != 1) {
-                connection.rollback();
-                return false;
-            }
+            if (n != 1) return false;
 
             PreparedStatement descStmt = connection.prepareStatement(descUpdate);
             descStmt.setString(1, pack.getDescription());
@@ -131,27 +126,12 @@ public class DAOPackage extends DBContext{
                 descStmt.setInt(1, pack.getPackageId());
                 descStmt.setString(2, pack.getDescription());
                 n = descStmt.executeUpdate();
-                if (n != 1) {
-                    connection.rollback();
-                    return false;
-                }
+                if (n != 1) return false;
             }
 
-            connection.commit();
             return true;
         } catch (SQLException ex) {
-            try {
-                connection.rollback();
-            } catch (SQLException rollbackEx) {
-                Logger.getLogger(DAOPackage.class.getName()).log(Level.SEVERE, "Rollback failed", rollbackEx);
-            }
-            Logger.getLogger(DAOPackage.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                connection.setAutoCommit(true);
-            } catch (SQLException ex) {
-                Logger.getLogger(DAOPackage.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            ex.printStackTrace();
         }
 
         return false;

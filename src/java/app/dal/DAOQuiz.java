@@ -67,7 +67,7 @@ public class DAOQuiz extends DBContext {
         return 0;
     }
 
-    public List<Subject> getSubjectsWithQuiz(int assignedExpertId) {
+    public List<Subject> getSubjectsForOwner(int assignedExpertId) {
         List<Subject> ret = new ArrayList<>();
 
         try {

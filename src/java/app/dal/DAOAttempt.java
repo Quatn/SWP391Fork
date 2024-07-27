@@ -199,7 +199,9 @@ public class DAOAttempt extends DBContext {
         return false;
     }
 
-    public List<AttemptQuestion> getAllAttemptsWithoutQuestion(int attemptId) {
+    // this will get all attempt questions of an attempt but not including the question
+    // information 
+    public List<AttemptQuestion> getAllAttemptQuestions(int attemptId) {
         List<AttemptQuestion> questions = new ArrayList<>();
 
         try {
