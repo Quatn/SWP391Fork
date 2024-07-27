@@ -56,7 +56,7 @@ public class Homepage extends HttpServlet {
         Config cfg = new Config(ctx);
         int pageSize = cfg.getIntOrDefault("homepage.pagination.size", 5);
         request.setAttribute("pageSize", pageSize);
-        
+
         DAOBlog daoBlog = new DAOBlog();
         session.setAttribute("sidebarLatestPosts", daoBlog.getNewpostsForDisplay(8, 0));
 
@@ -79,14 +79,19 @@ public class Homepage extends HttpServlet {
                 List<Blog> fetchPost = null;
                 //idk why i wanted to add this either, but here we are
                 if (ammount > 0) {
-                    if (service.equals("hotposts")) fetchPost = daoBlog.getHotpostsForDisplay(ammount, offSet);
-                    else if (service.equals("newposts")) fetchPost = daoBlog.getNewpostsForDisplay(ammount, offSet);
+                    if (service.equals("hotposts")) {
+                        fetchPost = daoBlog.getHotpostsForDisplay(ammount, offSet);
+                    } else if (service.equals("newposts")) {
+                        fetchPost = daoBlog.getNewpostsForDisplay(ammount, offSet);
+                    }
+                } else {
+                    if (service.equals("hotposts")) {
+                        fetchPost = daoBlog.getHotpostsForDisplay(pageSize, offSet);
+                    } else if (service.equals("newposts")) {
+                        fetchPost = daoBlog.getNewpostsForDisplay(pageSize, offSet);
+                    }
                 }
-                else {
-                    if (service.equals("hotposts")) fetchPost = daoBlog.getHotpostsForDisplay(pageSize, offSet);
-                    else if (service.equals("newposts")) fetchPost = daoBlog.getNewpostsForDisplay(pageSize, offSet);
-                }
-                
+
                 if (fetchPost == null) {
                     //Even more redundancies
                     try (PrintWriter out = response.getWriter()) {
@@ -122,14 +127,14 @@ public class Homepage extends HttpServlet {
                         out.print(Arrays.stream(fetchPost.toArray())
                                 .map(obj -> (Blog) obj)
                                 .map(blog -> String.format("{\"BlogId\": %d, \"UserId\": %d, \"FullName\": \"%s\", \"BlogCategoryId\": %d, \"BlogTitle\": \"%s\", \"UpdatedTime\": \"%s\", \"CardContent\": \"%s\", \"Thumbnail\": \"%s\"}",
-                                 blog.getBlogId(),
-                                 blog.getUserId(),
-                                 fullNameMap.get(blog.getUserId()),
-                                 blog.getBlogCategoryId(),
-                                 blog.getBlogTitle(),
-                                 blog.getUpdatedTime(),
-                                 blog.getPostBrief(),
-                                 blog.getPostThumbnail()
+                                blog.getBlogId(),
+                                blog.getUserId(),
+                                fullNameMap.get(blog.getUserId()),
+                                blog.getBlogCategoryId(),
+                                blog.getBlogTitle(),
+                                blog.getUpdatedTime(),
+                                blog.getPostBrief(),
+                                blog.getPostThumbnail()
                         ))
                                 .collect(Collectors.toList())
                         );
@@ -143,12 +148,10 @@ public class Homepage extends HttpServlet {
         List<Slide> sliders = daoSlide.getAllSlide();
         request.setAttribute("homeSliders", sliders);
 
-        if (session.getAttribute("featuredSubjects") == null) {
-            DAOSubject daoSubject = new DAOSubject();
-            List<Subject> featuredSubjects = daoSubject.getFeaturedSubjects(10);
-            if (!featuredSubjects.isEmpty()) {
-                session.setAttribute("featuredSubjects", featuredSubjects);
-            }
+        DAOSubject daoSubject = new DAOSubject();
+        List<Subject> featuredSubjects = daoSubject.getFeaturedSubjects(10);
+        if (!featuredSubjects.isEmpty()) {
+            request.setAttribute("featuredSubjects", featuredSubjects);
         }
 
         request.getRequestDispatcher("home.jsp").forward(request, response);
