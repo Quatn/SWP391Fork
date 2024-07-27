@@ -1,5 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="offcanvas offcanvas-start" data-bs-backdrop="static" data-bs-scroll="true" tabindex="-1" id="offcanvas" aria-labelledby="offcanvas">
+<div class="offcanvas offcanvas-start w-25" id="offcanvas" data-bs-backdrop="false" data-bs-scroll="true">
     <div class="offcanvas-header">
         <h6 class="offcanvas-title d-none d-sm-block" id="offcanvas">Menu</h6>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -39,15 +39,35 @@
                         </div>
                 </div-->
             </div>
-            <div style="flex-grow: 1; width: 100%;"><c:if test="${userRoleId eq 2}"><a href="admin/subjectlist"><button class="btn btn-outline-secondary w-100 mt-3">To management console</button></a></c:if></div>
-            <%if(!(session.getAttribute("userEmail") == null)) {%>
-            <div>
-                <form method="post" action="loginviewofAn">
-                    <button type="submit" class="btn">Logout</button>
-                    <input type="hidden" name="service" value="logout"/>
-                </form>
-            </div>
-            <%}%>
+            <div style="flex-grow: 1; width: 100%;"></div>
+            <c:if test="${not empty userEmail}">
+                <div>
+                    <c:if test="${userRoleId eq 2 || userRoleId eq 4}">
+                        <a href="admin/subjectlist">
+                            <button class="btn w-100 text-start">To management console</button>
+                        </a>
+                    </c:if>
+                    <a href="javascript:void(0)"><button type="button" class="btn w-100 text-start" data-bs-toggle="modal" data-bs-target=".changePassModal">
+                            Change Password
+                        </button>
+                    </a>
+                    <a href="SettingsServlet"><button type="button" class="btn w-100 text-start">
+                            Settings
+                        </button>
+                    </a>
+
+                    <form method="post" action="loginviewofAn" class="d-flex">
+                        <a href="javascript:void(0)" class="me-auto">
+                            <button type="submit" class="btn text-start">Logout</button>
+                        </a>
+                        <a href="javascript:void(0)" class="my-auto mx-2">
+                            Contact Us
+                        </a>
+                        <input type="hidden" name="service" value="logout"/>
+                    </form>
+
+                </div>
+            </c:if>
         </ul>
     </div>
 </div>
@@ -57,3 +77,5 @@
         <i class="bi bi-border-width" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></i>
     </button>
 </div>
+
+<jsp:include page="/ChangePassAn.jsp" />

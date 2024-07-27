@@ -125,3 +125,14 @@ function deleteQuestion(questionId) {
         });
     }
 }
+
+function adjustHeight(el) {
+    el.value = el.value.trim();
+    el.style.height = 'auto'; 
+    el.style.height = (el.scrollHeight) + 'px'; 
+}
+
+window.onload = function() {
+    var textarea = document.getElementById('questionTextarea');
+    adjustHeight(textarea);
+};

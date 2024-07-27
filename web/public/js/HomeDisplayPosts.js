@@ -35,7 +35,7 @@ function postElement(
                     <i>${postTime}</i>
                 </div>
                 <div class="container">
-                    <h5>${postTitle}</h5>
+                    <a class="post-link" href="blogs/detail?id=${postId}"><h5>${postTitle}</h5></a>
                     <p class="card-text">${CardContent}</p>
                 </div>
                 <img class="card-img-bottom" src="./public/thumbnails/${postThumbnail}" alt="Card image cap">
@@ -52,10 +52,12 @@ let sortType = 0;
 
 function swapToNew() {
   sortType = 0;
+  resetFeed();
 }
 
 function swapToHot() {
   sortType = 1;
+  resetFeed();
 }
 
 function handleFetchPost(resetOffset) {
@@ -76,7 +78,7 @@ function handleFetchPost(resetOffset) {
 function appendNewposts(ammount, resetOffset) {
   if (postContainer) {
     fetch(
-      "QuizPractice/Home?service=hotposts" +
+      "QuizPractice/Home?service=newposts" +
         (resetOffset ? "&resetOffset=true" : "") +
         "&ammount=" +
         ammount,
@@ -111,7 +113,7 @@ function appendNewposts(ammount, resetOffset) {
 function appendHotposts(ammount, resetOffset) {
   if (postContainer) {
     fetch(
-      "QuizPractice/Home?service=newposts" +
+      "QuizPractice/Home?service=hotposts" +
         (resetOffset ? "&resetOffset=true" : "") +
         "&ammount=" +
         ammount,

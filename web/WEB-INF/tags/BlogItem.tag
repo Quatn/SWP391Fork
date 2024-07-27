@@ -7,7 +7,7 @@
 <%@attribute name="highlight" %>
 
 <div class="card blog-item">
-    <img src="public/images/blogimg.jpg" class="card-img-top blog-item-img" alt="...">
+    <img src="public/thumbnails/${blog.getBlogThumbnail()}" class="card-img-top blog-item-img" alt="...">
     <div class="card-body d-flex flex-column">
         <a href="blogs/detail?id=${blog.getBlogId()}" class="invisible-link">
             <c:if test="${empty highlight}">

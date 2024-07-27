@@ -295,8 +295,6 @@ public class DAOQuiz extends DBContext {
 
     public static void main(String[] args) throws SQLException {
         DAOQuiz qq = new DAOQuiz();
-        boolean n = qq.isQuizAttempted(35);
-        System.out.println(n);
     }
 
     public List<QuizLesson> getGroupQuestionByLesson(int quizId) {
@@ -466,6 +464,42 @@ public class DAOQuiz extends DBContext {
             e.printStackTrace();
             connection.rollback();
             return false;
+        }
+    }
+
+    public boolean editQuiz(int quizId, String name, int level, int duration, int passrate, int type, String description) throws SQLException {
+        String sql = "UPDATE [dbo].[Quiz]\n" +
+                "   SET \n" +
+                "      [QuizName] = ?\n" +
+                "      ,[Level] = ?\n" +
+                "      ,[DurationInMinutes] = ?\n" +
+                "      ,[PassRate] = ?\n" +
+                "      ,[QuizType] = ?\n" +
+                "      ,[Description] = ?\n" +
+                " WHERE QuizId = ?";
+        
+        
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, name);
+            ps.setInt(2, level);
+            ps.setInt(3, duration);
+            ps.setInt(4, passrate);
+            ps.setInt(5, type);
+            ps.setString(6, description);
+            ps.setInt(7, quizId);
+
+            int rowsUpdated = ps.executeUpdate();
+            return rowsUpdated > 0;
+        }
+    }
+
+    public void revertQuiz(int quizId) throws SQLException {
+        String sql = "DELETE FROM [dbo].[Quiz]\n" +
+                "      WHERE QuizId = ?";
+        
+        try (PreparedStatement ps = connection.prepareStatement(sql)){
+            ps.setInt(1, quizId);
+            ps.executeUpdate();
         }
     }
 

@@ -14,6 +14,7 @@ public class BlogInformation {
     private String blogTitle;
     private Timestamp updatedTime;
     private String postBrief;
+    private String blogThumbnail;
 
     public BlogInformation(ResultSet rs) throws SQLException {
         blogId = rs.getInt("BlogId");
@@ -24,6 +25,7 @@ public class BlogInformation {
         blogTitle = rs.getString("BlogTitle");
         updatedTime = rs.getTimestamp("UpdatedTime");
         postBrief = rs.getString("PostBrief");
+        blogThumbnail = rs.getString("PostThumbnail");
     }
 
     public int getBlogId() {
@@ -72,6 +74,14 @@ public class BlogInformation {
 
     public void setPostBrief(String postBrief) {
         this.postBrief = postBrief;
+    }
+
+    public String getBlogThumbnail() {
+        return blogThumbnail;
+    }
+
+    public void setBlogThumbnail(String blogThumbnail) {
+        this.blogThumbnail = blogThumbnail;
     }
 
     @Override

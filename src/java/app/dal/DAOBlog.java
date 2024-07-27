@@ -23,6 +23,7 @@ public class DAOBlog extends DBContext {
             + "b.BlogId,\n"
             + "b.BlogTitle,\n"
             + "b.PostBrief,\n"
+            + "b.PostThumbnail,\n"
             + "b.UpdatedTime,\n"
             + "u.FullName,\n"
             + "u.UserId,\n"
@@ -155,7 +156,28 @@ public class DAOBlog extends DBContext {
                 + "OFFSET ? ROWS \n"
                 + "FETCH NEXT ? ROWS ONLY;";
 
-        System.out.println(sql);
+        PreparedStatement pre;
+        try {
+            pre = connection.prepareStatement(sql);
+            pre.setInt(1, offSet);
+            pre.setInt(2, ammout);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {
+                Blog a = new Blog(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
+                Out.add(a);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return Out;
+    }
+    
+    public List<Blog> getNewpostsForDisplay(int ammout, int offSet) {
+        List<Blog> Out = new ArrayList<>();
+        String sql = "select BlogId, UserId, BlogCategoryId, BlogTitle, UpdatedTime, PostBrief, PostThumbnail from [Blog] b \n"
+                + "order by b.UpdatedTime desc\n"
+                + "OFFSET ? ROWS \n"
+                + "FETCH NEXT ? ROWS ONLY;";
 
         PreparedStatement pre;
         try {

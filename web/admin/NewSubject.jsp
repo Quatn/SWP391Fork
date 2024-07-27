@@ -141,17 +141,16 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
         <c:if test="${not empty notification}">
         <script>
-                                    //$(document).ready(function () {
-                                    //    $("#notify").modal('show');
-                                    //});
-                alert('${notification}');                   
+                                    $(document).ready(function () {
+                                        $("#notify").modal('show');
+                                    });                
         </script>
         </c:if>
 
     </body>
 </html>
 
-<div class="modal fade" id="useTemplate" tabindex="-1" role="dialog" >
+<div class="modal fade" id="useTemplate" role="dialog" >
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -171,7 +170,7 @@
     </div>
 </div>
 
-<!--div class="modal fade" id="notify" tabindex="-1" role="dialog" >
+<div class="modal fade" id="notify" role="dialog" >
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -180,8 +179,7 @@
             </div>
             <div class="modal-body">
                 ${notification}
-                <c:set var="notification" scope="session" value="" />
             </div>
         </div>
     </div>
-</div-->
+</div>

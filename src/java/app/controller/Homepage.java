@@ -59,7 +59,7 @@ public class Homepage extends HttpServlet {
 
         if (service != null) {
 
-            if (service.equals("hotposts")) {
+            if (service.equals("hotposts") || service.equals("newposts")) {
                 int offSet = 0;
                 //Get session offset
                 if (request.getParameter("resetOffset") == null || !request.getParameter("resetOffset").equals("true")) try {
@@ -77,10 +77,20 @@ public class Homepage extends HttpServlet {
                 List<Blog> fetchPost = null;
                 //idk why i wanted to add this either, but here we are
                 if (ammount > 0) {
-                    fetchPost = daoBlog.getHotpostsForDisplay(ammount, offSet);
+                    if (service.equals("hotposts")) fetchPost = daoBlog.getHotpostsForDisplay(ammount, offSet);
+                    else if (service.equals("newposts")) fetchPost = daoBlog.getNewpostsForDisplay(ammount, offSet);
                 }
                 else {
-                    fetchPost = daoBlog.getHotpostsForDisplay(pageSize, offSet);
+                    if (service.equals("hotposts")) fetchPost = daoBlog.getHotpostsForDisplay(pageSize, offSet);
+                    else if (service.equals("newposts")) fetchPost = daoBlog.getNewpostsForDisplay(pageSize, offSet);
+                }
+                
+                if (fetchPost == null) {
+                    //Even more redundancies
+                    try (PrintWriter out = response.getWriter()) {
+                        out.print("{}");
+                    }
+                    return;
                 }
 
                 //Get category map, this is currently not used for anything
