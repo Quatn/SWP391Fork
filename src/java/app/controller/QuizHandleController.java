@@ -26,6 +26,16 @@ public class QuizHandleController extends HttpServlet {
         return getServletContext().getContextPath();
     }
 
+    private String getCurrentUserEmail(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session == null) return null;
+
+        Object mailAttr = session.getAttribute("userEmail");
+        if (mailAttr == null) return null;
+
+        return mailAttr.toString();
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
@@ -40,25 +50,22 @@ public class QuizHandleController extends HttpServlet {
             return;
         }
 
-        /*
         String email = getCurrentUserEmail(request);
         if (email == null) {
-            response.sendRedirect(getHomePage());
+            request.getRequestDispatcher("/Unauthorized.jsp").forward(request, response);
             return;
         }
 
         DAOUser du = new DAOUser();
         User user = du.getUserByEmail(email);
 
-
-        if (attempt.getUserId() != user.getUserId()) {
-            response.sendRedirect(getHomePage());
-            return;
-        }
-        */
-
         DAOAttempt dat = new DAOAttempt();
         Attempt attempt = dat.getAttemptById(attemptId);
+
+        if (attempt.getUserId() != user.getUserId()) {
+            request.getRequestDispatcher("/Unauthorized.jsp").forward(request, response);
+            return;
+        }
 
         if (attempt.isFinished()) {
             response.sendRedirect("quizresult?attemptId=" + attempt.getAttemptId());
@@ -66,7 +73,7 @@ public class QuizHandleController extends HttpServlet {
         }
         
         QueryResult result = dat.paginateAttemptQuestions(attemptId, q);
-        List<AttemptQuestion> all = dat.getAllAttemptsWithoutQuestion(attemptId);
+        List<AttemptQuestion> all = dat.getAllAttemptQuestions(attemptId);
 
         int answeredCount = 0;
 
@@ -89,15 +96,38 @@ public class QuizHandleController extends HttpServlet {
         String attemptIdRaw = request.getParameter("attemptId");
         int attemptId = Parsers.parseIntOrDefault(attemptIdRaw, -1);
 
-        if (attemptId != -1) {
-            switch (action) {
-                case "answer" -> handleAnswer(attemptId, request, response);
-                case "mark" -> markForReview(attemptId, request, response);
-                case "delete" -> deleteExam(attemptId, request, response);
-                case "score" -> scoreExam(attemptId, request, response);
-            }
-        } else {
-            response.sendRedirect(String.format("quizhandle?attemptId=%d&q=%s", attemptId, request.getParameter("q")));
+        if (attemptId == -1) {
+            response.sendRedirect(getHomePage());
+            return;
+        }
+
+        String email = getCurrentUserEmail(request);
+        if (email == null) {
+            request.getRequestDispatcher("/Unauthorized.jsp").forward(request, response);
+            return;
+        }
+
+        DAOUser du = new DAOUser();
+        User user = du.getUserByEmail(email);
+
+        DAOAttempt dat = new DAOAttempt();
+        Attempt attempt = dat.getAttemptById(attemptId);
+
+        if (attempt.getUserId() != user.getUserId()) {
+            request.getRequestDispatcher("/Unauthorized.jsp").forward(request, response);
+            return;
+        }
+
+        if (attempt.isFinished()) {
+            response.sendRedirect("quizresult?attemptId=" + attempt.getAttemptId());
+            return;
+        }
+
+        switch (action) {
+            case "answer" -> handleAnswer(attemptId, request, response);
+            case "mark" -> markForReview(attemptId, request, response);
+            case "delete" -> deleteExam(attemptId, request, response);
+            case "score" -> scoreExam(attemptId, request, response);
         }
     }
 

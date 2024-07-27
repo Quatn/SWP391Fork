@@ -38,7 +38,7 @@ public class QuizResultController extends HttpServlet {
         Attempt attempt = dat.getAttemptById(attemptId);
         QuizInformation quiz = dquiz.getQuizById(attempt.getQuizId());
 
-        int total = dat.getAllAttemptsWithoutQuestion(attemptId).size();
+        int total = dat.getAllAttemptQuestions(attemptId).size();
         int min = (int)Math.ceil(((double)quiz.getPassRate() / 100) * total);
 
         request.setAttribute("min", min);
