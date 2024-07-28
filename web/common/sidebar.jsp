@@ -1,4 +1,19 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+    .latest-posts {
+        text-decoration: none;
+    }
+
+    .latest-posts p {
+        color: #007bff;
+        text-decoration-line: underline;
+        text-decoration-color: #007bff;
+    }
+
+    .latest-posts small {
+        color: black;
+    }
+</style>
 <div class="offcanvas offcanvas-start w-25" id="offcanvas" data-bs-backdrop="false" data-bs-scroll="true">
     <div class="offcanvas-header">
         <h6 class="offcanvas-title d-none d-sm-block" id="offcanvas">Menu</h6>
@@ -10,19 +25,23 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Top posts
+                            Latest posts
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <ul>
-                                <li><a href="blogs/detail?id=20">Nutrition Tips to Reduce Exam Stress</a></li>
-                                <li><a href="blogs/detail?id=19">Building a Positive Mindset for Exam Success</a></li>
-                                <li><a href="blogs/detail?id=18">How to Overcome Negative Thoughts Before an Exam</a></li>
-                                <li><a href="blogs/detail?id=55">Faster Loading Times with Our Latest Update</a></li>
-                            </ul>
+                    <c:if test="${not empty sidebarLatestPosts}">
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <c:forEach var="post" items="${sidebarLatestPosts}">
+                                    <a class="latest-posts" href="/QuizPractice/blogs/detail?id=${post.getBlogId()}">
+                                        <div class="my-2 ps-1 border border-1 rounded-1">
+                                            <p class="mb-1">${post.getBlogTitle()}</p>
+                                            <small>${post.getUpdatedTime()}</small>
+                                        </div>
+                                    </a>
+                                </c:forEach>
+                            </div>
                         </div>
-                    </div>
+                    </c:if>
                 </div>
                 <!--div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">

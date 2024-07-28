@@ -78,7 +78,7 @@ function handleFetchPost(resetOffset) {
 function appendNewposts(ammount, resetOffset) {
   if (postContainer) {
     fetch(
-      "QuizPractice/Home?service=newposts" +
+      "/QuizPractice/Home?service=newposts" +
         (resetOffset ? "&resetOffset=true" : "") +
         "&ammount=" +
         ammount,
@@ -113,7 +113,7 @@ function appendNewposts(ammount, resetOffset) {
 function appendHotposts(ammount, resetOffset) {
   if (postContainer) {
     fetch(
-      "QuizPractice/Home?service=hotposts" +
+      "/QuizPractice/Home?service=hotposts" +
         (resetOffset ? "&resetOffset=true" : "") +
         "&ammount=" +
         ammount,

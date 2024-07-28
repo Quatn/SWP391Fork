@@ -76,9 +76,9 @@ public class SubjectOverviewController extends HttpServlet {
         } catch (Exception e) {
             userRole = daoUser.getUserById(uId).getRoleId();
             session.setAttribute("userRole", userRole);
-            System.out.println("Dc" + userRole);
+            //System.out.println("Dc" + userRole);
         }
-
+        
         if (userRole != 2 && userRole != 4) {
             request.getRequestDispatcher("/Unauthorized.jsp").forward(request, response);
             return;
@@ -100,6 +100,8 @@ public class SubjectOverviewController extends HttpServlet {
         request.setAttribute("featured", displaySubject.getIsFeatured());
         request.setAttribute("subjectStatus", displaySubject.getStatusId());
         User owner = daoUser.getUserById(displaySubject.getOwnerId());
+        request.setAttribute("userId", uId);
+        request.setAttribute("ownerId", owner.getUserId());
         request.setAttribute("ownerName", owner.getFullName());
         request.setAttribute("ownerEmail", owner.getEmail());
 
@@ -175,7 +177,7 @@ public class SubjectOverviewController extends HttpServlet {
                 }
             }
             System.out.println("Ye" + new Subject(0, subjectTitle, subjectTagline, subjectBrief, subjectDescription, thumbnailUrl, subjectCategory) + expertEmail);
-            if (owner == null || owner.getRoleId() == 2) {
+            if (owner == null || owner.getRoleId() == 4) {
                 if (daoSubject.updateSubjectOverview(new Subject(subjectId, subjectTitle, subjectTagline, subjectBrief, subjectDescription, thumbnailUrl, subjectCategory, featured, subjectStatus, (owner == null) ? -1 : owner.getUserId())) == 1) {
                     session.setAttribute("notification", "<p>Subject created succefully!</p>");
                     session.setAttribute("notification", "Subject updated succefully!");
